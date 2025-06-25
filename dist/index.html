@@ -5,31 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./style.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-  <div class="bg-white rounded-2xl shadow-xl p-6 w-80 relative overflow-visible">
-    <img src="./images/s-presso.png" alt="S-Presso"
-        class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg">
-        <div class="flex items-center justify-between mb-2 mt-32">
-        <span class="text-lg font-semibold text-[#003399] w-full text-center block">S-Presso</span>
-        <button class="text-gray-400 hover:text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-            <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-            </svg>
-        </button>
-        </div>
-    <div class="text-xl font-bold text-center text-[#003399] mb-2">Mulai Rp. 172,600,000</div>
-    <div class="flex items-center text-gray-500 mb-4">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 16V7a2 2 0 012-2h10a2 2 0 012 2v9M5 16h14M5 16v2a2 2 0 002 2h10a2 2 0 002-2v-2" />
-      </svg>
-      4 Seater
+<body class="bg-[#f5f7fa] min-h-screen">
+  <!-- Header -->
+  <header class="bg-white shadow-sm border-b-[3px]" style="border-color: #E0EBFF;">
+    <div class="max-w-7xl mx-auto flex items-center gap-6 px-6 py-2 justify-start">
+      <div class="flex items-center gap-3">
+        <img src="../src/images/logo_suzuki.png" alt="Logo Suzuki" class="h-10 w-10 rounded-full bg-white border border-gray-200">
+        <span class="text-xs text-[#003399]">Website Resmi Suzuki Sejahtera Buana Trada</span>
+      </div>
+      <span class="text-xs text-[#003399] hidden md:block">Sawangan, Kota Depok</span>
     </div>
-    <button class="absolute bottom-6 right-6 bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-blue-700 transition">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
+  </header>
+
+  <!-- Navbar -->
+<nav class="bg-white shadow-lg border-b-[3px] rounded-b-xl" style="border-color: #E0EBFF;">
+  <div class="max-w-7xl mx-auto flex items-center px-6 h-16">
+    <ul class="flex gap-2 md:gap-6 items-center h-full">
+      <li><a href="#" class="font-semibold text-[#003399] px-3 py-2 rounded-full bg-blue-100">Beranda</a></li>
+      <li><a href="#" class="text-gray-700 hover:text-[#003399] px-3 py-2 rounded-full">Mobil</a></li>
+      <li><a href="#" class="text-gray-700 hover:text-[#003399] px-3 py-2 rounded-full">Servis</a></li>
+      <li><a href="#" class="text-gray-700 hover:text-[#003399] px-3 py-2 rounded-full">Alamat</a></li>
+      <li>
+        <a href="#" class="bg-[#003399] text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition">Kontak</a>
+      </li>
+    </ul>
   </div>
+</nav>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-10 md:py-16">
+    <!-- Left: Text -->
+    <div class="flex-1 z-10">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Temukan Mobil Impianmu</h2>
+      <h1 class="text-3xl md:text-5xl font-bold mb-4">
+        Di <span class="text-[#003399]">Suzuki Sawangan</span>
+      </h1>
+      <p class="text-gray-600 mb-6 max-w-lg">
+        Dealer resmi Suzuki yang hadir untuk memenuhi kebutuhan mobilitas masyarakat Depok dan sekitarnya. Berlokasi strategis di kawasan Sawangan, Kota Depok, kami menghadirkan pengalaman pembelian mobil yang nyaman, terpercaya, dan menyeluruh.
+      </p>
+      <a href="#" class="inline-block bg-[#003399] text-white px-8 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition">Kontak</a>
+    </div>
+    <!-- Right: Car Image & Background -->
+    <div class="flex-1 relative flex justify-center items-center mt-10 md:mt-0">
+      <!-- Background Circle -->
+      <div class="absolute right-0 md:right-10 top-10 w-80 h-80 bg-gradient-to-tr from-[#e6edff] to-white rounded-full opacity-80 z-0"></div>
+      <!-- Car Image -->
+      <img src="../src/images/jimny.png" alt="Jimny" class="relative z-10 w-[350px] md:w-[420px] drop-shadow-2xl">
+    </div>
+  </section>
 </body>
 </html>
