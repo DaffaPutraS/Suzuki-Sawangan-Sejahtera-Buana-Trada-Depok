@@ -4,36 +4,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-[#f5f7fa] min-h-screen">
+<body class="bg-[#f5f7fa] min-h-screen font-[Poppins]">
   <!-- Header -->
-  <header class="bg-white shadow-sm border-b-[3px]" style="border-color: #E0EBFF;">
-    <div class="max-w-7xl mx-auto flex items-center gap-6 px-6 py-2 justify-start">
+  <header class="bg-white shadow-sm border-b-[3px] z-50" style="border-color: #E0EBFF;">
+    <div class="mx-auto flex items-center gap-6 px-4 py-2 justify-start" style="max-width:1400px;">
       <div class="flex items-center gap-3">
         <img src="../src/images/logo_suzuki.png" alt="Logo Suzuki" class="h-10 w-10 rounded-full bg-white border border-gray-200">
         <span class="text-xs text-[#003399]">Website Resmi Suzuki Sejahtera Buana Trada</span>
       </div>
+      <div class="w-px h-6 bg-[#003399]"></div>
       <span class="text-xs text-[#003399] hidden md:block">Sawangan, Kota Depok</span>
     </div>
   </header>
 
   <!-- Navbar -->
-<nav class="bg-white shadow-lg border-b-[3px] rounded-b-xl" style="border-color: #E0EBFF;">
-  <div class="max-w-7xl mx-auto flex items-center px-6 h-16">
-    <ul class="flex gap-2 md:gap-6 items-center h-full">
-      <li><a href="#" class="font-semibold text-[#003399] px-3 py-2 rounded-full bg-blue-100">Beranda</a></li>
-      <li><a href="#" class="text-gray-700 hover:text-[#003399] px-3 py-2 rounded-full">Mobil</a></li>
-      <li><a href="#" class="text-gray-700 hover:text-[#003399] px-3 py-2 rounded-full">Servis</a></li>
-      <li><a href="#" class="text-gray-700 hover:text-[#003399] px-3 py-2 rounded-full">Alamat</a></li>
-      <li>
-        <a href="#" class="bg-[#003399] text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition">Kontak</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+  <nav class="bg-white shadow-lg border-b-[3px] rounded-b-4xl sticky top-0 z-40" style="border-color: #E0EBFF;">
+    <div class="mx-auto flex items-center px-2 h-16" style="max-width:1400px;">
+      <ul class="flex gap-2 md:gap-6 items-center h-full">
+        <li>
+          <a href="#" class="relative font-bold text-[#003399] px-3 py-2 rounded-full transition-all duration-200
+            after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-[#003399] after:rounded-full
+            hover:after:w-full hover:after:transition-all hover:after:duration-300
+            hover:text-lg hover:font-bold">
+            Beranda
+          </a>
+        </li>
+        <li>
+          <a href="mobil.html" class="relative text-[#003399] px-3 py-2 rounded-full transition-all duration-200
+            after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-[#003399] after:rounded-full
+            hover:after:w-full hover:after:transition-all hover:after:duration-300
+            hover:text-lg">
+            Mobil
+          </a>
+        </li>
+        <li>
+          <a href="servis.html" class="relative text-[#003399] px-3 py-2 rounded-full transition-all duration-200
+            after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-[#003399] after:rounded-full
+            hover:after:w-full hover:after:transition-all hover:after:duration-300
+            hover:text-lg">
+            Servis
+          </a>
+        </li>
+        <li>
+          <a href="alamat.html" class="relative text-[#003399] px-3 py-2 rounded-full transition-all duration-200
+            after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-[#003399] after:rounded-full
+            hover:after:w-full hover:after:transition-all hover:after:duration-300
+            hover:text-lg">
+            Alamat
+          </a>
+        </li>
+        <li>
+          <a href="#" class="group flex items-center gap-2 bg-[#003399] text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition-all duration-300">
+            Kontak
+            <span class="flex items-center transition-all duration-300 opacity-0 translate-x-2 w-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:w-5">
+              <!-- WhatsApp SVG -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" class="w-5 h-5 ml-1 text-green-400">
+                <path d="M16 3C9.373 3 4 8.373 4 15c0 2.647.86 5.097 2.33 7.11L4 29l7.14-2.31A12.93 12.93 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22.917c-2.13 0-4.18-.62-5.91-1.79l-.42-.26-4.24 1.37 1.39-4.13-.27-.43A9.93 9.93 0 0 1 6 15c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.22-7.47c-.29-.14-1.71-.84-1.97-.94-.26-.1-.45-.14-.64.14-.19.28-.74.94-.91 1.13-.17.19-.34.21-.63.07-.29-.14-1.23-.45-2.34-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.56-.47-.48-.64-.49-.17-.01-.36-.01-.56-.01-.19 0-.5.07-.76.36-.26.29-1 1-.99 2.43.01 1.43 1.03 2.81 1.18 3.01.14.19 2.03 3.1 4.93 4.23.69.29 1.23.46 1.65.59.69.22 1.32.19 1.81.12.55-.08 1.71-.7 1.95-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.19-.55-.33z"/>
+              </svg>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   <!-- Hero Section -->
-  <section class="relative min-h-screen max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-10 md:py-16">
+  <section class="relative min-h-[600px] mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-10 md:py-16" style="max-width:1400px;">
     <!-- Left: Text -->
     <div class="flex-1 z-10">
       <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Temukan Mobil Impianmu</h2>
@@ -43,15 +81,390 @@
       <p class="text-gray-600 mb-6 max-w-lg">
         Dealer resmi Suzuki yang hadir untuk memenuhi kebutuhan mobilitas masyarakat Depok dan sekitarnya. Berlokasi strategis di kawasan Sawangan, Kota Depok, kami menghadirkan pengalaman pembelian mobil yang nyaman, terpercaya, dan menyeluruh.
       </p>
-      <a href="#" class="inline-block bg-[#003399] text-white px-8 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition">Kontak</a>
+      <a href="#" class="group inline-flex items-center gap-2 bg-[#003399] text-white px-8 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition-all duration-300">
+        Kontak
+        <span class="flex items-center transition-all duration-300 opacity-0 translate-x-2 w-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:w-5">
+          <!-- WhatsApp SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" class="w-5 h-5 ml-1 text-green-400">
+            <path d="M16 3C9.373 3 4 8.373 4 15c0 2.647.86 5.097 2.33 7.11L4 29l7.14-2.31A12.93 12.93 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22.917c-2.13 0-4.18-.62-5.91-1.79l-.42-.26-4.24 1.37 1.39-4.13-.27-.43A9.93 9.93 0 0 1 6 15c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.22-7.47c-.29-.14-1.71-.84-1.97-.94-.26-.1-.45-.14-.64.14-.19.28-.74.94-.91 1.13-.17.19-.34.21-.63.07-.29-.14-1.23-.45-2.34-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.56-.47-.48-.64-.49-.17-.01-.36-.01-.56-.01-.19 0-.5.07-.76.36-.26.29-1 1-.99 2.43.01 1.43 1.03 2.81 1.18 3.01.14.19 2.03 3.1 4.93 4.23.69.29 1.23.46 1.65.59.69.22 1.32.19 1.81.12.55-.08 1.71-.7 1.95-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.19-.55-.33z"/>
+          </svg>
+        </span>
+      </a>
+      
     </div>
     <!-- Right: Car Image & Background -->
     <div class="flex-1 relative flex justify-center items-center mt-10 md:mt-0">
       <!-- Background Circle -->
       <div class="absolute right-0 md:right-10 top-10 w-80 h-80 bg-gradient-to-tr from-[#e6edff] to-white rounded-full opacity-80 z-0"></div>
       <!-- Car Image -->
-      <img src="../src/images/jimny.png" alt="Jimny" class="relative z-10 w-[350px] md:w-[420px] drop-shadow-2xl">
+      <img src="../src/images/jimny.png" alt="Jimny" class="relative z-10 w-[560px] md:w-[630px] drop-shadow-2xl">
     </div>
   </section>
+
+
+  <!-- Carousel Section -->
+  <section class="max-w-screen mx-auto h-[900px] flex items-center justify-center">
+    <div class="relative overflow-hidden shadow-lg w-full h-full">
+      <!-- Carousel Images -->
+      <div
+        id="carousel-track"
+        class="flex transition-transform duration-500 h-full"
+        style="touch-action: pan-y; transform: translateX(0%);"
+        ontouchstart="startTouch(event)"
+        ontouchmove="moveTouch(event)"
+        ontouchend="endTouch()"
+      >
+        <img src="../src/images/Iklan_ERTIGA.png" alt="Ertiga 1" class="w-full h-full object-cover flex-shrink-0 select-none" draggable="false" />
+        <img src="../src/images/Iklan_FRONX.png" alt="Ertiga 2" class="w-full h-full object-cover flex-shrink-0 select-none" draggable="false" />
+        <img src="../src/images/Iklan_Grandvitara.png" alt="Ertiga 3" class="w-full h-full object-cover flex-shrink-0 select-none" draggable="false" />
+        <img src="../src/images/Iklan_New Carry.png" alt="Ertiga 4" class="w-full h-full object-cover flex-shrink-0 select-none" draggable="false" />
+      </div>
+      <!-- Carousel Dots Overlay -->
+      <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 px-4 py-2 rounded-full shadow z-10">
+        <button class="w-4 h-4 rounded-full bg-blue-200" onclick="showSlide(0)" id="dot-0"></button>
+        <button class="w-4 h-4 rounded-full bg-blue-200" onclick="showSlide(1)" id="dot-1"></button>
+        <button class="w-4 h-4 rounded-full bg-blue-200" onclick="showSlide(2)" id="dot-2"></button>
+        <button class="w-4 h-4 rounded-full bg-blue-200" onclick="showSlide(3)" id="dot-3"></button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Section Card Mobil -->
+<section class="mx-auto px-4 py-16">
+  <h2 class="text-2xl md:text-3xl font-bold text-[#003399] mb-8 text-center">Pilih Mobil Suzuki Favoritmu</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
+    <!-- Card 1 -->
+    <div class="group card-gradient-border bg-white rounded-2xl shadow-xl p-0 w-[22.25rem] relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left">
+      <div class="relative bg-white rounded-4xl p-4 overflow-visible z-10 m-[10px]">
+        <!-- Gambar mobil normal -->
+        <img src="../src/images/s-presso.png" alt="S-Presso"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
+        <!-- Gambar mobil lampu (muncul saat hover) -->
+        <img src="../src/images/s-presso-lamp.png" alt="S-Presso Lamp"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div class="flex items-center justify-between mb-2 mt-32">
+          <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110">S-Presso</span>
+          <button class="text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
+            </svg>
+          </button>
+        </div>
+        <div class="text-2xl font-bold text-center text-[#003399] mb-2 transition-transform duration-300 group-hover:scale-110">Mulai Rp. 172,600,000</div>
+        <div class="flex items-center text-gray-400 mb-4 px-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 16V7a2 2 0 012-2h10a2 2 0 012 2v9M5 16h14M5 16v2a2 2 0 002 2h10a2 2 0 002-2v-2" />
+          </svg>
+          4 Seater
+        </div>
+        <button class="absolute bottom-6 right-6 bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#002266] transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Duplikat card di atas untuk mobil lain -->
+
+    <!-- Card 1 -->
+    <div class="group card-gradient-border bg-white rounded-2xl shadow-xl p-0 w-[22.25rem] relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left">
+      <div class="relative bg-white rounded-4xl p-4 overflow-visible z-10 m-[10px]">
+        <!-- Gambar mobil normal -->
+        <img src="../src/images/s-presso.png" alt="S-Presso"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
+        <!-- Gambar mobil lampu (muncul saat hover) -->
+        <img src="../src/images/s-presso-lamp.png" alt="S-Presso Lamp"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div class="flex items-center justify-between mb-2 mt-32">
+          <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110">S-Presso</span>
+          <button class="text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
+            </svg>
+          </button>
+        </div>
+        <div class="text-2xl font-bold text-center text-[#003399] mb-2 transition-transform duration-300 group-hover:scale-110">Mulai Rp. 172,600,000</div>
+        <div class="flex items-center text-gray-400 mb-4 px-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 16V7a2 2 0 012-2h10a2 2 0 012 2v9M5 16h14M5 16v2a2 2 0 002 2h10a2 2 0 002-2v-2" />
+          </svg>
+          4 Seater
+        </div>
+        <button class="absolute bottom-6 right-6 bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#002266] transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 1 -->
+    <div class="group card-gradient-border bg-white rounded-2xl shadow-xl p-0 w-[22.25rem] relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left">
+      <div class="relative bg-white rounded-4xl p-4 overflow-visible z-10 m-[10px]">
+        <!-- Gambar mobil normal -->
+        <img src="../src/images/s-presso.png" alt="S-Presso"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
+        <!-- Gambar mobil lampu (muncul saat hover) -->
+        <img src="../src/images/s-presso-lamp.png" alt="S-Presso Lamp"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div class="flex items-center justify-between mb-2 mt-32">
+          <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110">S-Presso</span>
+          <button class="text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
+            </svg>
+          </button>
+        </div>
+        <div class="text-2xl font-bold text-center text-[#003399] mb-2 transition-transform duration-300 group-hover:scale-110">Mulai Rp. 172,600,000</div>
+        <div class="flex items-center text-gray-400 mb-4 px-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 16V7a2 2 0 012-2h10a2 2 0 012 2v9M5 16h14M5 16v2a2 2 0 002 2h10a2 2 0 002-2v-2" />
+          </svg>
+          4 Seater
+        </div>
+        <button class="absolute bottom-6 right-6 bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#002266] transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Card 1 -->
+    <div class="group card-gradient-border bg-white rounded-2xl shadow-xl p-0 w-[22.25rem] relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left">
+      <div class="relative bg-white rounded-4xl p-4 overflow-visible z-10 m-[10px]">
+        <!-- Gambar mobil normal -->
+        <img src="../src/images/s-presso.png" alt="S-Presso"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
+        <!-- Gambar mobil lampu (muncul saat hover) -->
+        <img src="../src/images/s-presso-lamp.png" alt="S-Presso Lamp"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div class="flex items-center justify-between mb-2 mt-32">
+          <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110">S-Presso</span>
+          <button class="text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
+            </svg>
+          </button>
+        </div>
+        <div class="text-2xl font-bold text-center text-[#003399] mb-2 transition-transform duration-300 group-hover:scale-110">Mulai Rp. 172,600,000</div>
+        <div class="flex items-center text-gray-400 mb-4 px-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 16V7a2 2 0 012-2h10a2 2 0 012 2v9M5 16h14M5 16v2a2 2 0 002 2h10a2 2 0 002-2v-2" />
+          </svg>
+          4 Seater
+        </div>
+        <button class="absolute bottom-6 right-6 bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#002266] transition">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Section Kenapa Pilih Suzuki -->
+<section class="relative bg-white py-16 overflow-hidden">
+  <div class="absolute left-0 top-0 w-[600px] h-[600px] bg-[#e6edff] rounded-full opacity-60 -z-10" style="transform: translate(-40%,-20%);"></div>
+  <div class="absolute right-0 bottom-0 w-[700px] h-[700px] bg-[#e6edff] rounded-full opacity-40 -z-10" style="transform: translate(40%,30%);"></div>
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-2xl md:text-4xl font-bold text-gray-800 text-center mb-2">Kenapa Pilih Suzuki</h2>
+    <h3 class="text-[#003399] text-2xl md:text-3xl font-extrabold text-center mb-12">Sejahtera Buana Trada Sawangan?</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="relative flex flex-col items-center bg-white rounded-2xl shadow-xl border-2 border-[#e0ebff] pt-14 pb-6 px-4 transition hover:shadow-2xl">
+        <div class="absolute -top-10 left-1/2 -translate-x-1/2 flex items-center justify-center w-20 h-20 rounded-full bg-[#003399] shadow-lg">
+          <img src="../src/images/suzuki-logo-white.svg" alt="Suzuki Logo" class="w-12 h-12">
+        </div>
+        <div class="mt-2 text-center text-[#003399] text-lg font-semibold mb-2">Dealer Resmi Suzuki</div>
+        <img src="../src/images/dealer.jpg" alt="Dealer Suzuki" class="rounded-xl w-full h-40 object-cover mb-4 border-2 border-[#e0ebff]">
+      </div>
+      <!-- Card 2 -->
+      <div class="relative flex flex-col items-center bg-white rounded-2xl shadow-xl border-2 border-[#e0ebff] pt-14 pb-6 px-4 transition hover:shadow-2xl">
+        <div class="absolute -top-10 left-1/2 -translate-x-1/2 flex items-center justify-center w-20 h-20 rounded-full bg-[#003399] shadow-lg">
+          <img src="../src/images/sales-team.svg" alt="Sales Team" class="w-12 h-12">
+        </div>
+        <div class="mt-2 text-center text-[#003399] text-lg font-semibold mb-2">Tim Sales<br>berpengalaman &amp; Ramah</div>
+        <img src="../src/images/sales-team.jpg" alt="Tim Sales" class="rounded-xl w-full h-40 object-cover mb-4 border-2 border-[#e0ebff]">
+      </div>
+      <!-- Card 3 -->
+      <div class="relative flex flex-col items-center bg-white rounded-2xl shadow-xl border-2 border-[#e0ebff] pt-14 pb-6 px-4 transition hover:shadow-2xl">
+        <div class="absolute -top-10 left-1/2 -translate-x-1/2 flex items-center justify-center w-20 h-20 rounded-full bg-[#003399] shadow-lg">
+          <img src="../src/images/proses-cepat.svg" alt="Proses Cepat" class="w-12 h-12">
+        </div>
+        <div class="mt-2 text-center text-[#003399] text-lg font-semibold mb-2">Proses Cepat,<br>Transparan, &amp; Aman</div>
+        <img src="../src/images/proses-cepat.jpg" alt="Proses Cepat" class="rounded-xl w-full h-40 object-cover mb-4 border-2 border-[#e0ebff]">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section Alamat Dealer -->
+<section class="relative bg-white py-16 overflow-hidden">
+  <!-- Background lingkaran biru -->
+  <div class="absolute left-0 top-0 w-[600px] h-[600px] bg-[#e6edff] rounded-full opacity-60 -z-10" style="transform: translate(-40%,-20%);"></div>
+  <div class="absolute right-0 bottom-0 w-[700px] h-[700px] bg-[#e6edff] rounded-full opacity-40 -z-10" style="transform: translate(40%,30%);"></div>
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <!-- Kiri: Info dan gambar -->
+      <div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-[#003399] mb-2">Alamat Dealer</h2>
+        <p class="text-gray-700 mb-4 leading-relaxed">
+          Jl. Raya Sawangan No.48, Mampang, Kec.<br>
+          Pancoran Mas, Kota Depok, Jawa Barat 16433
+        </p>
+        <div class="font-semibold text-gray-800 mb-2">Hubungi Sales Kami</div>
+        <a href="https://wa.me/6281234567890" target="_blank" class="inline-block bg-[#003399] text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition mb-6">Whatsapp</a>
+        <div class="flex gap-3 mt-8">
+          <img src="../src/images/dealer.jpg" alt="Dealer Suzuki" class="rounded-xl border-2 border-[#e0ebff] w-56 h-32 object-cover">
+          <img src="../src/images/dealer-jalan.jpg" alt="Jalan Depan Dealer" class="rounded-xl border-2 border-[#e0ebff] w-24 h-16 object-cover self-end">
+        </div>
+      </div>
+      <!-- Kanan: Map -->
+      <div>
+        <div class="rounded-2xl overflow-hidden border-2 border-[#e0ebff] shadow-lg">
+          <img src="../src/images/maps-static.png" alt="Peta Dealer Suzuki" class="w-full h-96 object-cover">
+          <!--
+            Atau bisa ganti <img> di atas dengan embed Google Maps:
+            <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="384" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-96"></iframe>
+          -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#003399] text-white pt-10 pb-6 px-4 rounded-t-3xl mt-16">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <!-- Mobil -->
+    <div class="md:col-span-2">
+      <div class="flex items-center gap-3 mb-4">
+        <img src="../src/images/logo_suzuki.png" alt="Logo Suzuki" class="h-10 w-10 rounded-full bg-white border border-gray-200">
+        <span class="text-2xl font-bold">Mobil</span>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-2 gap-x-8">
+        <ul class="space-y-1">
+          <li><a href="#" class="flex items-center justify-between hover:underline">S-Presso <span class="ml-2 text-xl">&#8594;</span></a></li>
+          <li><a href="#" class="flex items-center justify-between hover:underline">Grand Vitara <span class="ml-2 text-xl">&#8594;</span></a></li>
+          <li><a href="#" class="flex items-center justify-between hover:underline">New Baleno <span class="ml-2 text-xl">&#8594;</span></a></li>
+          <li><a href="#" class="flex items-center justify-between hover:underline">XL7 Hybrid <span class="ml-2 text-xl">&#8594;</span></a></li>
+          <li><a href="#" class="flex items-center justify-between hover:underline">XL7 Zeta <span class="ml-2 text-xl">&#8594;</span></a></li>
+          <li><a href="#" class="flex items-center justify-between hover:underline">Jimny 3 Doors <span class="ml-2 text-xl">&#8594;</span></a></li>
+          <li><a href="#" class="flex items-center justify-between hover:underline">Jimny 5 Doors <span class="ml-2 text-xl">&#8594;</span></a></li>
+        </ul>
+        <ul class="space-y-1">
+          <li><a href="#" class="flex items-center justify-between hover:underline">All New Ertiga Hybrid <span class="ml-2 text-xl">&#8594;</span></a></li>
+          <li><a href="#" class="flex items-center justify-between hover:underline">All New Ertiga GL <span class="ml-2 text-xl">&#8594;</span></a></li>
+          <li><a href="#" class="flex items-center justify-between hover:underline">New Carry Pick Up <span class="ml-2 text-xl">&#8594;</span></a></li>
+          <li><a href="#" class="flex items-center justify-between hover:underline">APV <span class="ml-2 text-xl">&#8594;</span></a></li>
+          <li><a href="#" class="flex items-center justify-between hover:underline">Fronx Hybrid <span class="ml-2 text-xl">&#8594;</span></a></li>
+          <li><a href="#" class="flex items-center justify-between hover:underline">Fronx <span class="ml-2 text-xl">&#8594;</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Layanan -->
+    <div>
+      <div class="text-2xl font-bold mb-4">Layanan</div>
+      <ul class="space-y-2">
+        <li><span>Penjualan Mobil</span></li>
+        <li><span class="border-b border-white pb-1">Bengkel &amp; Servis Mobil</span></li>
+      </ul>
+      <div class="mt-8">
+        <div class="flex items-center gap-2 mb-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 12.414a2 2 0 00-2.828 0l-4.243 4.243M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span class="text-xl font-bold">Alamat</span>
+        </div>
+        <div class="text-sm leading-snug">
+          Jl. Raya Sawangan No.48,<br>
+          Mampang, Kec. Pancoran Mas,<br>
+          Kota Depok, Jawa Barat 16433
+        </div>
+      </div>
+    </div>
+    <!-- Hubungi -->
+    <div>
+      <div class="text-2xl font-bold mb-4">Hubungi</div>
+      <a href="https://wa.me/6281234567890" target="_blank" class="flex items-center gap-2 bg-white text-[#003399] px-6 py-2 rounded-full font-semibold shadow hover:bg-blue-100 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#25D366]" viewBox="0 0 32 32" fill="currentColor">
+          <path d="M16 3C9.373 3 4 8.373 4 15c0 2.647.86 5.097 2.33 7.11L4 29l7.14-2.31A12.93 12.93 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22.917c-2.13 0-4.18-.62-5.91-1.79l-.42-.26-4.24 1.37 1.39-4.13-.27-.43A9.93 9.93 0 0 1 6 15c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.22-7.47c-.29-.14-1.71-.84-1.97-.94-.26-.1-.45-.14-.64.14-.19.28-.74.94-.91 1.13-.17.19-.34.21-.63.07-.29-.14-1.23-.45-2.34-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.56-.47-.48-.64-.49-.17-.01-.36-.01-.56-.01-.19 0-.5.07-.76.36-.26.29-1 1-.99 2.43.01 1.43 1.03 2.81 1.18 3.01.14.19 2.03 3.1 4.93 4.23.69.29 1.23.46 1.65.59.69.22 1.32.19 1.81.12.55-.08 1.71-.7 1.95-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.19-.55-.33z"/>
+        </svg>
+        Whatsapp
+      </a>
+    </div>
+  </div>
+</footer>
+
+  <script>
+  // filepath: d:\Freelance\Website\suzuki-sawangan\dist\index.html
+  const totalSlides = 4;
+  let currentSlide = 0;
+  let autoSlideInterval;
+  let startX = 0;
+  let endX = 0;
+
+  function showSlide(idx) {
+    currentSlide = idx;
+    const track = document.getElementById('carousel-track');
+    track.style.transform = `translateX(-${idx * 100}%)`;
+    for (let i = 0; i < totalSlides; i++) {
+      document.getElementById('dot-' + i).classList.remove('bg-blue-600');
+      document.getElementById('dot-' + i).classList.add('bg-blue-200');
+    }
+    document.getElementById('dot-' + idx).classList.remove('bg-blue-200');
+    document.getElementById('dot-' + idx).classList.add('bg-blue-600');
+    resetAutoSlide();
+  }
+
+  function nextSlide() {
+    let next = (currentSlide + 1) % totalSlides;
+    showSlide(next);
+  }
+
+  function prevSlide() {
+    let prev = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(prev);
+  }
+
+  // Auto slide every 3 seconds
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 3000);
+  }
+  function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+  }
+
+  // Touch gesture support
+  function startTouch(e) {
+    startX = e.touches[0].clientX;
+  }
+  function moveTouch(e) {
+    endX = e.touches[0].clientX;
+  }
+  function endTouch() {
+    if (startX && endX) {
+      if (startX - endX > 50) {
+        nextSlide();
+      } else if (endX - startX > 50) {
+        prevSlide();
+      }
+    }
+    startX = 0;
+    endX = 0;
+  }
+
+  showSlide(0);
+  startAutoSlide();
+  </script>
 </body>
 </html>
