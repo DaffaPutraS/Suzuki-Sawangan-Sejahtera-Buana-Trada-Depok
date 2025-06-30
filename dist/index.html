@@ -1,14 +1,17 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suzuki Sawangan</title>
+  <link rel="icon" type="image/icon-x" href="../src/images/logo_suzuki.png"/>
   <link href="./style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-[#f5f7fa] min-h-screen font-[Poppins]">
+<body class="bg-white min-h-screen font-[Poppins]">
   <!-- Header -->
-  <header class="bg-white shadow-sm border-b-[3px] z-50" style="border-color: #E0EBFF;">
+  <header class="bg-white/60 shadow-sm border-b-[3px] z-50" style="border-color: #E0EBFF;">
     <div class="mx-auto flex items-center gap-6 px-4 py-2 justify-start" style="max-width:1400px;">
       <div class="flex items-center gap-3">
         <img src="../src/images/logo_suzuki.png" alt="Logo Suzuki" class="h-10 w-10 rounded-full bg-white border border-gray-200">
@@ -20,9 +23,27 @@
   </header>
 
   <!-- Navbar -->
-  <nav class="bg-white shadow-lg border-b-[3px] rounded-b-4xl sticky top-0 z-40" style="border-color: #E0EBFF;">
+  <nav class="bg-white/70 shadow-lg border-b-[3px] rounded-b-4xl sticky top-0 z-40" style="border-color: #E0EBFF;">
     <div class="mx-auto flex items-center px-2 h-16" style="max-width:1400px;">
-      <ul class="flex gap-2 md:gap-6 items-center h-full">
+      <!-- Hamburger Button -->
+      <button id="nav-toggle" class="md:hidden ml-auto p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#003399]">
+        <svg class="w-7 h-7 text-[#003399]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      <!-- Navbar Menu -->
+      <ul id="nav-menu"
+        class="flex gap-2 md:gap-6 items-center h-full md:flex md:static md:flex-row md:bg-transparent md:w-auto md:opacity-100 md:visible
+        fixed top-16 left-0 w-full bg-white/90 flex-col opacity-0 invisible transition-all duration-300 z-50 md:transition-none">
+        <!-- Tombol Close (X) hanya di mobile -->
+        <li class="w-full flex justify-end md:hidden">
+          <button id="nav-close" class="p-3">
+            <svg class="w-7 h-7 text-[#003399]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </li>
+        <!-- ...menu items seperti sebelumnya... -->
         <li>
           <a href="#" class="relative font-bold text-[#003399] px-3 py-2 rounded-full transition-all duration-200
             after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-[#003399] after:rounded-full
@@ -56,13 +77,10 @@
           </a>
         </li>
         <li>
-          <a href="#" class="group flex items-center gap-2 bg-[#003399] text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition-all duration-300">
+          <a href="#" class="group flex text-center items-center gap-2 bg-[#003399] text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition-all duration-300">
             Kontak
             <span class="flex items-center transition-all duration-300 opacity-0 translate-x-2 w-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:w-5">
-              <!-- WhatsApp SVG -->
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" class="w-5 h-5 ml-1 text-green-400">
-                <path d="M16 3C9.373 3 4 8.373 4 15c0 2.647.86 5.097 2.33 7.11L4 29l7.14-2.31A12.93 12.93 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22.917c-2.13 0-4.18-.62-5.91-1.79l-.42-.26-4.24 1.37 1.39-4.13-.27-.43A9.93 9.93 0 0 1 6 15c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.22-7.47c-.29-.14-1.71-.84-1.97-.94-.26-.1-.45-.14-.64.14-.19.28-.74.94-.91 1.13-.17.19-.34.21-.63.07-.29-.14-1.23-.45-2.34-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.56-.47-.48-.64-.49-.17-.01-.36-.01-.56-.01-.19 0-.5.07-.76.36-.26.29-1 1-.99 2.43.01 1.43 1.03 2.81 1.18 3.01.14.19 2.03 3.1 4.93 4.23.69.29 1.23.46 1.65.59.69.22 1.32.19 1.81.12.55-.08 1.71-.7 1.95-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.19-.55-.33z"/>
-              </svg>
+              <img src="../src/images/ic_whatsapp_white.png" alt="WhatsApp" class="w-5 h-5 ml-1 text-white" />
             </span>
           </a>
         </li>
@@ -70,8 +88,9 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="relative min-h-[600px] mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-10 md:py-16" style="max-width:1400px;">
+<section class="relative min-h-[850px] -z-50 -mt-36 overflow-hidden"
+  style="background: url('../src/images/bg_beranda.png') center/cover no-repeat;">
+  <div class="mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-10 md:py-16 mt-36" style="max-width:1400px;">
     <!-- Left: Text -->
     <div class="flex-1 z-10">
       <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Temukan Mobil Impianmu</h2>
@@ -90,20 +109,17 @@
           </svg>
         </span>
       </a>
-      
     </div>
     <!-- Right: Car Image & Background -->
-    <div class="flex-1 relative flex justify-center items-center mt-10 md:mt-0">
-      <!-- Background Circle -->
-      <div class="absolute right-0 md:right-10 top-10 w-80 h-80 bg-gradient-to-tr from-[#e6edff] to-white rounded-full opacity-80 z-0"></div>
-      <!-- Car Image -->
-      <img src="../src/images/jimny.png" alt="Jimny" class="relative z-10 w-[560px] md:w-[630px] drop-shadow-2xl">
+    <div class="flex-1 relative flex justify-center items-center mt-10 md:mt-0 z-10">
+      <img src="../src/images/jimny.png" alt="Jimny" class="relative z-10 w-[800px] md:w-[800px]">
     </div>
-  </section>
+  </div>
+</section>
 
 
   <!-- Carousel Section -->
-  <section class="max-w-screen mx-auto h-[900px] flex items-center justify-center">
+  <section class="max-w-screen mx-auto h-[850px] flex items-center justify-center">
     <div class="relative overflow-hidden shadow-lg w-full h-full">
       <!-- Carousel Images -->
       <div
@@ -272,69 +288,119 @@
 
 <!-- Section Kenapa Pilih Suzuki -->
 <section class="relative bg-white py-16 overflow-hidden">
-  <div class="absolute left-0 top-0 w-[600px] h-[600px] bg-[#e6edff] rounded-full opacity-60 -z-10" style="transform: translate(-40%,-20%);"></div>
-  <div class="absolute right-0 bottom-0 w-[700px] h-[700px] bg-[#e6edff] rounded-full opacity-40 -z-10" style="transform: translate(40%,30%);"></div>
-  <div class="max-w-7xl mx-auto px-4">
-    <h2 class="text-2xl md:text-4xl font-bold text-gray-800 text-center mb-2">Kenapa Pilih Suzuki</h2>
-    <h3 class="text-[#003399] text-2xl md:text-3xl font-extrabold text-center mb-12">Sejahtera Buana Trada Sawangan?</h3>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Card 1 -->
-      <div class="relative flex flex-col items-center bg-white rounded-2xl shadow-xl border-2 border-[#e0ebff] pt-14 pb-6 px-4 transition hover:shadow-2xl">
-        <div class="absolute -top-10 left-1/2 -translate-x-1/2 flex items-center justify-center w-20 h-20 rounded-full bg-[#003399] shadow-lg">
-          <img src="../src/images/suzuki-logo-white.svg" alt="Suzuki Logo" class="w-12 h-12">
-        </div>
-        <div class="mt-2 text-center text-[#003399] text-lg font-semibold mb-2">Dealer Resmi Suzuki</div>
-        <img src="../src/images/dealer.jpg" alt="Dealer Suzuki" class="rounded-xl w-full h-40 object-cover mb-4 border-2 border-[#e0ebff]">
+  <h2 class="text-2xl md:text-4xl font-bold text-gray-800 text-center mb-2">Kenapa Pilih Suzuki</h2>
+  <h3 class="text-[#003399] text-2xl md:text-3xl font-extrabold text-center mb-12">Sejahtera Buana Trada Sawangan?</h3>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 justify-items-center mx-auto max-w-6xl">
+    <!-- Card 1 -->
+    <div class="relative flex flex-col items-center bg-white rounded-2xl border-4 border-[#003399] pt-14"
+         style="width:305px; height:300px;">
+      <div class="absolute -top-10 left-1/2 -translate-x-1/2 flex items-center justify-center w-20 h-20 rounded-full bg-[#003399] shadow-3xl">
+        <img src="../src/images/logo_suzuki_brand_white.png" alt="Suzuki Logo" class="w-15 h-12">
       </div>
-      <!-- Card 2 -->
-      <div class="relative flex flex-col items-center bg-white rounded-2xl shadow-xl border-2 border-[#e0ebff] pt-14 pb-6 px-4 transition hover:shadow-2xl">
-        <div class="absolute -top-10 left-1/2 -translate-x-1/2 flex items-center justify-center w-20 h-20 rounded-full bg-[#003399] shadow-lg">
-          <img src="../src/images/sales-team.svg" alt="Sales Team" class="w-12 h-12">
-        </div>
-        <div class="mt-2 text-center text-[#003399] text-lg font-semibold mb-2">Tim Sales<br>berpengalaman &amp; Ramah</div>
-        <img src="../src/images/sales-team.jpg" alt="Tim Sales" class="rounded-xl w-full h-40 object-cover mb-4 border-2 border-[#e0ebff]">
+      <div class="mt-2 text-center text-[#003399] text-lg font-semibold mb-2">Dealer Resmi Suzuki</div>
+      <div class="relative w-full h-full flex-1">
+        <!-- Gradasi putih lebih tajam di atas -->
+        <div class="absolute top-0 left-0 w-full h-1/2 rounded-b-2xl pointer-events-none z-10"
+             style="background: linear-gradient(to bottom, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.85) 30%, rgba(255,255,255,0.0) 100%);"></div>
+        <img src="../src/images/img_card1.png"
+             alt="Dealer Suzuki"
+             class="w-full h-full rounded-b-2xl object-cover relative z-0">
       </div>
-      <!-- Card 3 -->
-      <div class="relative flex flex-col items-center bg-white rounded-2xl shadow-xl border-2 border-[#e0ebff] pt-14 pb-6 px-4 transition hover:shadow-2xl">
-        <div class="absolute -top-10 left-1/2 -translate-x-1/2 flex items-center justify-center w-20 h-20 rounded-full bg-[#003399] shadow-lg">
-          <img src="../src/images/proses-cepat.svg" alt="Proses Cepat" class="w-12 h-12">
-        </div>
-        <div class="mt-2 text-center text-[#003399] text-lg font-semibold mb-2">Proses Cepat,<br>Transparan, &amp; Aman</div>
-        <img src="../src/images/proses-cepat.jpg" alt="Proses Cepat" class="rounded-xl w-full h-40 object-cover mb-4 border-2 border-[#e0ebff]">
+    </div>
+    <!-- Card 2 -->
+    <div class="relative flex flex-col items-center bg-white rounded-2xl border-4 border-[#003399] pt-11"
+         style="width:305px; height:300px;">
+      <div class="absolute -top-10 left-1/2 -translate-x-1/2 flex items-center justify-center w-20 h-20 rounded-full bg-[#003399] shadow-3xl">
+        <img src="../src/images/logo_suzuki_brand_white.png" alt="Suzuki Logo" class="w-15 h-12">
+      </div>
+      <div class="mt-2 text-center text-[#003399] text-lg font-semibold">Team sales<br>berpengalaman & Ramah</div>
+      <div class="relative w-full h-full flex-1">
+        <!-- Gradasi putih lebih tajam di atas -->
+        <div class="absolute top-0 left-0 w-full h-1/2 rounded-b-2xl pointer-events-none z-10"
+             style="background: linear-gradient(to bottom, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.85) 30%, rgba(255,255,255,0.0) 100%);"></div>
+        <img src="../src/images/img_card2.jpg"
+             alt="Dealer Suzuki"
+             class="w-full h-full rounded-b-2xl object-cover relative z-0">
+      </div>
+    </div>
+    <!-- Card 3 -->
+    <div class="relative flex flex-col items-center bg-white rounded-2xl border-4 border-[#003399] pt-11"
+         style="width:305px; height:300px;">
+      <div class="absolute -top-10 left-1/2 -translate-x-1/2 flex items-center justify-center w-20 h-20 rounded-full bg-[#003399] shadow-3xl">
+        <img src="../src/images/logo_suzuki_brand_white.png" alt="Suzuki Logo" class="w-15 h-12">
+      </div>
+      <div class="mt-2 text-center text-[#003399] text-lg font-semibold mb-2">Proses Cepat,<br>Transparan, & Aman</div>
+      <div class="relative w-full h-full flex-1">
+        <!-- Gradasi putih lebih tajam di atas -->
+        <div class="absolute top-0 left-0 w-full h-1/2 rounded-b-2xl pointer-events-none z-10"
+             style="background: linear-gradient(to bottom, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.85) 30%, rgba(255,255,255,0.0) 100%);"></div>
+        <img src="../src/images/img_card3.jpg"
+             alt="Dealer Suzuki"
+             class="w-full h-full rounded-b-2xl object-cover relative z-0">
       </div>
     </div>
   </div>
 </section>
 
 <!-- Section Alamat Dealer -->
-<section class="relative bg-white py-16 overflow-hidden">
+<section class="relative bg-white py-10 md:py-16 overflow-hidden flex items-center justify-center">
   <!-- Background lingkaran biru -->
-  <div class="absolute left-0 top-0 w-[600px] h-[600px] bg-[#e6edff] rounded-full opacity-60 -z-10" style="transform: translate(-40%,-20%);"></div>
-  <div class="absolute right-0 bottom-0 w-[700px] h-[700px] bg-[#e6edff] rounded-full opacity-40 -z-10" style="transform: translate(40%,30%);"></div>
-  <div class="max-w-7xl mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+  <div class="absolute left-0 top-0 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#e6edff] rounded-full opacity-60 -z-10" style="transform: translate(-40%,-20%);"></div>
+  <div class="absolute right-0 bottom-0 w-[350px] md:w-[700px] h-[350px] md:h-[700px] bg-[#e6edff] rounded-full opacity-40 -z-10" style="transform: translate(40%,30%);"></div>
+  <div class="w-full px-2 md:px-4 h-full" style="max-width:1400px;">
+    <div class="grid grid-cols-1 md:grid-cols-[40%_60%] gap-8 md:gap-10 items-center h-full">
       <!-- Kiri: Info dan gambar -->
-      <div>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-[#003399] mb-2">Alamat Dealer</h2>
-        <p class="text-gray-700 mb-4 leading-relaxed">
+      <div class="h-full">
+        <h2 class="text-2xl md:text-5xl font-extrabold text-[#003399] mb-2">Alamat Dealer</h2>
+        <p class="text-gray-700 mb-4 leading-relaxed text-base md:text-md">
           Jl. Raya Sawangan No.48, Mampang, Kec.<br>
           Pancoran Mas, Kota Depok, Jawa Barat 16433
         </p>
-        <div class="font-semibold text-gray-800 mb-2">Hubungi Sales Kami</div>
-        <a href="https://wa.me/6281234567890" target="_blank" class="inline-block bg-[#003399] text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition mb-6">Whatsapp</a>
-        <div class="flex gap-3 mt-8">
-          <img src="../src/images/dealer.jpg" alt="Dealer Suzuki" class="rounded-xl border-2 border-[#e0ebff] w-56 h-32 object-cover">
-          <img src="../src/images/dealer-jalan.jpg" alt="Jalan Depan Dealer" class="rounded-xl border-2 border-[#e0ebff] w-24 h-16 object-cover self-end">
+        <div class="text-lg md:text-xl font-semibold text-gray-800 mb-3">Hubungi Sales Kami</div>
+        <a href="#" class="group inline-flex items-center gap-2 bg-[#003399] text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition-all duration-300">
+          Whatsapp
+          <span class="flex items-center transition-all duration-300 opacity-0 translate-x-2 w-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:w-5">
+            <img src="../src/images/ic_whatsapp_white.png" alt="WhatsApp" class="w-5 h-5 ml-1 text-white" />
+          </span>
+        </a>
+        <div class="flex flex-col sm:flex-row gap-3 mt-6 sm:mt-8 w-full">
+          <!-- Carousel Dealer -->
+          <div class="relative w-full sm:w-72 md:w-80 h-40 md:h-52 rounded-xl border-4 border-[#83A5EA] shadow-xl overflow-hidden">
+            <div id="dealer-carousel" class="w-full h-full relative">
+              <img src="../src/images/carousel_alamat/image.png" alt="Dealer Suzuki" class="carousel-img w-full h-full object-cover absolute inset-0 transition-opacity duration-300 opacity-100" />
+              <img src="../src/images/carousel_alamat/image2.png" alt="Dealer Suzuki 2" class="carousel-img w-full h-full object-cover absolute inset-0 transition-opacity duration-300 opacity-0" />
+              <img src="../src/images/carousel_alamat/image3.png" alt="Dealer Suzuki 3" class="carousel-img w-full h-full object-cover absolute inset-0 transition-opacity duration-300 opacity-0" />
+              <img src="../src/images/carousel_alamat/image4.png" alt="Dealer Suzuki 4" class="carousel-img w-full h-full object-cover absolute inset-0 transition-opacity duration-300 opacity-0" />
+              <img src="../src/images/carousel_alamat/image5.png" alt="Dealer Suzuki 5" class="carousel-img w-full h-full object-cover absolute inset-0 transition-opacity duration-300 opacity-0" />
+              <img src="../src/images/carousel_alamat/image6.png" alt="Dealer Suzuki 6" class="carousel-img w-full h-full object-cover absolute inset-0 transition-opacity duration-300 opacity-0" />
+            </div>
+            <!-- Dots -->
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-white/60 px-4 py-2 rounded-t-xl shadow">
+              <button class="w-2 h-1 md:w-5 h-1 rounded-full bg-[#bcd2f7] carousel-dot transition-all" data-index="0"></button>
+              <button class="w-2 h-1 md:w-5 h-1 rounded-full bg-[#bcd2f7] carousel-dot transition-all" data-index="1"></button>
+              <button class="w-2 h-1 md:w-5 h-1 rounded-full bg-[#bcd2f7] carousel-dot transition-all" data-index="2"></button>
+              <button class="w-2 h-1 md:w-5 h-1 rounded-full bg-[#bcd2f7] carousel-dot transition-all" data-index="3"></button>
+              <button class="w-2 h-1 md:w-5 h-1 rounded-full bg-[#bcd2f7] carousel-dot transition-all" data-index="4"></button>
+              <button class="w-2 h-1 md:w-5 h-1 rounded-full bg-[#bcd2f7] carousel-dot transition-all" data-index="5"></button>
+            </div>
+          </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!4v1751029984530!6m8!1m7!1sDPvMhdT8qeKVtVkcK59soA!2m2!1d-6.395003627172032!2d106.7981058689622!3f18.193271097095113!4f-0.35061422485125604!5f0.7820865974627469"
+            width="10" height="10"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="rounded-xl border-2 border-[#e0ebff] w-full sm:w-52 h-36 object-cover self-end mt-3 md:ml-2 sm:mt-0">
+          </iframe>
         </div>
       </div>
       <!-- Kanan: Map -->
       <div>
-        <div class="rounded-2xl overflow-hidden border-2 border-[#e0ebff] shadow-lg">
-          <img src="../src/images/maps-static.png" alt="Peta Dealer Suzuki" class="w-full h-96 object-cover">
-          <!--
-            Atau bisa ganti <img> di atas dengan embed Google Maps:
-            <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="384" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-96"></iframe>
-          -->
+        <div class="rounded-2xl overflow-hidden border-2 border-[#e0ebff] shadow-lg !h-[320px] md:!h-[470px] mr-0 md:mr-12">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d63439.9018208182!2d106.7219721!3d-6.3947914!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e946f7b8e07d%3A0x6f2acfc43a2d7cd!2sSuzuki%20Sawangan%20Buana%20Indomobil%20Trada!5e0!3m2!1sid!2sid!4v1751029278325!5m2!1sid!2sid"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" class="w-full h-full"></iframe>
         </div>
       </div>
     </div>
@@ -343,45 +409,242 @@
 
 <!-- Footer -->
 <footer class="bg-[#003399] text-white pt-10 pb-6 px-4 rounded-t-3xl mt-16">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+  <div class="mx-auto grid grid-cols-1 md:grid-cols-[60px_2fr_1fr_1fr_1fr] gap-8" style="max-width:1400px;">
+    <!-- Kolom baru untuk judul Mobil -->
+    <div class="flex flex-col items-start md:items-center md:justify-start">
+      <img src="../src/images/logo_suzuki_white.png" alt="Logo Suzuki" class="h-12 w-12">
+    </div>
     <!-- Mobil -->
     <div class="md:col-span-2">
       <div class="flex items-center gap-3 mb-4">
-        <img src="../src/images/logo_suzuki.png" alt="Logo Suzuki" class="h-10 w-10 rounded-full bg-white border border-gray-200">
-        <span class="text-2xl font-bold">Mobil</span>
+        <span class="text-2xl font-bold mb-2 md:mb-0">Mobil</span>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-2 gap-x-8">
         <ul class="space-y-1">
-          <li><a href="#" class="flex items-center justify-between hover:underline">S-Presso <span class="ml-2 text-xl">&#8594;</span></a></li>
-          <li><a href="#" class="flex items-center justify-between hover:underline">Grand Vitara <span class="ml-2 text-xl">&#8594;</span></a></li>
-          <li><a href="#" class="flex items-center justify-between hover:underline">New Baleno <span class="ml-2 text-xl">&#8594;</span></a></li>
-          <li><a href="#" class="flex items-center justify-between hover:underline">XL7 Hybrid <span class="ml-2 text-xl">&#8594;</span></a></li>
-          <li><a href="#" class="flex items-center justify-between hover:underline">XL7 Zeta <span class="ml-2 text-xl">&#8594;</span></a></li>
-          <li><a href="#" class="flex items-center justify-between hover:underline">Jimny 3 Doors <span class="ml-2 text-xl">&#8594;</span></a></li>
-          <li><a href="#" class="flex items-center justify-between hover:underline">Jimny 5 Doors <span class="ml-2 text-xl">&#8594;</span></a></li>
+          <li>
+            <a href="#" class="flex items-center justify-between pb-1 cursor-pointer group relative">
+              <span class="text-xl flex items-center transition-transform duration-200 group-hover:scale-105 origin-top-left">
+                S-Presso
+              </span>
+              <span class="ml-2 text-xl flex items-center">
+                <!-- SVG arrow right -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+                  class="w-8 h-8 transition-opacity duration-200 opacity-35 group-hover:opacity-100">
+                  <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+                </svg>
+              </span>
+              <span class="absolute left-0 bottom-0 w-full h-0.5 bg-white transition-opacity duration-300 pointer-events-none opacity-35 group-hover:opacity-100"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-between pb-1 cursor-pointer group relative">
+              <span class="text-xl flex items-center transition-transform duration-200 group-hover:scale-105 origin-top-left">
+                Grand Vitara
+              </span>
+              <span class="ml-2 text-xl flex items-center">
+                <!-- SVG arrow right -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+                  class="w-8 h-8 transition-opacity duration-200 opacity-35 group-hover:opacity-100">
+                  <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+                </svg>
+              </span>
+              <span class="absolute left-0 bottom-0 w-full h-0.5 bg-white transition-opacity duration-300 pointer-events-none opacity-35 group-hover:opacity-100"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-between pb-1 cursor-pointer group relative">
+              <span class="text-xl flex items-center transition-transform duration-200 group-hover:scale-105 origin-top-left">
+                New Baleno
+              </span>
+              <span class="ml-2 text-xl flex items-center">
+                <!-- SVG arrow right -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+                  class="w-8 h-8 transition-opacity duration-200 opacity-35 group-hover:opacity-100">
+                  <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+                </svg>
+              </span>
+              <span class="absolute left-0 bottom-0 w-full h-0.5 bg-white transition-opacity duration-300 pointer-events-none opacity-35 group-hover:opacity-100"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-between pb-1 cursor-pointer group relative">
+              <span class="text-xl flex items-center transition-transform duration-200 group-hover:scale-105 origin-top-left">
+                XL7 Hybrid
+              </span>
+              <span class="ml-2 text-xl flex items-center">
+                <!-- SVG arrow right -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+                  class="w-8 h-8 transition-opacity duration-200 opacity-35 group-hover:opacity-100">
+                  <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+                </svg>
+              </span>
+              <span class="absolute left-0 bottom-0 w-full h-0.5 bg-white transition-opacity duration-300 pointer-events-none opacity-35 group-hover:opacity-100"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-between pb-1 cursor-pointer group relative">
+              <span class="text-xl flex items-center transition-transform duration-200 group-hover:scale-105 origin-top-left">
+                XL7 Zeta
+              </span>
+              <span class="ml-2 text-xl flex items-center">
+                <!-- SVG arrow right -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+                  class="w-8 h-8 transition-opacity duration-200 opacity-35 group-hover:opacity-100">
+                  <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+                </svg>
+              </span>
+              <span class="absolute left-0 bottom-0 w-full h-0.5 bg-white transition-opacity duration-300 pointer-events-none opacity-35 group-hover:opacity-100"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-between pb-1 cursor-pointer group relative">
+              <span class="text-xl flex items-center transition-transform duration-200 group-hover:scale-105 origin-top-left">
+                Jimny 3 Doors
+              </span>
+              <span class="ml-2 text-xl flex items-center">
+                <!-- SVG arrow right -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+                  class="w-8 h-8 transition-opacity duration-200 opacity-35 group-hover:opacity-100">
+                  <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+                </svg>
+              </span>
+              <span class="absolute left-0 bottom-0 w-full h-0.5 bg-white transition-opacity duration-300 pointer-events-none opacity-35 group-hover:opacity-100"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-between pb-1 cursor-pointer group relative">
+              <span class="text-xl flex items-center transition-transform duration-200 group-hover:scale-105 origin-top-left">
+                Jimny 5 Doors
+              </span>
+              <span class="ml-2 text-xl flex items-center">
+                <!-- SVG arrow right -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+                  class="w-8 h-8 transition-opacity duration-200 opacity-35 group-hover:opacity-100">
+                  <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+                </svg>
+              </span>
+              <span class="absolute left-0 bottom-0 w-full h-0.5 bg-white transition-opacity duration-300 pointer-events-none opacity-35 group-hover:opacity-100"></span>
+            </a>
+          </li>
         </ul>
         <ul class="space-y-1">
-          <li><a href="#" class="flex items-center justify-between hover:underline">All New Ertiga Hybrid <span class="ml-2 text-xl">&#8594;</span></a></li>
-          <li><a href="#" class="flex items-center justify-between hover:underline">All New Ertiga GL <span class="ml-2 text-xl">&#8594;</span></a></li>
-          <li><a href="#" class="flex items-center justify-between hover:underline">New Carry Pick Up <span class="ml-2 text-xl">&#8594;</span></a></li>
-          <li><a href="#" class="flex items-center justify-between hover:underline">APV <span class="ml-2 text-xl">&#8594;</span></a></li>
-          <li><a href="#" class="flex items-center justify-between hover:underline">Fronx Hybrid <span class="ml-2 text-xl">&#8594;</span></a></li>
-          <li><a href="#" class="flex items-center justify-between hover:underline">Fronx <span class="ml-2 text-xl">&#8594;</span></a></li>
+          <li>
+            <a href="#" class="flex items-center justify-between pb-1 cursor-pointer group relative">
+              <span class="text-xl flex items-center transition-transform duration-200 group-hover:scale-105 origin-top-left">
+                All New Ertiga Hybrid
+              </span>
+              <span class="ml-2 text-xl flex items-center">
+                <!-- SVG arrow right -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+                  class="w-8 h-8 transition-opacity duration-200 opacity-35 group-hover:opacity-100">
+                  <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+                </svg>
+              </span>
+              <span class="absolute left-0 bottom-0 w-full h-0.5 bg-white transition-opacity duration-300 pointer-events-none opacity-35 group-hover:opacity-100"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-between pb-1 cursor-pointer group relative">
+              <span class="text-xl flex items-center transition-transform duration-200 group-hover:scale-105 origin-top-left">
+                All New Ertiga GL
+              </span>
+              <span class="ml-2 text-xl flex items-center">
+                <!-- SVG arrow right -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+                  class="w-8 h-8 transition-opacity duration-200 opacity-35 group-hover:opacity-100">
+                  <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+                </svg>
+              </span>
+              <span class="absolute left-0 bottom-0 w-full h-0.5 bg-white transition-opacity duration-300 pointer-events-none opacity-35 group-hover:opacity-100"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-between pb-1 cursor-pointer group relative">
+              <span class="text-xl flex items-center transition-transform duration-200 group-hover:scale-105 origin-top-left">
+                New Carry Pick Up
+              </span>
+              <span class="ml-2 text-xl flex items-center">
+                <!-- SVG arrow right -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+                  class="w-8 h-8 transition-opacity duration-200 opacity-35 group-hover:opacity-100">
+                  <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+                </svg>
+              </span>
+              <span class="absolute left-0 bottom-0 w-full h-0.5 bg-white transition-opacity duration-300 pointer-events-none opacity-35 group-hover:opacity-100"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-between pb-1 cursor-pointer group relative">
+              <span class="text-xl flex items-center transition-transform duration-200 group-hover:scale-105 origin-top-left">
+                APV
+              </span>
+              <span class="ml-2 text-xl flex items-center">
+                <!-- SVG arrow right -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+                  class="w-8 h-8 transition-opacity duration-200 opacity-35 group-hover:opacity-100">
+                  <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+                </svg>
+              </span>
+              <span class="absolute left-0 bottom-0 w-full h-0.5 bg-white transition-opacity duration-300 pointer-events-none opacity-35 group-hover:opacity-100"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-between pb-1 cursor-pointer group relative">
+              <span class="text-xl flex items-center transition-transform duration-200 group-hover:scale-105 origin-top-left">
+                Fronx Hybrid
+              </span>
+              <span class="ml-2 text-xl flex items-center">
+                <!-- SVG arrow right -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+                  class="w-8 h-8 transition-opacity duration-200 opacity-35 group-hover:opacity-100">
+                  <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+                </svg>
+              </span>
+              <span class="absolute left-0 bottom-0 w-full h-0.5 bg-white transition-opacity duration-300 pointer-events-none opacity-35 group-hover:opacity-100"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center justify-between pb-1 cursor-pointer group relative">
+              <span class="text-xl flex items-center transition-transform duration-200 group-hover:scale-105 origin-top-left">
+                Fronx
+              </span>
+              <span class="ml-2 text-xl flex items-center">
+                <!-- SVG arrow right -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+                  class="w-8 h-8 transition-opacity duration-200 opacity-35 group-hover:opacity-100">
+                  <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+                </svg>
+              </span>
+              <span class="absolute left-0 bottom-0 w-full h-0.5 bg-white transition-opacity duration-300 pointer-events-none opacity-35 group-hover:opacity-100"></span>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
     <!-- Layanan -->
     <div>
-      <div class="text-2xl font-bold mb-4">Layanan</div>
+      <div class="text-2xl font-bold mb-7">Layanan</div>
       <ul class="space-y-2">
-        <li><span>Penjualan Mobil</span></li>
-        <li><span class="border-b border-white pb-1">Bengkel &amp; Servis Mobil</span></li>
+        <li>
+          <a href="#" class="flex items-center justify-between pb-1 cursor-pointer group relative">
+              <span class="text-xl flex items-center transition-transform duration-200 group-hover:scale-105 origin-top-left">
+                Penjualan Mobil
+              </span>
+              <span class="absolute left-0 bottom-0 w-full h-0.5 bg-white transition-opacity duration-300 pointer-events-none opacity-35 group-hover:opacity-100"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center justify-between pb-1 cursor-pointer group relative">
+              <span class="text-xl flex items-center transition-transform duration-200 group-hover:scale-105 origin-top-left">
+                Bengkel & Servis Mobil
+              </span>
+              <span class="absolute left-0 bottom-0 w-full h-0.5 bg-white transition-opacity duration-300 pointer-events-none opacity-35 group-hover:opacity-100"></span>
+          </a>
+        </li>
       </ul>
       <div class="mt-8">
-        <div class="flex items-center gap-2 mb-1">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 12.414a2 2 0 00-2.828 0l-4.243 4.243M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
+        <div class="flex items-center gap-2 mb-4">
+          <img src="../src/images/ic_alamat.png" alt="Location" class="h-7 w-6 text-white"/>
           <span class="text-xl font-bold">Alamat</span>
         </div>
         <div class="text-sm leading-snug">
@@ -393,12 +656,10 @@
     </div>
     <!-- Hubungi -->
     <div>
-      <div class="text-2xl font-bold mb-4">Hubungi</div>
+      <div class="text-2xl font-bold mb-6">Hubungi</div>
       <a href="https://wa.me/6281234567890" target="_blank" class="flex items-center gap-2 bg-white text-[#003399] px-6 py-2 rounded-full font-semibold shadow hover:bg-blue-100 transition">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#25D366]" viewBox="0 0 32 32" fill="currentColor">
-          <path d="M16 3C9.373 3 4 8.373 4 15c0 2.647.86 5.097 2.33 7.11L4 29l7.14-2.31A12.93 12.93 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22.917c-2.13 0-4.18-.62-5.91-1.79l-.42-.26-4.24 1.37 1.39-4.13-.27-.43A9.93 9.93 0 0 1 6 15c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.22-7.47c-.29-.14-1.71-.84-1.97-.94-.26-.1-.45-.14-.64.14-.19.28-.74.94-.91 1.13-.17.19-.34.21-.63.07-.29-.14-1.23-.45-2.34-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.56-.47-.48-.64-.49-.17-.01-.36-.01-.56-.01-.19 0-.5.07-.76.36-.26.29-1 1-.99 2.43.01 1.43 1.03 2.81 1.18 3.01.14.19 2.03 3.1 4.93 4.23.69.29 1.23.46 1.65.59.69.22 1.32.19 1.81.12.55-.08 1.71-.7 1.95-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.19-.55-.33z"/>
-        </svg>
-        Whatsapp
+        <img src="../src/images/ic_whatsapp.png" alt="WhatsApp" class="h-5 w-5 mr-1.5" />
+        <span class="text-xl">Whatsapp</span>
       </a>
     </div>
   </div>
@@ -466,5 +727,8 @@
   showSlide(0);
   startAutoSlide();
   </script>
+
+  <script src="../src/js/dealer-carousel.js"></script>
+  <script src="../src/js/navbar.js"></script>
 </body>
 </html>

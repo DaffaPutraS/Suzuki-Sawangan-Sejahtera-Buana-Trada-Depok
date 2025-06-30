@@ -1,14 +1,17 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suzuki Sawangan</title>
+  <link rel="icon" type="image/icon-x" href="../src/images/logo_suzuki.png"/>
   <link href="./style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-white min-h-screen font-[Poppins]">
   <!-- Header -->
-  <header class="bg-white shadow-sm border-b-[3px] z-50" style="border-color: #E0EBFF;">
+  <header class="bg-white/60 shadow-sm border-b-[3px] z-50" style="border-color: #E0EBFF;">
     <div class="mx-auto flex items-center gap-6 px-4 py-2" style="max-width:1400px;">
       <div class="flex items-center gap-3">
         <img src="../src/images/logo_suzuki.png" alt="Logo Suzuki" class="h-10 w-10 rounded-full bg-white border border-gray-200">
@@ -20,9 +23,27 @@
   </header>
 
   <!-- Navbar -->
-  <nav class="bg-white shadow-lg border-b-[3px] rounded-b-4xl sticky top-0 z-40" style="border-color: #E0EBFF;">
-    <div class=" mx-auto flex items-center px-2 h-16" style="max-width:1400px;">
-      <ul class="flex gap-2 md:gap-6 items-center h-full">
+  <nav class="bg-white/70 shadow-lg border-b-[3px] rounded-b-4xl sticky top-0 z-40" style="border-color: #E0EBFF;">
+    <div class="mx-auto flex items-center px-2 h-16" style="max-width:1400px;">
+      <!-- Hamburger Button -->
+      <button id="nav-toggle" class="md:hidden ml-auto p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#003399]">
+        <svg class="w-7 h-7 text-[#003399]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+      <!-- Navbar Menu -->
+      <ul id="nav-menu"
+        class="flex gap-2 md:gap-6 items-center h-full md:flex md:static md:flex-row md:bg-transparent md:w-auto md:opacity-100 md:visible
+        fixed top-16 left-0 w-full bg-white/90 flex-col opacity-0 invisible transition-all duration-300 z-50 md:transition-none">
+        <!-- Tombol Close (X) hanya di mobile -->
+        <li class="w-full flex justify-end md:hidden">
+          <button id="nav-close" class="p-3">
+            <svg class="w-7 h-7 text-[#003399]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </li>
+        <!-- ...menu items seperti sebelumnya... -->
         <li>
           <a href="index.html" class="relative text-[#003399] px-3 py-2 rounded-full transition-all duration-200
             after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[3px] after:bg-[#003399] after:rounded-full
@@ -56,13 +77,10 @@
           </a>
         </li>
         <li>
-          <a href="#" class="group flex items-center gap-2 bg-[#003399] text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition-all duration-300">
+          <a href="#" class="group flex text-center items-center gap-2 bg-[#003399] text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition-all duration-300">
             Kontak
             <span class="flex items-center transition-all duration-300 opacity-0 translate-x-2 w-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:w-5">
-              <!-- WhatsApp SVG -->
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" class="w-5 h-5 ml-1 text-green-400">
-                <path d="M16 3C9.373 3 4 8.373 4 15c0 2.647.86 5.097 2.33 7.11L4 29l7.14-2.31A12.93 12.93 0 0 0 16 27c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22.917c-2.13 0-4.18-.62-5.91-1.79l-.42-.26-4.24 1.37 1.39-4.13-.27-.43A9.93 9.93 0 0 1 6 15c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.22-7.47c-.29-.14-1.71-.84-1.97-.94-.26-.1-.45-.14-.64.14-.19.28-.74.94-.91 1.13-.17.19-.34.21-.63.07-.29-.14-1.23-.45-2.34-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.56-.47-.48-.64-.49-.17-.01-.36-.01-.56-.01-.19 0-.5.07-.76.36-.26.29-1 1-.99 2.43.01 1.43 1.03 2.81 1.18 3.01.14.19 2.03 3.1 4.93 4.23.69.29 1.23.46 1.65.59.69.22 1.32.19 1.81.12.55-.08 1.71-.7 1.95-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.19-.55-.33z"/>
-              </svg>
+              <img src="../src/images/ic_whatsapp_white.png" alt="WhatsApp" class="w-5 h-5 ml-1 text-white" />
             </span>
           </a>
         </li>
@@ -86,13 +104,15 @@
           Pancoran Mas, Kota Depok, Jawa Barat 16433
         </p>
         <div class="text-lg md:text-xl font-semibold text-gray-800 mb-3">Hubungi Sales Kami</div>
-        <a href="https://wa.me/6281234567890" target="_blank"
-          class="inline-block bg-[#003399] text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition mb-6">
+        <a href="#" class="group inline-flex items-center gap-2 bg-[#003399] text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition-all duration-300">
           Whatsapp
+          <span class="flex items-center transition-all duration-300 opacity-0 translate-x-2 w-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:w-5">
+            <img src="../src/images/ic_whatsapp_white.png" alt="WhatsApp" class="w-5 h-5 ml-1 text-white" />
+          </span>
         </a>
         <div class="flex flex-col sm:flex-row gap-3 mt-6 sm:mt-8 w-full">
           <!-- Carousel Dealer -->
-          <div class="relative w-full sm:w-72 md:w-80 h-40 md:h-52 rounded-xl border-2 border-[#669cf6] shadow-xl overflow-hidden">
+          <div class="relative w-full sm:w-72 md:w-80 h-40 md:h-52 rounded-xl border-4 border-[#83A5EA] shadow-xl overflow-hidden">
             <div id="dealer-carousel" class="w-full h-full relative">
               <img src="../src/images/carousel_alamat/image.png" alt="Dealer Suzuki" class="carousel-img w-full h-full object-cover absolute inset-0 transition-opacity duration-300 opacity-100" />
               <img src="../src/images/carousel_alamat/image2.png" alt="Dealer Suzuki 2" class="carousel-img w-full h-full object-cover absolute inset-0 transition-opacity duration-300 opacity-0" />
@@ -102,13 +122,13 @@
               <img src="../src/images/carousel_alamat/image6.png" alt="Dealer Suzuki 6" class="carousel-img w-full h-full object-cover absolute inset-0 transition-opacity duration-300 opacity-0" />
             </div>
             <!-- Dots -->
-            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-white/60 px-4 py-2 rounded-xl shadow">
-              <button class="w-2 h-1 md:w-5 h-1.5 rounded-full bg-[#bcd2f7] carousel-dot transition-all" data-index="0"></button>
-              <button class="w-2 h-1 md:w-5 h-1.5 rounded-full bg-[#bcd2f7] carousel-dot transition-all" data-index="1"></button>
-              <button class="w-2 h-1 md:w-5 h-1.5 rounded-full bg-[#bcd2f7] carousel-dot transition-all" data-index="2"></button>
-              <button class="w-2 h-1 md:w-5 h-1.5 rounded-full bg-[#bcd2f7] carousel-dot transition-all" data-index="3"></button>
-              <button class="w-2 h-1 md:w-5 h-1.5 rounded-full bg-[#bcd2f7] carousel-dot transition-all" data-index="4"></button>
-              <button class="w-2 h-1 md:w-5 h-1.5 rounded-full bg-[#bcd2f7] carousel-dot transition-all" data-index="5"></button>
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-2 z-10 bg-white/60 px-4 py-2 rounded-t-xl shadow">
+              <button class="w-2 h-1 md:w-5 h-1 rounded-full bg-[#bcd2f7] carousel-dot transition-all" data-index="0"></button>
+              <button class="w-2 h-1 md:w-5 h-1 rounded-full bg-[#bcd2f7] carousel-dot transition-all" data-index="1"></button>
+              <button class="w-2 h-1 md:w-5 h-1 rounded-full bg-[#bcd2f7] carousel-dot transition-all" data-index="2"></button>
+              <button class="w-2 h-1 md:w-5 h-1 rounded-full bg-[#bcd2f7] carousel-dot transition-all" data-index="3"></button>
+              <button class="w-2 h-1 md:w-5 h-1 rounded-full bg-[#bcd2f7] carousel-dot transition-all" data-index="4"></button>
+              <button class="w-2 h-1 md:w-5 h-1 rounded-full bg-[#bcd2f7] carousel-dot transition-all" data-index="5"></button>
             </div>
           </div>
           <iframe
@@ -136,12 +156,15 @@
 
 <!-- Footer -->
 <footer class="bg-[#003399] text-white pt-10 pb-6 px-4 rounded-t-3xl mt-16">
-  <div class="mx-auto grid grid-cols-1 md:grid-cols-4 gap-8" style="max-width:1400px;">
+  <div class="mx-auto grid grid-cols-1 md:grid-cols-[60px_2fr_1fr_1fr_1fr] gap-8" style="max-width:1400px;">
+    <!-- Kolom baru untuk judul Mobil -->
+    <div class="flex flex-col items-start md:items-center md:justify-start">
+      <img src="../src/images/logo_suzuki_white.png" alt="Logo Suzuki" class="h-12 w-12">
+    </div>
     <!-- Mobil -->
     <div class="md:col-span-2">
       <div class="flex items-center gap-3 mb-4">
-        <img src="../src/images/logo_suzuki.png" alt="Logo Suzuki" class="h-10 w-10 rounded-full bg-white border border-gray-200">
-        <span class="text-2xl font-bold">Mobil</span>
+        <span class="text-2xl font-bold mb-2 md:mb-0">Mobil</span>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-2 gap-x-8">
         <ul class="space-y-1">
@@ -208,7 +231,7 @@
           <li>
             <a href="#" class="flex items-center justify-between pb-1 cursor-pointer group relative">
               <span class="text-xl flex items-center transition-transform duration-200 group-hover:scale-105 origin-top-left">
-                XL 7 Zeta
+                XL7 Zeta
               </span>
               <span class="ml-2 text-xl flex items-center">
                 <!-- SVG arrow right -->
@@ -390,5 +413,6 @@
 </footer>
 
 <script src="../src/js/dealer-carousel.js"></script>
+<script src="../src/js/navbar.js"></script>
 </body>
 </html>
