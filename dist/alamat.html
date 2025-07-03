@@ -77,7 +77,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="group flex text-center items-center gap-2 bg-[#003399] text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition-all duration-300">
+          <a href="#" class="kontak-modal group flex text-center items-center gap-2 bg-[#003399] text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition-all duration-300">
             Kontak
             <span class="flex items-center transition-all duration-300 opacity-0 translate-x-2 w-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:w-5">
               <img src="../src/images/ic_whatsapp_white.png" alt="WhatsApp" class="w-5 h-5 ml-1 text-white" />
@@ -85,6 +85,26 @@
           </a>
         </li>
       </ul>
+    </div>
+
+    <div id="wa-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/30 transition-all duration-300 invisible opacity-0 pointer-events-none">
+      <div class="w-full max-w-xs bg-white rounded-2xl shadow-xl p-6 pb-8 mx-auto mb-0 translate-y-full transition-all duration-300"
+          id="wa-modal-content">
+        <div class="flex flex-col items-center">
+          <!-- WhatsApp logo dan teks sejajar, logo hijau -->
+          <div class="flex items-center gap-2 mb-4">
+            <img src="../src/images/ic_whatsapp.png" alt="WhatsApp" class="h-8 w-8"
+              style="filter: brightness(0) saturate(100%) invert(41%) sepia(98%) saturate(749%) hue-rotate(88deg) brightness(97%) contrast(101%);" />
+            <span class="text-green-600 font-bold text-xl">WhatsApp</span>
+          </div>
+          <img src="../src/images/img_card1.png" alt="Suzuki Sawangan" class="w-32 h-32 rounded-full object-cover mb-4 border-4 border-[#e0ebff]" />
+          <div class="text-center text-lg font-semibold mb-6">Suzuki Sawangan DPK</div>
+          <a href="https://wa.me/628985762411" target="_blank"
+            class="bg-[#009688] text-white px-8 py-3 rounded-full font-semibold text-lg shadow hover:bg-[#00796b] transition mb-2 w-full text-center block">
+            Lanjut Ke Chat
+          </a>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -104,11 +124,11 @@
           Pancoran Mas, Kota Depok, Jawa Barat 16433
         </p>
         <div class="text-lg md:text-xl font-semibold text-gray-800 mb-3">Hubungi Sales Kami</div>
-        <a href="#" class="group inline-flex items-center gap-2 bg-[#003399] text-white px-6 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition-all duration-300">
+        <a href="#" class="kontak-modal group z-50 inline-flex items-center gap-2 bg-[#003399] text-white px-8 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition-all duration-300">
           Whatsapp
           <span class="flex items-center transition-all duration-300 opacity-0 translate-x-2 w-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:w-5">
-            <img src="../src/images/ic_whatsapp_white.png" alt="WhatsApp" class="w-5 h-5 ml-1 text-white" />
-          </span>
+                <img src="../src/images/ic_whatsapp_white.png" alt="WhatsApp" class="w-5 h-5 ml-1 text-white" />
+              </span>
         </a>
         <div class="flex flex-col sm:flex-row gap-3 mt-6 sm:mt-8 w-full">
           <!-- Carousel Dealer -->
@@ -404,7 +424,7 @@
     <!-- Hubungi -->
     <div>
       <div class="text-2xl font-bold mb-6">Hubungi</div>
-      <a href="https://wa.me/6281234567890" target="_blank" class="flex items-center gap-2 bg-white text-[#003399] px-6 py-2 rounded-full font-semibold shadow hover:bg-blue-100 transition">
+      <a href="#" class="kontak-modal z-10 flex items-center gap-2 bg-white text-[#003399] px-6 py-2 rounded-full font-semibold shadow hover:bg-blue-100 transition">
         <img src="../src/images/ic_whatsapp.png" alt="WhatsApp" class="h-5 w-5 mr-1.5" />
         <span class="text-xl">Whatsapp</span>
       </a>
@@ -414,5 +434,6 @@
 
 <script src="../src/js/dealer-carousel.js"></script>
 <script src="../src/js/navbar.js"></script>
+<script src="../src/js/modal_kontak_navbar.js"></script>
 </body>
 </html>

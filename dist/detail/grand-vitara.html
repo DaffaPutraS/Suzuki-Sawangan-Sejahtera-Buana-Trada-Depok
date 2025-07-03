@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suzuki Sawangan</title>
+  <link rel="icon" type="image/icon-x" href="../../src/images/logo_suzuki.png"/>
+  <link href="../style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Tambahkan ini di file CSS global kamu */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+  </style>
+  
+</head>
+<body>
+    <div
+  class="w-full overflow-x-auto cursor-grab active:cursor-grabbing scrollbar-hide"
+  id="scrollContainer"
+>
+  <div class="flex space-x-4 p-4">
+    <!-- Card 1 -->
+    <div class="min-w-[250px] bg-white rounded-xl shadow-md p-4">
+      <h2 class="text-lg font-semibold">Card 1</h2>
+      <p class="text-gray-500">Isi dari card pertama</p>
+    </div>
+    <!-- Card 2 -->
+    <div class="min-w-[250px] bg-white rounded-xl shadow-md p-4">
+      <h2 class="text-lg font-semibold">Card 2</h2>
+      <p class="text-gray-500">Isi dari card kedua</p>
+    </div>
+    <!-- Card 3 -->
+    <div class="min-w-[250px] bg-white rounded-xl shadow-md p-4">
+      <h2 class="text-lg font-semibold">Card 3</h2>
+      <p class="text-gray-500">Isi dari card ketiga</p>
+    </div>
+    <div class="min-w-[250px] bg-white rounded-xl shadow-md p-4">
+      <h2 class="text-lg font-semibold">Card 1</h2>
+      <p class="text-gray-500">Isi dari card pertama</p>
+    </div>
+    <!-- Card 2 -->
+    <div class="min-w-[250px] bg-white rounded-xl shadow-md p-4">
+      <h2 class="text-lg font-semibold">Card 2</h2>
+      <p class="text-gray-500">Isi dari card kedua</p>
+    </div>
+    <!-- Card 3 -->
+    <div class="min-w-[250px] bg-white rounded-xl shadow-md p-4">
+      <h2 class="text-lg font-semibold">Card 3</h2>
+      <p class="text-gray-500">Isi dari card ketiga</p>
+    </div>
+    <div class="min-w-[250px] bg-white rounded-xl shadow-md p-4">
+      <h2 class="text-lg font-semibold">Card 1</h2>
+      <p class="text-gray-500">Isi dari card pertama</p>
+    </div>
+    <!-- Card 2 -->
+    <div class="min-w-[250px] bg-white rounded-xl shadow-md p-4">
+      <h2 class="text-lg font-semibold">Card 2</h2>
+      <p class="text-gray-500">Isi dari card kedua</p>
+    </div>
+    <!-- Card 3 -->
+    <div class="min-w-[250px] bg-white rounded-xl shadow-md p-4">
+      <h2 class="text-lg font-semibold">Card 3</h2>
+      <p class="text-gray-500">Isi dari card ketiga</p>
+    </div>
+    <div class="min-w-[250px] bg-white rounded-xl shadow-md p-4">
+      <h2 class="text-lg font-semibold">Card 1</h2>
+      <p class="text-gray-500">Isi dari card pertama</p>
+    </div>
+    <!-- Card 2 -->
+    <div class="min-w-[250px] bg-white rounded-xl shadow-md p-4">
+      <h2 class="text-lg font-semibold">Card 2</h2>
+      <p class="text-gray-500">Isi dari card kedua</p>
+    </div>
+    <!-- Card 3 -->
+    <div class="min-w-[250px] bg-white rounded-xl shadow-md p-4">
+      <h2 class="text-lg font-semibold">Card 3</h2>
+      <p class="text-gray-500">Isi dari card ketiga</p>
+    </div>
+    <!-- Tambah card lain sesuai kebutuhan -->
+  </div>
+</div>
+
+<script>
+// Drag scroll logic
+const slider = document.getElementById("scrollContainer");
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener("mousedown", (e) => {
+  isDown = true;
+  slider.classList.add("active");
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+
+slider.addEventListener("mouseleave", () => {
+  isDown = false;
+  slider.classList.remove("active");
+});
+
+slider.addEventListener("mouseup", () => {
+  isDown = false;
+  slider.classList.remove("active");
+});
+
+slider.addEventListener("mousemove", (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 1.5;
+  slider.scrollLeft = scrollLeft - walk;
+});
+</script>
+</body>
+</html>
