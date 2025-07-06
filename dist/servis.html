@@ -110,11 +110,9 @@
 
 
 <!-- Section MySuzuki -->
-<section class="relative bg-white overflow-hidden flex items-center justify-center">
-  <!-- Background lingkaran biru -->
-  <div class="absolute left-0 top-0 w-[200px] md:w-[400px] h-[200px] md:h-[400px] bg-[#e6edff] rounded-full opacity-60 -z-10" style="transform: translate(-40%,-20%);"></div>
-  <div class="absolute right-0 bottom-0 w-[250px] md:w-[500px] h-[250px] md:h-[500px] bg-[#e6edff] rounded-full opacity-40 -z-10" style="transform: translate(40%,30%);"></div>
-  <div class="w-full mt-10 md:-mt-8">
+<section class="relative w-full min-h-[850px] -z-50 -mt-36 flex flex-col items-center justify-center overflow-hidden"
+         style="background: url('../src/images/bg_servis_page.png') center/cover no-repeat;">
+  <div class="w-full md:mt-28 sm:mt-40">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
       <!-- Kiri: Teks -->
       <div class="flex flex-col items-center md:-mt-56 md:pl-28">
@@ -124,7 +122,11 @@
         </div>
         <div class="mb-4">
           <div class="mb-4 flex justify-center">
-            <img src="../src/images/logo_font_mysuzuki.png" alt="mySUZUKI" class="h-au md:h-48 w-full" />
+            <img 
+              src="../src/images/logo_font_mysuzuki.png" 
+              alt="mySUZUKI"
+              class="w-full max-w-[180px] sm:max-w-[230px] md:max-w-[500px] h-auto"
+            />
           </div>
         </div>
         <div class="text-right md:-mt-24 md:ml-64">
@@ -154,10 +156,16 @@
 
 
 <!-- Section Video Tutorial My Suzuki -->
-<section class="relative bg-white pb-12 md:pb-12 md:-mt-32 flex flex-col items-center justify-center">
+<section class="relative bg-white pb-12 md:pb-12 md:-mt-24 flex flex-col items-center justify-center">
   <!-- Background lingkaran biru -->
-  <div class="absolute left-1/2 top-0 -translate-x-1/2 w-[600px] h-[600px] bg-[#e6edff] rounded-full opacity-40 -z-10"></div>
-  <div class="w-full max-w-2xl flex flex-col gap-8 z-10">
+   <img
+    src="../src/images/bg_circle.png"
+    alt=""
+    class="pointer-events-none select-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] md:w-[1000px] lg:w-[1100px] z-0"
+    aria-hidden="true"
+    draggable="false"
+  />
+  <div class="w-full max-w-2xl flex flex-col gap-20 z-10">
     <!-- Card 1 -->
     <div class="bg-white rounded-2xl shadow-2xl border border-[#e0ebff] px-4 overflow-hidden">
       <div class="text-center my-2 pt-4 pb-2 text-base md:text-2xl font-medium text-gray-700">

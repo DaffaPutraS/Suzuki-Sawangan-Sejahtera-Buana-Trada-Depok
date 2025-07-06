@@ -8,6 +8,48 @@
   <link rel="icon" type="image/icon-x" href="../src/images/logo_suzuki.png"/>
   <link href="./style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Custom gradient border on hover */
+    .card-gradient-border {
+      position: relative;
+      z-index: 2;
+    }
+    .card-gradient-border::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 30px;
+      padding: 6px; /* Perbesar agar tetap tebal saat scale */
+      background: linear-gradient(130deg, #fff 20%, #003399 100%);
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 1;
+      pointer-events: none;
+      box-sizing: border-box;
+    }
+    .card-gradient-border:hover::before,
+    .card-gradient-border:focus-visible::before {
+      opacity: 1;
+    }
+
+    .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  /* Utility untuk scroll snap (jika belum ada di Tailwind) */
+  .scroll-snap-align-start {
+    scroll-snap-align: start;
+  }
+  </style>
 </head>
 <body class="bg-white min-h-screen font-[Poppins]">
   <!-- Header -->
@@ -166,217 +208,545 @@
 
   <!-- Section Card Mobil -->
   <section class="relative mx-auto px-4 py-16 overflow-hidden">
-    <!-- Background image khusus section ini -->
-    <div class="absolute inset-0 w-full h-full -z-10 bg-cover bg-center"
-        style="background-image: url('../src/images/bg_beranda2.png');"></div>
-    <h2 class="text-2xl md:text-3xl font-bold text-[#003399] mb-3 text-center">Mobil Impian ada Disini</h2>
-    <p class="text-gray-600 text-center font-black text-sm max-w-2xl mx-auto mb-24">
+  <!-- Background image khusus section ini -->
+  <div class="absolute inset-0 w-full h-full -z-10 bg-cover bg-center"
+    style="background-image: url('../src/images/bg_beranda2.png');"></div>
+  <h2 class="text-2xl md:text-3xl font-bold text-[#003399] mb-3 text-center">Mobil Impian ada Disini</h2>
+  <p class="text-gray-600 text-center font-black text-sm max-w-2xl mx-auto mb-8">
     Mobil bukan sekadar kendaraan, ini tentang kenyamanan, keamanan, dan gaya hidup. Telusuri pilihan mobil Suzuki dan mulailah kisah baru bersama orang tercinta.
-    </p>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
-      <!-- Card 1 -->
-      <div class="group card-gradient-border bg-white rounded-2xl drop-shadow-lg shadow-2xl p-0 
-          w-full max-w-[333px] h-[285px] 
-          relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left">
-        <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
-          <!-- Gambar mobil normal -->
-          <img src="../src/images/s-presso.png" alt="S-Presso"
-            class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
-          <!-- Gambar mobil lampu (muncul saat hover) -->
-          <img src="../src/images/s-presso-lamp.png" alt="S-Presso Lamp"
-            class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <div class="flex items-center justify-between mt-32">
-            <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
-              S-Presso
-            </span>
-            <button class="text-gray-400 hover:text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-              </svg>
-            </button>
+  </p>
+
+  <!-- Horizontal Scroll Start -->
+  <div id="mobil-slider"
+  class="slider-scroll overflow-x-auto hide-scrollbar flex gap-8 py-4 h-[400px] scrollbar-hide select-none items-center"
+  style="scroll-snap-type: x mandatory;">
+    <!-- Card 1 -->
+    <div class="group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left
+                min-w-[285px] max-w-[333px] h-[260px] flex-shrink-0 scroll-snap-align-start">
+      <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
+        <!-- Gambar mobil normal -->
+        <img src="../src/images/s-presso.png" alt="S-Presso"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
+        <!-- Gambar mobil lampu (muncul saat hover) -->
+        <img src="../src/images/s-presso-lamp.png" alt="S-Presso Lamp"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div class="flex items-center justify-between mt-28">
+          <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+            S-Presso
+          </span>
+          <button class="text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
+            </svg>
+          </button>
+        </div>
+        <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+          Mulai Rp. 172,600,000
+        </div>
+        <div class="flex items-center justify-between mb-4 group">
+          <div class="flex items-center text-gray-400">
+            <img src="../src/images/ic_seat.png" alt="Seater Icon"
+              class="h-6 w-5 mr-1 inline-block transition-transform duration-300 seat-img"
+              data-hover="../src/images/ic_seat_dark.png" />
+            4 Seater
           </div>
-          <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
-            Mulai Rp. 172,600,000
-          </div>
-          <div class="flex items-center justify-between mb-4 px-4 group">
-            <div class="flex items-center text-gray-400">
-              <img
-                src="../src/images/ic_seat.png"
-                alt="Seater Icon"
-                class="h-6 w-5 mr-1 inline-block transition-transform duration-300 seat-img"
-                data-hover="../src/images/ic_seat_dark.png"
-              />
-              4 Seater
-            </div>
-            <a href="./detail/s-presso.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
-                  class="w-7 h-7">
-                  <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
-                </svg>
-            </a>
-          </div>
+          <a href="./detail/s-presso.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+              class="w-7 h-7">
+              <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+            </svg>
+          </a>
         </div>
       </div>
-
-      <!-- Card 2 -->
-      <div class="group card-gradient-border bg-white rounded-2xl drop-shadow-lg shadow-2xl p-0 
-          w-full max-w-[333px] h-[285px] 
-          relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left">
-        <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
-          <!-- Gambar mobil normal -->
-          <img src="../src/images/grand_vitara.png" alt="S-Presso"
-            class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
-          <!-- Gambar mobil lampu (muncul saat hover) -->
-          <img src="../src/images/grand_vitara_lamp.png" alt="S-Presso Lamp"
-            class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <div class="flex items-center justify-between mt-32">
-            <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
-              Grand Vitara
-            </span>
-            <button class="text-gray-400 hover:text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-              </svg>
-            </button>
+    </div>
+    <!-- Card 2 -->
+    <div class="group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left
+                min-w-[285px] max-w-[333px] h-[260px] flex-shrink-0 scroll-snap-align-start">
+      <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
+        <img src="../src/images/grand_vitara.png" alt="Grand Vitara"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
+        <img src="../src/images/grand_vitara_lamp.png" alt="Grand Vitara Lamp"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div class="flex items-center justify-between mt-28">
+          <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+            Grand Vitara
+          </span>
+          <button class="text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
+            </svg>
+          </button>
+        </div>
+        <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+          Mulai Rp. 399,350,000
+        </div>
+        <div class="flex items-center justify-between mb-4 group">
+          <div class="flex items-center text-gray-400">
+            <img src="../src/images/ic_seat.png" alt="Seater Icon"
+              class="h-6 w-5 mr-1 inline-block transition-transform duration-300 seat-img"
+              data-hover="../src/images/ic_seat_dark.png" />
+            5 Seater
+            <img src="../src/images/ic_hybrid.png" alt="Hybrid Icon"
+              class="h-6 w-15 ml-3 inline-block" />
           </div>
-          <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
-            Mulai Rp. 399,350,000
-          </div>
-          <div class="flex items-center justify-between mb-4 px-4 group">
-            <div class="flex items-center text-gray-400">
-              <img
-                src="../src/images/ic_seat.png"
-                alt="Seater Icon"
-                class="h-6 w-5 mr-1 inline-block transition-transform duration-300 seat-img"
-                data-hover="../src/images/ic_seat_dark.png"
-              />
-              5 Seater
-              <img
-                src="../src/images/ic_hybrid.png"
-                alt="Seater Icon"
-                class="h-6 w-15 ml-3 inline-block"
-              />
-            </div>
-            <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
-                class="w-7 h-7">
-                <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
-              </svg>
-            </button>
-          </div>
+          <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+              class="w-7 h-7">
+              <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+            </svg>
+          </button>
         </div>
       </div>
-
-      <!-- Card 3 -->
-      <div class="group card-gradient-border bg-white rounded-2xl drop-shadow-lg shadow-2xl p-0 
-          w-full max-w-[333px] h-[285px] 
-          relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left">
-        <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
-          <!-- Gambar mobil normal -->
-          <img src="../src/images/new_baleno.png" alt="S-Presso"
-            class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
-          <!-- Gambar mobil lampu (muncul saat hover) -->
-          <img src="../src/images/new_baleno_lamp.png" alt="S-Presso Lamp"
-            class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <div class="flex items-center justify-between mt-32">
-            <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
-              New Baleno
-            </span>
-            <button class="text-gray-400 hover:text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-              </svg>
-            </button>
+    </div>
+    <!-- Card 3 -->
+    <div class="group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left
+                min-w-[285px] max-w-[333px] h-[260px] flex-shrink-0 scroll-snap-align-start">
+      <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
+        <img src="../src/images/new_baleno.png" alt="New Baleno"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
+        <img src="../src/images/new_baleno_lamp.png" alt="New Baleno Lamp"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div class="flex items-center justify-between mt-28">
+          <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+            New Baleno
+          </span>
+          <button class="text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
+            </svg>
+          </button>
+        </div>
+        <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+          Mulai Rp. 290,100,000
+        </div>
+        <div class="flex items-center justify-between mb-4 group">
+          <div class="flex items-center text-gray-400">
+            <img src="../src/images/ic_seat.png" alt="Seater Icon"
+              class="h-6 w-5 mr-1 inline-block transition-transform duration-300 seat-img"
+              data-hover="../src/images/ic_seat_dark.png" />
+            5 Seater
           </div>
-          <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
-            Mulai Rp. 290,100,000
-          </div>
-          <div class="flex items-center justify-between mb-4 px-4 group">
-            <div class="flex items-center text-gray-400">
-              <img
-                src="../src/images/ic_seat.png"
-                alt="Seater Icon"
-                class="h-6 w-5 mr-1 inline-block transition-transform duration-300 seat-img"
-                data-hover="../src/images/ic_seat_dark.png"
-              />
-              5 Seater
-            </div>
-            <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
-                  class="w-7 h-7">
-                  <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
-                </svg>
-            </button>
-          </div>
+          <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+              class="w-7 h-7">
+              <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+            </svg>
+          </button>
         </div>
       </div>
-
-      <!-- Card 4 -->
-      <div class="group card-gradient-border bg-white rounded-2xl drop-shadow-lg shadow-2xl p-0 
-          w-full max-w-[333px] h-[285px] 
-          relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left">
-        <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
-          <!-- Gambar mobil normal -->
-          <img src="../src/images/xl7_hybrid.png" alt="S-Presso"
-            class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
-          <!-- Gambar mobil lampu (muncul saat hover) -->
-          <img src="../src/images/xl7_hybrid_lamp.png" alt="S-Presso Lamp"
-            class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <div class="flex items-center justify-between mt-32">
-            <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
-              XL 7 Hybrid
-            </span>
-            <button class="text-gray-400 hover:text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-              </svg>
-            </button>
+    </div>
+    <!-- Card 4 -->
+    <div class="group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left
+                min-w-[285px] max-w-[333px] h-[260px] flex-shrink-0 scroll-snap-align-start">
+      <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
+        <img src="../src/images/xl7_hybrid.png" alt="XL 7 Hybrid"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
+        <img src="../src/images/xl7_hybrid_lamp.png" alt="XL 7 Hybrid Lamp"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div class="flex items-center justify-between mt-28">
+          <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+            XL 7 Hybrid
+          </span>
+          <button class="text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
+            </svg>
+          </button>
+        </div>
+        <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+          Mulai Rp. 286,600,000
+        </div>
+        <div class="flex items-center justify-between mb-4 group">
+          <div class="flex items-center text-gray-400">
+            <img src="../src/images/ic_seat.png" alt="Seater Icon"
+              class="h-6 w-5 mr-1 inline-block transition-transform duration-300 seat-img"
+              data-hover="../src/images/ic_seat_dark.png" />
+            7 Seater
+            <img src="../src/images/ic_hybrid.png" alt="Hybrid Icon"
+              class="h-6 w-15 ml-3 inline-block" />
           </div>
-          <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
-            Mulai Rp. 268,600,000
-          </div>
-          <div class="flex items-center justify-between mb-4 px-4 group">
-            <div class="flex items-center text-gray-400">
-              <img
-                src="../src/images/ic_seat.png"
-                alt="Seater Icon"
-                class="h-6 w-5 mr-1 inline-block transition-transform duration-300 seat-img"
-                data-hover="../src/images/ic_seat_dark.png"
-              />
-              7 Seater
-              <img
-                src="../src/images/ic_hybrid.png"
-                alt="Seater Icon"
-                class="h-6 w-15 ml-3 inline-block"
-              />
-            </div>
-            <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
-                  class="w-7 h-7">
-                  <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
-                </svg>
-            </button>
-          </div>
+          <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+              class="w-7 h-7">
+              <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
 
-
-    <!-- Geser & Button Selengkapnya -->
-    <div class="flex flex-col items-center mt-10">
-      <div class="flex items-center gap-2 mb-6">
-        <img src="../src/images/ic_gestur_geser.png" alt="Geser" class="h-14 w-14" />
-        <span class="text-[#003399] text-lg font-semibold pt-5">Geser</span>
+    <!-- Card 5 -->
+     <div class="group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left
+                min-w-[285px] max-w-[333px] h-[260px] flex-shrink-0 scroll-snap-align-start">
+      <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
+        <img src="../src/images/xl7_zeta.png" alt="XL 7 Zeta"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
+        <img src="../src/images/xl7_zeta_lamp.png" alt="XL 7 Zeta Lamp"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div class="flex items-center justify-between mt-28">
+          <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+            XL 7 Zeta
+          </span>
+          <button class="text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
+            </svg>
+          </button>
+        </div>
+        <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+          Mulai Rp. 264,600,000
+        </div>
+        <div class="flex items-center justify-between mb-4 group">
+          <div class="flex items-center text-gray-400">
+            <img src="../src/images/ic_seat.png" alt="Seater Icon"
+              class="h-6 w-5 mr-1 inline-block transition-transform duration-300 seat-img"
+              data-hover="../src/images/ic_seat_dark.png" />
+            7 Seater
+          </div>
+          <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+              class="w-7 h-7">
+              <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+            </svg>
+          </button>
+        </div>
       </div>
-      <a href="mobil.html" class="bg-[#003399] text-white px-10 py-2 rounded-full font-normal text-lg shadow hover:bg-[#a9c4fa] transition duration-400">
-        Selengkapnya
-      </a>
     </div>
-  </section>
+
+    <!-- Card 6 -->
+     <div class="group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left
+                min-w-[285px] max-w-[333px] h-[260px] flex-shrink-0 scroll-snap-align-start">
+      <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
+        <img src="../src/images/jimny.png" alt="Jimny 3 Doors"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
+        <img src="../src/images/jimny_3_doors_lamp.png" alt="Jimmy 3 Doors Lamp"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div class="flex items-center justify-between mt-28">
+          <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+            Jimny 3 Doors
+          </span>
+          <button class="text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
+            </svg>
+          </button>
+        </div>
+        <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+          Mulai Rp. 464,800,000
+        </div>
+        <div class="flex items-center justify-between mb-4 group">
+          <div class="flex items-center text-gray-400">
+            <img src="../src/images/ic_seat.png" alt="Seater Icon"
+              class="h-6 w-5 mr-1 inline-block transition-transform duration-300 seat-img"
+              data-hover="../src/images/ic_seat_dark.png" />
+            4 Seater
+          </div>
+          <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+              class="w-7 h-7">
+              <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Card 7 -->
+     <div class="group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left
+                min-w-[285px] max-w-[333px] h-[260px] flex-shrink-0 scroll-snap-align-start">
+      <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
+        <img src="../src/images/jimny_5_doors.png" alt="Jimny 5 Doors"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
+        <img src="../src/images/jimny_5_doors_lamp.png" alt="Jimmy 5 Doors Lamp"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div class="flex items-center justify-between mt-28">
+          <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+            Jimny 5 Doors
+          </span>
+          <button class="text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
+            </svg>
+          </button>
+        </div>
+        <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+          Mulai Rp. 474,800,000
+        </div>
+        <div class="flex items-center justify-between mb-4 group">
+          <div class="flex items-center text-gray-400">
+            <img src="../src/images/ic_seat.png" alt="Seater Icon"
+              class="h-6 w-5 mr-1 inline-block transition-transform duration-300 seat-img"
+              data-hover="../src/images/ic_seat_dark.png" />
+            4 Seater
+          </div>
+          <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+              class="w-7 h-7">
+              <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 8 -->
+     <div class="group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left
+                min-w-[285px] max-w-[333px] h-[260px] flex-shrink-0 scroll-snap-align-start">
+      <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
+        <img src="../src/images/all_new_ertiga_hybrid.png" alt="All New Ertiga Hybrid"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
+        <img src="../src/images/all_new_ertiga_hybrid_lamp.png" alt="ALl New Ertiga Hybrid Lamp"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div class="flex items-center justify-between mt-28">
+          <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+            All New Ertiga Hybrid
+          </span>
+          <button class="text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
+            </svg>
+          </button>
+        </div>
+        <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+          Mulai Rp. 274,900,000
+        </div>
+        <div class="flex items-center justify-between mb-4 group">
+          <div class="flex items-center text-gray-400">
+            <img src="../src/images/ic_seat.png" alt="Seater Icon"
+              class="h-6 w-5 mr-1 inline-block transition-transform duration-300 seat-img"
+              data-hover="../src/images/ic_seat_dark.png" />
+            7 Seater
+            <img src="../src/images/ic_hybrid.png" alt="Hybrid Icon"
+              class="h-6 w-15 ml-3 inline-block" />
+          </div>
+          <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+              class="w-7 h-7">
+              <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 9 -->
+     <div class="group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left
+                min-w-[285px] max-w-[333px] h-[260px] flex-shrink-0 scroll-snap-align-start">
+      <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
+        <img src="../src/images/all_new_ertiga_gl.png" alt="All New Ertiga GL"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
+        <img src="../src/images/all_new_ertiga_gl_lamp.png" alt="All New Ertiga GL Lamp"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div class="flex items-center justify-between mt-28">
+          <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+            All New Ertiga GL
+          </span>
+          <button class="text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
+            </svg>
+          </button>
+        </div>
+        <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+          Mulai Rp. 259,750,000
+        </div>
+        <div class="flex items-center justify-between mb-4 group">
+          <div class="flex items-center text-gray-400">
+            <img src="../src/images/ic_seat.png" alt="Seater Icon"
+              class="h-6 w-5 mr-1 inline-block transition-transform duration-300 seat-img"
+              data-hover="../src/images/ic_seat_dark.png" />
+            7 Seater
+          </div>
+          <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+              class="w-7 h-7">
+              <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 10 -->
+     <div class="group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left
+                min-w-[285px] max-w-[333px] h-[260px] flex-shrink-0 scroll-snap-align-start">
+      <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
+        <img src="../src/images/new_carry_pick_up.png" alt="New Carry Pick Up"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
+        <img src="../src/images/new_carry_pick_up_lamp.png" alt="New Carry Pick Up Lamp"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div class="flex items-center justify-between mt-28">
+          <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+            New Carry Pick Up
+          </span>
+          <button class="text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
+            </svg>
+          </button>
+        </div>
+        <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+          Mulai Rp. 259,750,000
+        </div>
+        <div class="flex items-center justify-between mb-4 group">
+          <div class="flex items-center text-gray-400">
+            <img src="../src/images/ic_seat.png" alt="Seater Icon"
+              class="h-6 w-5 mr-1 inline-block transition-transform duration-300 seat-img"
+              data-hover="../src/images/ic_seat_dark.png" />
+            3 Seater
+          </div>
+          <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+              class="w-7 h-7">
+              <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 11 -->
+     <div class="group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left
+                min-w-[285px] max-w-[333px] h-[260px] flex-shrink-0 scroll-snap-align-start">
+      <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
+        <img src="../src/images/apv.png" alt="APV"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
+        <img src="../src/images/apv_lamp.png" alt="APV Lamp"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div class="flex items-center justify-between mt-28">
+          <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+            APV
+          </span>
+          <button class="text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
+            </svg>
+          </button>
+        </div>
+        <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+          Mulai Rp. 226,000,000
+        </div>
+        <div class="flex items-center justify-between mb-4 group">
+          <div class="flex items-center text-gray-400">
+            <img src="../src/images/ic_seat.png" alt="Seater Icon"
+              class="h-6 w-5 mr-1 inline-block transition-transform duration-300 seat-img"
+              data-hover="../src/images/ic_seat_dark.png" />
+            8 Seater
+          </div>
+          <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+              class="w-7 h-7">
+              <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 12 -->
+     <div class="group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left
+                min-w-[285px] max-w-[333px] h-[260px] flex-shrink-0 scroll-snap-align-start">
+      <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
+        <img src="../src/images/fronx_hybrid.png" alt="Fronx Hybrid"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
+        <img src="../src/images/fronx_hybrid_lamp.png" alt="Fronx Hybrid Lamp"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div class="flex items-center justify-between mt-28">
+          <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+            Fronx Hybrid
+          </span>
+          <button class="text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
+            </svg>
+          </button>
+        </div>
+        <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+          Mulai Rp. 319,900,000
+        </div>
+        <div class="flex items-center justify-between mb-4 group">
+          <div class="flex items-center text-gray-400">
+            <img src="../src/images/ic_seat.png" alt="Seater Icon"
+              class="h-6 w-5 mr-1 inline-block transition-transform duration-300 seat-img"
+              data-hover="../src/images/ic_seat_dark.png" />
+            5 Seater
+            <img src="../src/images/ic_hybrid.png" alt="Hybrid Icon"
+              class="h-6 w-15 ml-3 inline-block" />
+          </div>
+          <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+              class="w-7 h-7">
+              <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 13 -->
+     <div class="group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left
+                min-w-[285px] max-w-[333px] h-[260px] flex-shrink-0 scroll-snap-align-start">
+      <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
+        <img src="../src/images/fronx_gl.png" alt="Fronx GL"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
+        <img src="../src/images/fronx_gl_lamp.png" alt="Fronx GL Lamp"
+          class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div class="flex items-center justify-between mt-28">
+          <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+            Fronx GL
+          </span>
+          <button class="text-gray-400 hover:text-gray-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
+            </svg>
+          </button>
+        </div>
+        <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
+          Mulai Rp. 259,000,000
+        </div>
+        <div class="flex items-center justify-between mb-4 group">
+          <div class="flex items-center text-gray-400">
+            <img src="../src/images/ic_seat.png" alt="Seater Icon"
+              class="h-6 w-5 mr-1 inline-block transition-transform duration-300 seat-img"
+              data-hover="../src/images/ic_seat_dark.png" />
+            5 Seater
+          </div>
+          <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
+              class="w-7 h-7">
+              <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Tambahkan card lain jika perlu -->
+  </div>
+  <!-- Horizontal Scroll End -->
+
+  <!-- Geser & Button Selengkapnya -->
+  <div class="flex flex-col items-center">
+    <div class="flex items-center gap-2 mb-6">
+      <img src="../src/images/ic_gestur_geser.png" alt="Geser" class="h-14 w-14" />
+      <span class="text-[#003399] text-lg font-semibold pt-5">Geser</span>
+    </div>
+    <a href="mobil.html" class="bg-[#003399] text-white px-10 py-2 rounded-full font-normal text-lg shadow hover:bg-[#a9c4fa] transition duration-400">
+      Selengkapnya
+    </a>
+  </div>
+</section>
 
 
   <!-- Section Kenapa Pilih Suzuki & Alamat Dealer Gabung -->
@@ -773,6 +1143,57 @@
 
 
 
+  <!-- Drag scroll logic -->
+<script>
+document.querySelectorAll('.slider-scroll').forEach(slider => {
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  slider.addEventListener("mousedown", (e) => {
+    isDown = true;
+    slider.classList.add("active");
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+
+  slider.addEventListener("mouseleave", () => {
+    isDown = false;
+    slider.classList.remove("active");
+  });
+
+  slider.addEventListener("mouseup", () => {
+    isDown = false;
+    slider.classList.remove("active");
+  });
+
+  slider.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    slider.scrollLeft = scrollLeft - walk;
+  });
+
+  // Support for touch devices
+  slider.addEventListener("touchstart", (e) => {
+    isDown = true;
+    startX = e.touches[0].pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+
+  slider.addEventListener("touchend", () => {
+    isDown = false;
+  });
+
+  slider.addEventListener("touchmove", (e) => {
+    if (!isDown) return;
+    const x = e.touches[0].pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    slider.scrollLeft = scrollLeft - walk;
+  });
+});
+</script>
 
   <script src="../src/js/hover-icon-seat.js"></script>
   <script src="../src/js/carousel-mobil-beranda.js"></script>

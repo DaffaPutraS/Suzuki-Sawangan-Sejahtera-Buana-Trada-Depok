@@ -8,6 +8,41 @@
   <link rel="icon" type="image/icon-x" href="../src/images/logo_suzuki.png"/>
   <link href="./style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Optional: Hide scrollbar (bisa di global css) */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.card-gradient-border {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  overflow: visible;
+}
+.card-gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 30px; /* Pastikan sesuai dengan card */
+  padding: 6px; /* Tebal border */
+  background: linear-gradient(130deg, #fff 20%, #003399 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+.card-gradient-border:hover::before,
+.card-gradient-border:focus-visible::before {
+  opacity: 1;
+}
+  </style>
 </head>
 <body class="bg-white min-h-screen font-[Poppins]">
       <!-- Header -->
@@ -123,19 +158,26 @@
   
 
   <!-- Section Mobil dengan Kategori Filter -->
-  <section class="w-full px-4 py-16 bg-white" style="max-width: 1400px; margin: 0 auto;">
+  <section class="w-full py-16 bg-white relative overflow-hidden min-h-[1500px] md:min-h-[2300px]">
+    <!-- Accent circle bottom right -->
+    <img 
+      src="../src/images/bg_circle.png" 
+      alt="" 
+      class="pointer-events-none select-none absolute z-0 right-0 bottom-0 w-[700px] md:w-[1200px]"
+      style="transform: translate(35%, 35%);"
+    />
     <!-- Kategori -->
-    <div class="flex justify-center lg:justify-start gap-4 lg:pl-40 mb-32 border-b border-blue-200">
+    <div class="flex flex-nowrap overflow-x-auto whitespace-nowrap mx-4 md:mx-16 lg:justify-start gap-4 lg:pl-40 mb-32 border-b border-blue-200 hide-scrollbar">
       <button class="kategori-btn px-3 pb-2 text-[#003399] font-semibold border-b-2 border-[#003399] focus:outline-none" data-kategori="semua">Semua</button>
       <button class="kategori-btn px-3 pb-2 text-gray-500 hover:text-[#003399] font-semibold border-b-2 border-transparent focus:outline-none" data-kategori="penumpang">Mobil Penumpang</button>
       <button class="kategori-btn px-3 pb-2 text-gray-500 hover:text-[#003399] font-semibold border-b-2 border-transparent focus:outline-none" data-kategori="komersial">Mobil Komersial</button>
       <button class="kategori-btn px-3 pb-2 text-gray-500 hover:text-[#003399] font-semibold border-b-2 border-transparent focus:outline-none" data-kategori="hybrid">Hybrid</button>
     </div>
     <!-- Card Mobil -->
-    <div id="mobil-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 gap-y-28 lg:px-32 justify-items-center ">
+    <div id="mobil-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1 gap-y-28 lg:px-48 justify-items-center ">
       <!-- Card contoh, tambahkan data-kategori sesuai kategori mobil -->
       <!-- card 1 -->
-      <div class="mobil-card group card-gradient-border bg-white rounded-2xl drop-shadow-lg shadow-2xl p-0 w-full max-w-[333px] h-[285px] relative overflow-visible" data-kategori="penumpang">
+      <div class="mobil-card group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl p-0 w-full max-w-[333px] h-[285px] relative overflow-visible" data-kategori="penumpang">
         <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
           <!-- Gambar mobil normal -->
           <img src="../src/images/s-presso.png" alt="S-Presso"
@@ -177,7 +219,7 @@
         </div>
       </div>
       <!-- card 2 -->
-      <div class="mobil-card group card-gradient-border bg-white rounded-2xl drop-shadow-lg shadow-2xl p-0 
+      <div class="mobil-card group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl p-0 
               w-full max-w-[333px] h-[285px] 
               relative overflow-visible" data-kategori="penumpang hybrid">
         <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
@@ -216,17 +258,17 @@
                 class="h-6 w-15 ml-3 inline-block"
               />
             </div>
-            <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <a href="./detail/grand-vitara.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
                   class="w-7 h-7">
                   <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
                 </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
       <!-- card 3 -->
-      <div class="mobil-card group card-gradient-border bg-white rounded-2xl drop-shadow-lg shadow-2xl p-0 
+      <div class="mobil-card group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl p-0 
               w-full max-w-[333px] h-[285px] 
               relative overflow-visible" data-kategori="penumpang">
         <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
@@ -260,17 +302,17 @@
               />
               5 Seater
             </div>
-            <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <a href="./detail/baleno.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
                   class="w-7 h-7">
                   <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
                 </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
       <!-- card 4 -->
-      <div class="mobil-card group card-gradient-border bg-white rounded-2xl drop-shadow-lg shadow-2xl p-0 
+      <div class="mobil-card group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl p-0 
               w-full max-w-[333px] h-[285px] 
               relative overflow-visible" data-kategori="penumpang hybrid">
         <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
@@ -309,17 +351,17 @@
                 class="h-6 w-15 ml-3 inline-block"
               />
             </div>
-            <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <a href="./detail/xl7-hybrid.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
                   class="w-7 h-7">
                   <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
                 </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
       <!-- card 5 -->
-      <div class="mobil-card group card-gradient-border bg-white rounded-2xl drop-shadow-lg shadow-2xl p-0 
+      <div class="mobil-card group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl p-0 
               w-full max-w-[333px] h-[285px] 
               relative overflow-visible" data-kategori="penumpang">
         <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
@@ -353,17 +395,17 @@
               />
               7 Seater
             </div>
-            <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <a href="./detail/xl7-zeta.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
                   class="w-7 h-7">
                   <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
                 </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
       <!-- card 6 -->
-      <div class="mobil-card group card-gradient-border bg-white rounded-2xl drop-shadow-lg shadow-2xl p-0 
+      <div class="mobil-card group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl p-0 
               w-full max-w-[333px] h-[285px] 
               relative overflow-visible" data-kategori="penumpang">
         <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
@@ -397,17 +439,17 @@
               />
               4 Seater
             </div>
-            <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <a href="./detail/jimny-3-doors.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
                   class="w-7 h-7">
                   <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
                 </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
       <!-- card 7 -->
-      <div class="mobil-card group card-gradient-border bg-white rounded-2xl drop-shadow-lg shadow-2xl p-0 
+      <div class="mobil-card group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl p-0 
               w-full max-w-[333px] h-[285px] 
               relative overflow-visible" data-kategori="penumpang">
         <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
@@ -441,17 +483,17 @@
               />
               4 Seater
             </div>
-            <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <a href="./detail/jimny-5-doors.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
                   class="w-7 h-7">
                   <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
                 </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
       <!-- card 8 -->
-      <div class="mobil-card group card-gradient-border bg-white rounded-2xl drop-shadow-lg shadow-2xl p-0 
+      <div class="mobil-card group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl p-0 
               w-full max-w-[333px] h-[285px] 
               relative overflow-visible" data-kategori="penumpang hybrid">
         <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
@@ -490,17 +532,17 @@
                 class="h-6 w-15 ml-3 inline-block"
               />
             </div>
-            <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <a href="./detail/ertiga-hybrid.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
                   class="w-7 h-7">
                   <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
                 </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
       <!-- card 9 -->
-      <div class="mobil-card group card-gradient-border bg-white rounded-2xl drop-shadow-lg shadow-2xl p-0 
+      <div class="mobil-card group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl p-0 
               w-full max-w-[333px] h-[285px] 
               relative overflow-visible" data-kategori="penumpang">
         <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
@@ -534,17 +576,17 @@
               />
               7 Seater
             </div>
-            <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <a href="./detail/ertiga.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
                   class="w-7 h-7">
                   <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
                 </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
       <!-- card 10 -->
-      <div class="mobil-card group card-gradient-border bg-white rounded-2xl drop-shadow-lg shadow-2xl p-0 
+      <div class="mobil-card group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl p-0 
               w-full max-w-[333px] h-[285px] 
               relative overflow-visible" data-kategori="komersial">
         <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
@@ -578,17 +620,17 @@
               />
               3 Seater
             </div>
-            <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <a href="./detail/carry.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
                   class="w-7 h-7">
                   <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
                 </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
       <!-- card 11 -->
-      <div class="mobil-card group card-gradient-border bg-white rounded-2xl drop-shadow-lg shadow-2xl p-0 
+      <div class="mobil-card group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl p-0 
               w-full max-w-[333px] h-[285px] 
               relative overflow-visible" data-kategori="penumpang">
         <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
@@ -622,17 +664,17 @@
               />
               8 Seater
             </div>
-            <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <a href="./detail/apv.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
                   class="w-7 h-7">
                   <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
                 </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
       <!-- card 12 -->
-      <div class="mobil-card group card-gradient-border bg-white rounded-2xl drop-shadow-lg shadow-2xl p-0 
+      <div class="mobil-card group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl p-0 
               w-full max-w-[333px] h-[285px] 
               relative overflow-visible" data-kategori="penumpang hybrid">
         <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
@@ -671,17 +713,17 @@
                 class="h-6 w-15 ml-3 inline-block"
               />
             </div>
-            <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <a href="./detail/fronx-hybrid.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
                   class="w-7 h-7">
                   <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
                 </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
       <!-- card 13 -->
-      <div class="mobil-card group card-gradient-border bg-white rounded-2xl drop-shadow-lg shadow-2xl p-0 
+      <div class="mobil-card group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl p-0 
               w-full max-w-[333px] h-[285px] 
               relative overflow-visible" data-kategori="penumpang">
         <div class="relative rounded-4xl p-4 overflow-visible z-10 m-[10px] h-full">
@@ -715,15 +757,24 @@
               />
               5 Seater
             </div>
-            <button class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
+            <a href="./detail/fronx.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
                   class="w-7 h-7">
                   <path stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M5 10h10m0 0-4-4m4 4-4 4"/>
                 </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
+    </div>
+    <div class="flex flex-col items-center pb-8 mt-10 z-10 md:mt-0 md:absolute md:left-0 md:right-0 md:bottom-0">
+      <span class="text-xl md:text-2xl font-bold text-gray-800 mb-4">Hubungi Sales Kami</span>
+      <a href="#" class="kontak-modal group z-50 inline-flex items-center gap-2 bg-[#003399] text-white px-8 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition-all duration-300">
+          Whatsapp
+          <span class="flex items-center transition-all duration-300 opacity-0 translate-x-2 w-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:w-5">
+                <img src="../src/images/ic_whatsapp_white.png" alt="WhatsApp" class="w-5 h-5 ml-1 text-white" />
+              </span>
+        </a>
     </div>
   </section>
 
@@ -731,7 +782,7 @@
 
 
   <!-- Footer -->
-  <footer class="bg-[#003399] text-white pt-10 pb-6 px-4 rounded-t-3xl mt-16">
+  <footer class="bg-[#003399] text-white pt-10 pb-6 px-4 rounded-t-3xl">
     <div class="mx-auto grid grid-cols-1 md:grid-cols-[60px_2fr_1fr_1fr_1fr] gap-8" style="max-width:1400px;">
       <!-- Kolom baru untuk judul Mobil -->
       <div class="flex flex-col items-start md:items-center md:justify-start">
