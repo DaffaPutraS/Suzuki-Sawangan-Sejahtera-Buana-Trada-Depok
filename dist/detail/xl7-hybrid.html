@@ -257,16 +257,16 @@
 
 <section class="w-full bg-white py-12 flex flex-col items-center justify-center relative overflow-hidden">
   <!-- Background Image -->
-  <div class="absolute inset-0 w-full h-full z-0">
+  <div class="absolute inset-0 w-full h-full z-0 hidden md:block">
     <img src="../../src/images/xl7-hybrid/bg2_xl7-hybrid.png" alt="Background" class="w-full h-full object-cover object-center" />
   </div>
   <div class="relative mt-14 w-full mx-auto max-w-7xl flex flex-col items-center z-10">
-    <div class="w-full py-8 px-2">
-      <div class="flex flex-col md:flex-row justify-center items-center gap-10 mx-auto">
+    <div class="w-full py-8 md:px-2">
+      <div class="flex flex-col md:flex-row justify-center items-center md:gap-10 mx-auto">
         <!-- Bagian Kiri: Cruise -->
-        <div class="flex-1 flex flex-col items-center p-6">
-          <span class="inline-block bg-white border-2 border-[#003399] text-[#003399] rounded-xl px-4 py-1 font-bold text-lg mb-4">XL7 HYBRID MT & AT</span>
-          <img id="img-cruise" src="../../src/images/xl7-hybrid/COOL BLACK.png" alt="COOL BLACK" class="w-full max-w-xl h-auto object-contain mb-4 transition-all duration-300">
+        <div class="flex-1 w-full flex flex-col items-center md:p-6 pt-20 md:pt-0 relative bg-[url('../../src/images/xl7-hybrid/bg2_xl7-hybrid.png')] bg-cover bg-center md:bg-none">
+          <span class="inline-block bg-white border-2 border-[#003399] text-[#003399] rounded-xl px-6 py-1 font-bold text-lg md:mb-4">XL7 HYBRID MT & AT</span>
+          <img id="img-cruise" src="../../src/images/xl7-hybrid/COOL BLACK.png" alt="COOL BLACK" class="w-full max-w-xl h-auto object-contain md:mb-4 transition-all duration-300">
           <span class="text-base font-semibold text-gray-700 mb-2">Warna</span>
           <div class="flex items-center gap-2 mb-3">
             <button type="button" data-variant="cruise" data-warna="black" class="dot-warna-cruise group" aria-label="Cool Black">
@@ -286,11 +286,11 @@
                 style="width:16px; height:16px; transition: all 0.3s cubic-bezier(.4,2,.6,1);"></span>
             </button>
           </div>
-          <span id="nama-warna-cruise" class="text-lg font-bold text-gray-900 text-center mb-0">COOL BLACK<br><span class="font-semibold">MT & AT</span></span>
+          <span id="nama-warna-cruise" class="text-lg font-bold text-gray-900 text-center mb-6">COOL BLACK<br><span class="font-semibold">MT & AT</span></span>
         </div>
         <!-- Bagian Kanan: GX -->
-        <div class="flex-1 flex flex-col items-center p-6">
-          <span class="inline-block bg-white border-2 border-[#003399] text-[#003399] rounded-xl px-4 py-1 font-bold text-lg mb-4">XL7 HYBRID ALPHA MT & AT</span>
+        <div class="flex-1 w-full flex flex-col items-center md:p-6 pt-20 md:pt-0 relative bg-[url('../../src/images/xl7-hybrid/bg2_xl7-hybrid.png')] bg-cover bg-center md:bg-none">
+          <span class="inline-block bg-white border-2 border-[#003399] text-[#003399] rounded-xl px-4 py-1 font-bold text-lg md:mb-4">XL7 HYBRID ALPHA MT & AT</span>
           <img id="img-gx" src="../../src/images/xl7-hybrid/NEW SAVANNA IVORY 2 – BLACK.png" alt="NEW SAVANNA IVORY 2 – BLACK" class="w-full max-w-xl h-auto object-contain mb-4 transition-all duration-300">
           <span class="text-base font-semibold text-gray-700 mb-2">Warna</span>
           <div class="flex items-center gap-2 mb-3">
@@ -311,7 +311,7 @@
                 style="width:32px; height:16px; transition: all 0.3s cubic-bezier(.4,2,.6,1);"></span>
             </button>
           </div>
-          <span id="nama-warna-gx" class="text-lg font-bold text-gray-900 text-center mb-0">NEW SAVANNA IVORY 2 – BLACK<br><span class="font-semibold">MT & AT HYBRID (2 TONE)</span></span>
+          <span id="nama-warna-gx" class="text-lg font-bold text-gray-900 text-center mb-6">NEW SAVANNA IVORY 2 – BLACK<br><span class="font-semibold">MT & AT HYBRID (2 TONE)</span></span>
         </div>
       </div>
     </div>

@@ -1174,6 +1174,15 @@
       background-color: color-mix(in oklab, var(--color-white) 90%, transparent);
     }
   }
+  .bg-\[url\(\'\.\.\/\.\.\/src\/images\/ertiga-hybrid\/bg2_ertiga-hybrid\.png\'\)\] {
+    background-image: url('../../src/images/ertiga-hybrid/bg2_ertiga-hybrid.png');
+  }
+  .bg-\[url\(\'\.\.\/\.\.\/src\/images\/fronx-hybrid\/bg2_fronx-hybrid\.png\'\)\] {
+    background-image: url('../../src/images/fronx-hybrid/bg2_fronx-hybrid.png');
+  }
+  .bg-\[url\(\'\.\.\/\.\.\/src\/images\/xl7-hybrid\/bg2_xl7-hybrid\.png\'\)\] {
+    background-image: url('../../src/images/xl7-hybrid/bg2_xl7-hybrid.png');
+  }
   .bg-\[url\(\'\.\.\/src\/images\/bg_mobil_page\.png\'\)\] {
     background-image: url('../src/images/bg_mobil_page.png');
   }
@@ -1269,6 +1278,9 @@
   }
   .pt-5 {
     padding-top: calc(var(--spacing) * 5);
+  }
+  .pt-6 {
+    padding-top: calc(var(--spacing) * 6);
   }
   .pt-10 {
     padding-top: calc(var(--spacing) * 10);
@@ -2092,6 +2104,11 @@
       margin-bottom: calc(var(--spacing) * 0);
     }
   }
+  .md\:mb-4 {
+    @media (width >= 48rem) {
+      margin-bottom: calc(var(--spacing) * 4);
+    }
+  }
   .md\:mb-80 {
     @media (width >= 48rem) {
       margin-bottom: calc(var(--spacing) * 80);
@@ -2282,9 +2299,24 @@
       background-color: transparent;
     }
   }
+  .md\:bg-none {
+    @media (width >= 48rem) {
+      background-image: none;
+    }
+  }
+  .md\:p-6 {
+    @media (width >= 48rem) {
+      padding: calc(var(--spacing) * 6);
+    }
+  }
   .md\:p-8 {
     @media (width >= 48rem) {
       padding: calc(var(--spacing) * 8);
+    }
+  }
+  .md\:px-2 {
+    @media (width >= 48rem) {
+      padding-inline: calc(var(--spacing) * 2);
     }
   }
   .md\:px-4 {
@@ -2300,6 +2332,11 @@
   .md\:py-16 {
     @media (width >= 48rem) {
       padding-block: calc(var(--spacing) * 16);
+    }
+  }
+  .md\:pt-0 {
+    @media (width >= 48rem) {
+      padding-top: calc(var(--spacing) * 0);
     }
   }
   .md\:pt-16 {
