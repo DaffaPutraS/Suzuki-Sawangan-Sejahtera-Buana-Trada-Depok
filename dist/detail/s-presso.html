@@ -25,18 +25,29 @@
   opacity: 1;
   pointer-events: auto;
 }
+
+.img-fade {
+  transition: opacity 0.4s;
+  opacity: 1;
+}
+.img-fade.fade-out {
+  opacity: 0;
+}
+.img-fade.fade-in {
+  opacity: 1;
+}
 </style>
 </head>
 <body class="bg-white min-h-screen font-[Poppins]">
   <!-- Header -->
   <header class="bg-white/60 shadow-sm border-b-[3px] z-50" style="border-color: #E0EBFF;">
-    <div class="mx-auto flex items-center gap-6 px-4 py-2" style="max-width:1400px;">
-      <div class="flex items-center gap-3">
-        <img src="../../src/images/logo_suzuki.png" alt="Logo Suzuki" class="h-10 w-10 rounded-full bg-white border border-gray-200">
-        <span class="text-xs text-[#003399]">Website Resmi Suzuki Sejahtera Buana Trada</span>
+    <div class="mx-auto flex flex-wrap items-center gap-2 sm:gap-4 md:gap-6 px-2 sm:px-4 py-2 justify-center sm:justify-start w-full" style="max-width:1400px;">
+      <div class="flex items-center gap-2 sm:gap-3">
+        <img src="/src/images/logo_suzuki.png" alt="Logo Suzuki" class="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-white border border-gray-200">
+        <span class="text-[10px] sm:text-xs md:text-sm text-[#003399]">Website Resmi Suzuki Sejahtera Buana Trada</span>
       </div>
-      <div class="w-px h-6 bg-[#003399]"></div>
-      <span class="text-xs text-[#003399] hidden md:block">Sawangan, Kota Depok</span>
+      <div class="w-px h-6 bg-[#003399] hidden sm:block"></div>
+      <span class="text-[10px] sm:text-xs md:text-sm text-[#003399] block text-center sm:text-left">Sawangan, Kota Depok</span>
     </div>
   </header>
 
@@ -128,7 +139,7 @@
 
 
   <!-- Section Banner Gambar (Paling Atas) -->
-  <section class="w-full min-h-[220px] sm:min-h-[350px] md:min-h-[500px] lg:min-h-[650px] xl:min-h-[800px] bg-[#f4f8ff] flex items-center justify-center overflow-hidden -mt-2 p-0 m-0">
+  <section class="w-full min-h-[220px] sm:min-h-[350px] md:min-h-[500px] lg:min-h-[650px] xl:min-h-[800px] bg-[#f4f8ff] flex items-center justify-center overflow-hidden -mt-2 md:-mt-0 p-0 m-0">
   <img 
     src="../../src/images/bg_s-presso_page.png" 
     alt="S-Presso Banner"
@@ -175,95 +186,103 @@
     </div>
   </div>
   <!-- Carousel/slider horizontal (baris 2) -->
-  <div id="exterior-slider" class="tab-fade slider-scroll overflow-x-auto hide-scrollbar flex gap-3 py-4 sm:pl-20 scrollbar-hide select-none" style="scroll-snap-type: x mandatory;">
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/kisi-kisi_depan_kroam.png" alt="Kisi-kisi Depan Krom" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Kisi-kisi Depan Krom</span>
+  <div class="relative w-full">
+    <div class="pointer-events-none absolute right-0 top-0 h-full w-16 md:w-40 z-20"
+        style="background: linear-gradient(to left, rgba(204,221,255,1) 0%, rgba(255,255,255,0) 80%);"></div>
+    <div id="exterior-slider" class="tab-fade slider-scroll overflow-x-auto hide-scrollbar flex gap-3 py-4 sm:pl-20 scrollbar-hide select-none relative" style="scroll-snap-type: x mandatory;">
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/kisi-kisi_depan_kroam.png" alt="Kisi-kisi Depan Krom" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Kisi-kisi Depan Krom</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/gagang-pintu_&_kaca-spion.png" alt="Gagang Pintu & Kaca Spion" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Gagang Pintu & Kaca Spion</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/lampu-dengan-lampu-sein.png" alt="Lampu Dengan Lampu Sein" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Lampu Dengan Lampu Sein</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/Pelat Pelindung Depan & Penutup Radiator Bawah.png" alt="Pelat Pelindung Depan" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Pelat Pelindung Depan</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/Pelapis Samping & Lengkungan Roda.png" alt="Pelapis Samping & Lengkungan Roda" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Pelapis Samping & Lengkungan Roda</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/Velg Padua 2 Warna.png" alt="Velg Padua 2 Warna" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Velg Padua 2 Warna</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/Defogger Belakang Dengan Lampu Stop Pemasangan Tinggi.png" alt="Defogger Belakang Dengan Lampu Stop Pemasangan Tinggi" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Defogger Belakang Dengan Lampu Stop..</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/Lampu Kombinasi Belakang.png" alt="Lampu Kombinasi Belakang" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Lampu Kombinasi Belakang</span>
+      </div>
+      <!-- Tambahkan gambar detail lain jika perlu -->
     </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/gagang-pintu_&_kaca-spion.png" alt="Gagang Pintu & Kaca Spion" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Gagang Pintu & Kaca Spion</span>
-    </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/lampu-dengan-lampu-sein.png" alt="Lampu Dengan Lampu Sein" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Lampu Dengan Lampu Sein</span>
-    </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/Pelat Pelindung Depan & Penutup Radiator Bawah.png" alt="Pelat Pelindung Depan" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Pelat Pelindung Depan</span>
-    </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/Pelapis Samping & Lengkungan Roda.png" alt="Pelapis Samping & Lengkungan Roda" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Pelapis Samping & Lengkungan Roda</span>
-    </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/Velg Padua 2 Warna.png" alt="Velg Padua 2 Warna" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Velg Padua 2 Warna</span>
-    </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/Defogger Belakang Dengan Lampu Stop Pemasangan Tinggi.png" alt="Defogger Belakang Dengan Lampu Stop Pemasangan Tinggi" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Defogger Belakang Dengan Lampu Stop..</span>
-    </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/Lampu Kombinasi Belakang.png" alt="Lampu Kombinasi Belakang" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Lampu Kombinasi Belakang</span>
-    </div>
-    <!-- Tambahkan gambar detail lain jika perlu -->
   </div>
-  <div id="interior-slider" class="tab-fade slider-scroll hidden overflow-x-auto hide-scrollbar flex gap-3 py-4 sm:pl-20 scrollbar-hide select-none" style="scroll-snap-type: x mandatory;">
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/Kantong Konsol Depan.png" alt="Kisi-kisi Depan Krom" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Kantong Konsol Depan</span>
+  <div class="relative w-full">
+    <div class="pointer-events-none absolute right-0 top-0 h-full w-16 md:w-40 z-20"
+        style="background: linear-gradient(to left, rgba(204,221,255,1) 0%, rgba(255,255,255,0) 80%);"></div>
+    <div id="interior-slider" class="tab-fade slider-scroll hidden overflow-x-auto hide-scrollbar flex gap-3 py-4 sm:pl-20 scrollbar-hide select-none" style="scroll-snap-type: x mandatory;">
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/Kantong Konsol Depan.png" alt="Kisi-kisi Depan Krom" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Kantong Konsol Depan</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/Open Tray.png" alt="Gagang Pintu & Kaca Spion" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Open Tray</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/Kantong Konsol Belakang.png" alt="Lampu Dengan Lampu Sein" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Kantong Konsol Belakang</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/Pelindung Matahari.png" alt="Pelat Pelindung Depan" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Pelindung Matahari</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/Kantong Pintu Konsol Depan.png" alt="Pelapis Samping & Lengkungan Roda" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Kantong Pintu Konsol Depan</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/Head Unit 7 Layar Sentuh dengan Smart Linkage Audio.png" alt="Velg Padua 2 Warna" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Head Unit 7 Layar Sentuh dengan Smar..</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/Lampu Dalam.png" alt="Defogger Belakang Dengan Lampu Stop Pemasangan Tinggi" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Lampu Dalam</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/Pegangan Bantuan.png" alt="Lampu Kombinasi Belakang" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Pegangan Bantuan</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/Sakelar Pengarah Audio.png" alt="Lampu Kombinasi Belakang" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Sakelar Pengarah Audio</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/Koneksi Telepone Bluetooth.png" alt="Lampu Kombinasi Belakang" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Koneksi Telepone Bluetooth</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/Kontrol AC.png" alt="Lampu Kombinasi Belakang" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Kontrol AC</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/Kluster Meter Digital.png" alt="Lampu Kombinasi Belakang" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">Kluster Meter Digital</span>
+      </div>
+      <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
+        <img src="../../src/images/s-presso/AC.png" alt="Lampu Kombinasi Belakang" class="w-full h-full object-contain mb-2">
+        <span class="text-sm text-gray-700 text-center">AC</span>
+      </div>
+      <!-- Tambahkan gambar detail interior lain jika perlu -->
     </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/Open Tray.png" alt="Gagang Pintu & Kaca Spion" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Open Tray</span>
-    </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/Kantong Konsol Belakang.png" alt="Lampu Dengan Lampu Sein" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Kantong Konsol Belakang</span>
-    </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/Pelindung Matahari.png" alt="Pelat Pelindung Depan" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Pelindung Matahari</span>
-    </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/Kantong Pintu Konsol Depan.png" alt="Pelapis Samping & Lengkungan Roda" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Kantong Pintu Konsol Depan</span>
-    </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/Head Unit 7 Layar Sentuh dengan Smart Linkage Audio.png" alt="Velg Padua 2 Warna" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Head Unit 7 Layar Sentuh dengan Smart Linkage Audio</span>
-    </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/Lampu Dalam.png" alt="Defogger Belakang Dengan Lampu Stop Pemasangan Tinggi" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Lampu Dalam</span>
-    </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/Pegangan Bantuan.png" alt="Lampu Kombinasi Belakang" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Pegangan Bantuan</span>
-    </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/Sakelar Pengarah Audio.png" alt="Lampu Kombinasi Belakang" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Sakelar Pengarah Audio</span>
-    </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/Koneksi Telepone Bluetooth.png" alt="Lampu Kombinasi Belakang" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Koneksi Telepone Bluetooth</span>
-    </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/Kontrol AC.png" alt="Lampu Kombinasi Belakang" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Kontrol AC</span>
-    </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/Kluster Meter Digital.png" alt="Lampu Kombinasi Belakang" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Kluster Meter Digital</span>
-    </div>
-    <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/s-presso/AC.png" alt="Lampu Kombinasi Belakang" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">AC</span>
-    </div>
-    <!-- Tambahkan gambar detail interior lain jika perlu -->
   </div>
   <div class="flex flex-col items-center mt-10">
     <div class="flex items-center gap-2 mb-6">
@@ -852,6 +871,7 @@ document.querySelectorAll('.slider-scroll').forEach(slider => {
 
 <script>
 // Data warna dan gambar
+// Data warna dan gambar + efek fade pada gambar
 const warnaData = {
   white: {
     img: '../../src/images/s-presso/s-presso-white.png',
@@ -879,6 +899,9 @@ const dots = document.querySelectorAll('.warna-dot');
 const img = document.getElementById('mobil-warna-img');
 const namaWarna = document.getElementById('nama-warna');
 
+// Pastikan class img-fade sudah ada di img
+img.classList.add('img-fade');
+
 function setActiveDot(dot) {
   dots.forEach(d => {
     const span = d.querySelector('span');
@@ -893,15 +916,51 @@ function setActiveDot(dot) {
 dots.forEach(dot => {
   dot.addEventListener('click', function () {
     const warna = this.getAttribute('data-warna');
-    img.src = warnaData[warna].img;
-    img.alt = 'S-Presso ' + warnaData[warna].label;
+    const newSrc = warnaData[warna].img;
+    const newAlt = 'S-Presso ' + warnaData[warna].label;
+
+    // Jika gambar sama, tidak perlu animasi
+    if (img.src.includes(newSrc)) return;
+
+    // Buat img overlay
+    const overlay = img.cloneNode();
+    overlay.src = img.src;
+    overlay.style.position = 'absolute';
+    overlay.style.left = img.offsetLeft + 'px';
+    overlay.style.top = img.offsetTop + 'px';
+    overlay.style.width = img.offsetWidth + 'px';
+    overlay.style.height = img.offsetHeight + 'px';
+    overlay.style.pointerEvents = 'none';
+    overlay.style.transition = 'opacity 0.5s';
+    overlay.style.opacity = 1;
+    overlay.style.zIndex = 10;
+
+    // Tempel overlay ke parent img
+    img.parentNode.style.position = 'relative';
+    img.parentNode.appendChild(overlay);
+
+    // Ganti gambar utama, sembunyikan dulu
+    img.style.opacity = 0;
+    img.src = newSrc;
+    img.alt = newAlt;
     namaWarna.textContent = warnaData[warna].label;
     setActiveDot(this);
+
+    // Setelah gambar baru load, crossfade
+    img.onload = () => {
+      img.style.transition = 'opacity 0.5s';
+      img.style.opacity = 1;
+      overlay.style.opacity = 0;
+      setTimeout(() => {
+        if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      }, 500);
+    };
   });
 });
 
-// Set default active
+// Set default active dan fade-in saat load
 setActiveDot(dots[0]);
+img.classList.add('fade-in');
 </script>
 
 <script src="../../src/js/dealer-carousel.js"></script>

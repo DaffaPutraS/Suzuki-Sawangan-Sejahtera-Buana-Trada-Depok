@@ -30,13 +30,13 @@
 <body class="bg-white min-h-screen font-[Poppins]">
   <!-- Header -->
   <header class="bg-white/60 shadow-sm border-b-[3px] z-50" style="border-color: #E0EBFF;">
-    <div class="mx-auto flex items-center gap-6 px-4 py-2" style="max-width:1400px;">
-      <div class="flex items-center gap-3">
-        <img src="../../src/images/logo_suzuki.png" alt="Logo Suzuki" class="h-10 w-10 rounded-full bg-white border border-gray-200">
-        <span class="text-xs text-[#003399]">Website Resmi Suzuki Sejahtera Buana Trada</span>
+    <div class="mx-auto flex flex-wrap items-center gap-2 sm:gap-4 md:gap-6 px-2 sm:px-4 py-2 justify-center sm:justify-start w-full" style="max-width:1400px;">
+      <div class="flex items-center gap-2 sm:gap-3">
+        <img src="/src/images/logo_suzuki.png" alt="Logo Suzuki" class="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-white border border-gray-200">
+        <span class="text-[10px] sm:text-xs md:text-sm text-[#003399]">Website Resmi Suzuki Sejahtera Buana Trada</span>
       </div>
-      <div class="w-px h-6 bg-[#003399]"></div>
-      <span class="text-xs text-[#003399] hidden md:block">Sawangan, Kota Depok</span>
+      <div class="w-px h-6 bg-[#003399] hidden sm:block"></div>
+      <span class="text-[10px] sm:text-xs md:text-sm text-[#003399] block text-center sm:text-left">Sawangan, Kota Depok</span>
     </div>
   </header>
 
@@ -175,6 +175,9 @@
     </div>
   </div>
   <!-- Carousel/slider horizontal (baris 2) -->
+   <div class="relative w-full">
+    <div class="pointer-events-none absolute right-0 top-0 h-full w-16 md:w-40 z-20"
+        style="background: linear-gradient(to left, rgba(204,221,255,1) 0%, rgba(255,255,255,0) 80%);"></div>
   <div id="exterior-slider" class="tab-fade slider-scroll overflow-x-auto hide-scrollbar flex gap-3 py-4 sm:pl-20 scrollbar-hide select-none" style="scroll-snap-type: x mandatory;">
     <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
       <img src="../../src/images/xl7-hybrid/antena kutub pendek.png" alt="Kisi-kisi Depan Krom" class="w-full h-full object-contain mb-2">
@@ -214,13 +217,18 @@
     </div>
     <!-- Tambahkan gambar detail lain jika perlu -->
   </div>
+  </div>
+
+  <div class="relative w-full">
+    <div class="pointer-events-none absolute right-0 top-0 h-full w-16 md:w-40 z-20"
+        style="background: linear-gradient(to left, rgba(204,221,255,1) 0%, rgba(255,255,255,0) 80%);"></div>
   <div id="interior-slider" class="tab-fade slider-scroll hidden overflow-x-auto hide-scrollbar flex gap-3 py-4 sm:pl-20 scrollbar-hide select-none" style="scroll-snap-type: x mandatory;">
     <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
       <img src="../../src/images/xl7-hybrid/roda kemudi jari-jari.png" alt="Kisi-kisi Depan Krom" class="w-full h-full object-contain mb-2">
       <span class="text-sm text-gray-700 text-center">Roda Kemdudi Jari-jari</span>
     </div>
     <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
-      <img src="../../src/images/xl7-hybrid/titik warna tampilan tengah.png" alt="Gagang Pintu & Kaca Spion" class="w-full h-full object-contain mb-2">
+      <img src="../../src/images/xl7-hybrid/titik warna.png" alt="Gagang Pintu & Kaca Spion" class="w-full h-full object-contain mb-2">
       <span class="text-sm text-gray-700 text-center">Titik Warna Tampilan Tengah...</span>
     </div>
     <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
@@ -236,6 +244,7 @@
       <span class="text-sm text-gray-700 text-center">Gagang pintu Krom</span>
     </div>
     <!-- Tambahkan gambar detail interior lain jika perlu -->
+  </div>
   </div>
   <div class="flex flex-col items-center mt-10">
     <div class="flex items-center gap-2 mb-6">
@@ -891,6 +900,9 @@ const warnaGX = {
 
 // Cruise
 const cruiseDots = document.querySelectorAll('.dot-warna-cruise');
+const imgCruise = document.getElementById('img-cruise');
+const namaCruise = document.getElementById('nama-warna-cruise');
+
 function setActiveCruiseDot(dot) {
   cruiseDots.forEach(d => {
     const span = d.querySelector('span');
@@ -903,21 +915,53 @@ function setActiveCruiseDot(dot) {
   span.style.height = '25px';
   span.style.outline = '2px solid #003399';
 }
+
 cruiseDots.forEach(btn => {
   btn.addEventListener('click', function () {
     const warna = this.getAttribute('data-warna');
     const data = warnaCruise[warna];
-    document.getElementById('img-cruise').src = data.img;
-    document.getElementById('img-cruise').alt = data.label + ' ' + data.tipe;
-    document.getElementById('nama-warna-cruise').innerHTML = `${data.label}<br><span class="font-semibold">${data.tipe}</span>`;
+    // Jika gambar sama, tidak perlu animasi
+    if (imgCruise.src.includes(data.img)) return;
+
+    // Crossfade: buat overlay img
+    const overlay = imgCruise.cloneNode();
+    overlay.src = imgCruise.src;
+    overlay.style.position = 'absolute';
+    overlay.style.left = imgCruise.offsetLeft + 'px';
+    overlay.style.top = imgCruise.offsetTop + 'px';
+    overlay.style.width = imgCruise.offsetWidth + 'px';
+    overlay.style.height = imgCruise.offsetHeight + 'px';
+    overlay.style.pointerEvents = 'none';
+    overlay.style.transition = 'opacity 0.5s';
+    overlay.style.opacity = 1;
+    overlay.style.zIndex = 10;
+
+    imgCruise.parentNode.style.position = 'relative';
+    imgCruise.parentNode.appendChild(overlay);
+
+    imgCruise.style.opacity = 0;
+    imgCruise.src = data.img;
+    imgCruise.alt = data.label + ' ' + data.tipe;
+    namaCruise.innerHTML = `${data.label}<br><span class="font-semibold">${data.tipe}</span>`;
     setActiveCruiseDot(this);
+
+    imgCruise.onload = () => {
+      imgCruise.style.transition = 'opacity 0.5s';
+      imgCruise.style.opacity = 1;
+      overlay.style.opacity = 0;
+      setTimeout(() => {
+        if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      }, 500);
+    };
   });
 });
-// Set default active for Cruise
 setActiveCruiseDot(cruiseDots[0]);
 
 // GX
 const gxDots = document.querySelectorAll('.dot-warna-gx');
+const imgGX = document.getElementById('img-gx');
+const namaGX = document.getElementById('nama-warna-gx');
+
 function setActiveGXDot(dot) {
   gxDots.forEach(d => {
     const span = d.querySelector('span');
@@ -930,17 +974,46 @@ function setActiveGXDot(dot) {
   span.style.height = '25px';
   span.style.outline = '2px solid #003399';
 }
+
 gxDots.forEach(btn => {
   btn.addEventListener('click', function () {
     const warna = this.getAttribute('data-warna');
     const data = warnaGX[warna];
-    document.getElementById('img-gx').src = data.img;
-    document.getElementById('img-gx').alt = data.label + ' ' + data.tipe;
-    document.getElementById('nama-warna-gx').innerHTML = `${data.label}<br><span class="font-semibold">${data.tipe}</span>`;
+    // Jika gambar sama, tidak perlu animasi
+    if (imgGX.src.includes(data.img)) return;
+
+    // Crossfade: buat overlay img
+    const overlay = imgGX.cloneNode();
+    overlay.src = imgGX.src;
+    overlay.style.position = 'absolute';
+    overlay.style.left = imgGX.offsetLeft + 'px';
+    overlay.style.top = imgGX.offsetTop + 'px';
+    overlay.style.width = imgGX.offsetWidth + 'px';
+    overlay.style.height = imgGX.offsetHeight + 'px';
+    overlay.style.pointerEvents = 'none';
+    overlay.style.transition = 'opacity 0.5s';
+    overlay.style.opacity = 1;
+    overlay.style.zIndex = 10;
+
+    imgGX.parentNode.style.position = 'relative';
+    imgGX.parentNode.appendChild(overlay);
+
+    imgGX.style.opacity = 0;
+    imgGX.src = data.img;
+    imgGX.alt = data.label + ' ' + data.tipe;
+    namaGX.innerHTML = `${data.label}<br><span class="font-semibold">${data.tipe}</span>`;
     setActiveGXDot(this);
+
+    imgGX.onload = () => {
+      imgGX.style.transition = 'opacity 0.5s';
+      imgGX.style.opacity = 1;
+      overlay.style.opacity = 0;
+      setTimeout(() => {
+        if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      }, 500);
+    };
   });
 });
-// Set default active for GX (index 3 = mellow deep red)
 setActiveGXDot(gxDots[0]);
 </script>
 

@@ -560,6 +560,9 @@
   .h-full {
     height: 100%;
   }
+  .h-max {
+    height: max-content;
+  }
   .h-screen {
     height: 100vh;
   }
@@ -1278,6 +1281,9 @@
   }
   .pt-16 {
     padding-top: calc(var(--spacing) * 16);
+  }
+  .pt-20 {
+    padding-top: calc(var(--spacing) * 20);
   }
   .pr-1 {
     padding-right: calc(var(--spacing) * 1);
@@ -2044,6 +2050,11 @@
   .md\:mx-16 {
     @media (width >= 48rem) {
       margin-inline: calc(var(--spacing) * 16);
+    }
+  }
+  .md\:-mt-0 {
+    @media (width >= 48rem) {
+      margin-top: calc(var(--spacing) * -0);
     }
   }
   .md\:-mt-24 {
