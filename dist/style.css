@@ -7,7 +7,6 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-green-400: oklch(79.2% 0.209 151.711);
     --color-green-600: oklch(62.7% 0.194 149.214);
     --color-blue-100: oklch(93.2% 0.032 255.585);
@@ -57,9 +56,7 @@
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --font-weight-extrabold: 800;
-    --font-weight-black: 900;
     --tracking-widest: 0.1em;
-    --leading-tight: 1.25;
     --leading-snug: 1.375;
     --leading-relaxed: 1.625;
     --radius-lg: 0.5rem;
@@ -341,9 +338,6 @@
   .-mt-2 {
     margin-top: calc(var(--spacing) * -2);
   }
-  .-mt-3 {
-    margin-top: calc(var(--spacing) * -3);
-  }
   .-mt-9 {
     margin-top: calc(var(--spacing) * -9);
   }
@@ -376,9 +370,6 @@
   }
   .mt-24 {
     margin-top: calc(var(--spacing) * 24);
-  }
-  .mt-28 {
-    margin-top: calc(var(--spacing) * 28);
   }
   .mt-32 {
     margin-top: calc(var(--spacing) * 32);
@@ -560,9 +551,6 @@
   .h-full {
     height: 100%;
   }
-  .h-max {
-    height: max-content;
-  }
   .h-screen {
     height: 100vh;
   }
@@ -574,9 +562,6 @@
   }
   .max-h-\[80vh\] {
     max-height: 80vh;
-  }
-  .max-h-screen {
-    max-height: 100vh;
   }
   .min-h-\[220px\] {
     min-height: 220px;
@@ -644,20 +629,8 @@
   .w-20 {
     width: calc(var(--spacing) * 20);
   }
-  .w-24 {
-    width: calc(var(--spacing) * 24);
-  }
-  .w-28 {
-    width: calc(var(--spacing) * 28);
-  }
   .w-32 {
     width: calc(var(--spacing) * 32);
-  }
-  .w-40 {
-    width: calc(var(--spacing) * 40);
-  }
-  .w-52 {
-    width: calc(var(--spacing) * 52);
   }
   .w-72 {
     width: calc(var(--spacing) * 72);
@@ -844,9 +817,6 @@
   }
   .gap-4 {
     gap: calc(var(--spacing) * 4);
-  }
-  .gap-6 {
-    gap: calc(var(--spacing) * 6);
   }
   .gap-8 {
     gap: calc(var(--spacing) * 8);
@@ -1279,9 +1249,6 @@
   .pt-5 {
     padding-top: calc(var(--spacing) * 5);
   }
-  .pt-6 {
-    padding-top: calc(var(--spacing) * 6);
-  }
   .pt-10 {
     padding-top: calc(var(--spacing) * 10);
   }
@@ -1320,6 +1287,12 @@
   }
   .pb-12 {
     padding-bottom: calc(var(--spacing) * 12);
+  }
+  .pl-10 {
+    padding-left: calc(var(--spacing) * 10);
+  }
+  .pl-20 {
+    padding-left: calc(var(--spacing) * 20);
   }
   .text-center {
     text-align: center;
@@ -1933,6 +1906,11 @@
       flex-direction: row;
     }
   }
+  .sm\:justify-center {
+    @media (width >= 40rem) {
+      justify-content: center;
+    }
+  }
   .sm\:justify-start {
     @media (width >= 40rem) {
       justify-content: flex-start;
@@ -1976,6 +1954,11 @@
   .sm\:pb-8 {
     @media (width >= 40rem) {
       padding-bottom: calc(var(--spacing) * 8);
+    }
+  }
+  .sm\:pl-0 {
+    @media (width >= 40rem) {
+      padding-left: calc(var(--spacing) * 0);
     }
   }
   .sm\:pl-20 {
@@ -2197,16 +2180,6 @@
   .md\:w-80 {
     @media (width >= 48rem) {
       width: calc(var(--spacing) * 80);
-    }
-  }
-  .md\:w-\[400px\] {
-    @media (width >= 48rem) {
-      width: 400px;
-    }
-  }
-  .md\:w-\[500px\] {
-    @media (width >= 48rem) {
-      width: 500px;
     }
   }
   .md\:w-\[600px\] {
@@ -2447,6 +2420,11 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+  .lg\:justify-center {
+    @media (width >= 64rem) {
+      justify-content: center;
+    }
+  }
   .lg\:justify-start {
     @media (width >= 64rem) {
       justify-content: flex-start;
@@ -2455,6 +2433,11 @@
   .lg\:gap-4 {
     @media (width >= 64rem) {
       gap: calc(var(--spacing) * 4);
+    }
+  }
+  .lg\:pl-0 {
+    @media (width >= 64rem) {
+      padding-left: calc(var(--spacing) * 0);
     }
   }
   .lg\:pl-40 {
@@ -2488,19 +2471,14 @@
       padding-right: calc(var(--spacing) * 56);
     }
   }
-  .xl\:pr-96 {
-    @media (width >= 80rem) {
-      padding-right: calc(var(--spacing) * 96);
-    }
-  }
-  .xl\:pr-\[500px\] {
-    @media (width >= 80rem) {
-      padding-right: 500px;
-    }
-  }
   .xl\:pr-\[700px\] {
     @media (width >= 80rem) {
       padding-right: 700px;
+    }
+  }
+  .xl\:pl-0 {
+    @media (width >= 80rem) {
+      padding-left: calc(var(--spacing) * 0);
     }
   }
   .xl\:text-3xl {

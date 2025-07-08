@@ -149,10 +149,14 @@
 
 
   <!-- Section Banner Gambar (Paling Atas) -->
-  <section class="w-full h-screen bg-[#f4f8ff] flex items-center justify-center overflow-hidden p-0 m-0">
-    <img src="../../src/images/bg_fronx.png" alt="S-Presso Banner"
-        class="w-full h-full object-cover object-center" />
-  </section>
+  <section class="w-full min-h-[220px] sm:min-h-[350px] md:min-h-[500px] lg:min-h-[650px] xl:min-h-[800px] bg-[#f4f8ff] flex items-center justify-center overflow-hidden -mt-1 md:-mt-0 p-0 m-0">
+  <img 
+    src="../../src/images/bg_fronx.png" 
+    alt="S-Presso Banner"
+    class="w-full h-full object-cover object-center max-h-[80vh] sm:max-h-[90vh] md:max-h-full"
+    style="min-width:0; min-height:0;"
+  />
+</section>
   
 
   <section  class="w-full py-12 bg-white relative overflow-hidden"
@@ -192,7 +196,7 @@
     </div>
   </div>
   <!-- Carousel/slider horizontal (baris 2) -->
-  <div id="exterior-slider" class="tab-fade slider-scroll overflow-x-auto hide-scrollbar flex gap-3 py-4 sm:pl-20 scrollbar-hide select-none" style="scroll-snap-type: x mandatory;">
+  <div id="exterior-slider" class="tab-fade slider-scroll overflow-x-auto hide-scrollbar flex gap-3 py-4 pl-10 lg:pl-0 lg:justify-center scrollbar-hide select-none" style="scroll-snap-type: x mandatory;">
     <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
       <img src="../../src/images/fronx/Velg Paduan Dua Warna.png" alt="Kisi-kisi Depan Krom" class="w-full h-full object-contain mb-2">
       <span class="text-sm text-gray-700 text-center">Velg Paduan Dua Warna</span>
@@ -207,7 +211,7 @@
     </div>
     <!-- Tambahkan gambar detail lain jika perlu -->
   </div>
-  <div id="interior-slider" class="tab-fade slider-scroll hidden overflow-x-auto hide-scrollbar flex gap-3 py-4 sm:pl-20 scrollbar-hide select-none" style="scroll-snap-type: x mandatory;">
+  <div id="interior-slider" class="tab-fade slider-scroll hidden overflow-x-auto hide-scrollbar flex gap-3 py-4 pl-10 lg:pl-0 lg:justify-center scrollbar-hide select-none" style="scroll-snap-type: x mandatory;">
     <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
       <img src="../../src/images/fronx/Pengisi Daya Nirkabel.png" alt="Kisi-kisi Depan Krom" class="w-full h-full object-contain mb-2">
       <span class="text-sm text-gray-700 text-center">Pengisi Daya Nirkabel</span>
@@ -258,21 +262,21 @@
       <div class="flex items-center gap-2 mb-2 drop-shadow-xl">
         <!-- Dot: White + Black -->
         <button type="button" data-warna="white"
-          class="warna-dot group flex items-center transition-all duration-200"
+          class="warna-dot group flex items-center transition-all duration-200 cursor-pointer"
           aria-label="White + Black">
           <span class="inline-block bg-[#8D8984] border border-gray-300 rounded-full transition-all duration-200"
             style="width: 32px; height: 16px;"></span>
         </button>
         <!-- Dot: Silver + Black -->
         <button type="button" data-warna="silver"
-          class="warna-dot group flex items-center transition-all duration-200"
+          class="warna-dot group flex items-center transition-all duration-200 cursor-pointer"
           aria-label="Silver + Black">
           <span class="inline-block bg-white border border-gray-300 rounded-full transition-all duration-200"
             style="width: 16px; height: 16px;"></span>
         </button>
         <!-- Dot: Red + Black -->
         <button type="button" data-warna="red"
-          class="warna-dot group flex items-center transition-all duration-200"
+          class="warna-dot group flex items-center transition-all duration-200 cursor-pointer"
           aria-label="Red + Black">
           <span class="inline-block bg-black border border-gray-300 rounded-full transition-all duration-200"
             style="width: 16px; height: 16px;"></span>
