@@ -47,13 +47,13 @@
 <body class="bg-white min-h-screen font-[Poppins]">
       <!-- Header -->
       <header class="bg-white/60 shadow-sm border-b-[3px] z-50" style="border-color: #E0EBFF;">
-        <div class="mx-auto flex items-center gap-6 px-4 py-2" style="max-width:1400px;">
-          <div class="flex items-center gap-3">
-            <img src="../src/images/logo_suzuki.png" alt="Logo Suzuki" class="h-10 w-10 rounded-full bg-white border border-gray-200">
-            <span class="text-xs text-[#003399]">Website Resmi Suzuki Sejahtera Buana Trada</span>
+        <div class="mx-auto flex flex-wrap items-center gap-2 sm:gap-4 md:gap-6 px-2 sm:px-4 py-2 justify-center sm:justify-start w-full" style="max-width:1400px;">
+          <div class="flex items-center gap-2 sm:gap-3">
+            <img src="/src/images/logo_suzuki.png" alt="Logo Suzuki" class="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-white border border-gray-200">
+            <span class="text-[10px] sm:text-xs md:text-sm text-[#003399]">Website Resmi Suzuki Sejahtera Buana Trada</span>
           </div>
-          <div class="w-px h-6 bg-[#003399]"></div>
-          <span class="text-xs text-[#003399] hidden md:block">Sawangan, Kota Depok</span>
+          <div class="w-px h-6 bg-[#003399] hidden sm:block"></div>
+          <span class="text-[10px] sm:text-xs md:text-sm text-[#003399] block text-center sm:text-left">Sawangan, Kota Depok</span>
         </div>
       </header>
 
@@ -144,13 +144,15 @@
       </nav>
 
       <!-- Section Hero Mobil Impian -->
-      <section class="relative w-full min-h-[850px] -z-50 -mt-36 flex flex-col items-center justify-center overflow-hidden"
-        style="background: url('../src/images/bg_mobil_page.png') center/cover no-repeat;">
-        <div class="relative z-10 flex flex-col items-center w-full mb-80">
-          <h1 class="text-2xl md:text-4xl font-extrabold text-[#003399] text-center mb-2 drop-shadow-sm">
+      <section
+        class="relative w-full min-h-[400px] sm:min-h-[600px] md:min-h-[850px] -z-50 -mt-9 sm:-mt-36 flex flex-col items-center justify-center overflow-hidden
+              bg-[url('../src/images/bg_mobil_page.png')] bg-cover bg-center bg-no-repeat"
+      >
+        <div class="relative z-10 flex flex-col items-center w-full mb-40 md:mb-80">
+          <h1 class="text-xl sm:text-2xl md:text-4xl font-extrabold text-[#003399] text-center mb-2 drop-shadow-sm">
             Mobil Impian Ada Disini!
           </h1>
-          <p class="text-sm md:text-base text-gray-800 text-center max-w-2xl mb-4 font-medium drop-shadow-sm">
+          <p class="text-xs sm:text-sm md:text-base text-gray-800 text-center max-w-2xl px-2 mb-4 font-medium drop-shadow-sm">
             Mobil bukan sekadar kendaraan ini tentang kenyamanan, keamanan, dan gaya hidup. Telusuri pilihan mobil Suzuki dan mulailah kisah baru bersama orang tercinta.
           </p>
         </div>
@@ -167,14 +169,14 @@
       style="transform: translate(35%, 35%);"
     />
     <!-- Kategori -->
-    <div class="flex flex-nowrap overflow-x-auto whitespace-nowrap mx-4 md:mx-16 lg:justify-start gap-4 lg:pl-40 mb-32 border-b border-blue-200 hide-scrollbar">
-      <button class="kategori-btn px-3 pb-2 text-[#003399] font-semibold border-b-2 border-[#003399] focus:outline-none cursor-pointer" data-kategori="semua">Semua</button>
-      <button class="kategori-btn px-3 pb-2 text-gray-500 hover:text-[#003399] font-semibold border-b-2 border-transparent focus:outline-none cursor-pointer" data-kategori="penumpang">Mobil Penumpang</button>
-      <button class="kategori-btn px-3 pb-2 text-gray-500 hover:text-[#003399] font-semibold border-b-2 border-transparent focus:outline-none cursor-pointer" data-kategori="komersial">Mobil Komersial</button>
-      <button class="kategori-btn px-3 pb-2 text-gray-500 hover:text-[#003399] font-semibold border-b-2 border-transparent focus:outline-none cursor-pointer" data-kategori="hybrid">Hybrid</button>
+    <div class="flex flex-nowrap overflow-x-auto whitespace-nowrap mx-4 md:mx-16 lg:justify-start gap-4 lg:pl-40 mb-32 border-b-3 border-[#9bb7f0] hide-scrollbar">
+      <button class="kategori-btn px-3 pb-2 text-[#003399] font-semibold border-b-3 border-[#003399] focus:outline-none cursor-pointer" data-kategori="semua">Semua</button>
+      <button class="kategori-btn px-3 pb-2 text-gray-500 hover:text-[#003399] font-semibold border-b-3 border-transparent focus:outline-none cursor-pointer" data-kategori="penumpang">Mobil Penumpang</button>
+      <button class="kategori-btn px-3 pb-2 text-gray-500 hover:text-[#003399] font-semibold border-b-3 border-transparent focus:outline-none cursor-pointer" data-kategori="komersial">Mobil Komersial</button>
+      <button class="kategori-btn px-3 pb-2 text-gray-500 hover:text-[#003399] font-semibold border-b-3 border-transparent focus:outline-none cursor-pointer" data-kategori="hybrid">Hybrid</button>
     </div>
     <!-- Card Mobil -->
-    <div id="mobil-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1 gap-y-28 lg:px-48 justify-items-center ">
+    <div id="mobil-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-1 gap-y-28 xl:px-48 justify-items-center ">
       <!-- Card contoh, tambahkan data-kategori sesuai kategori mobil -->
       <!-- card 1 -->
       <div class="mobil-card group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl p-0 w-full max-w-[333px] h-[285px] relative overflow-visible" data-kategori="penumpang">
@@ -204,10 +206,10 @@
               <img
                 src="../src/images/ic_seat.png"
                 alt="Seater Icon"
-                class="h-6 w-5 mr-1 inline-block seat-img"
+                class="h-4 w-3 sm:h-6 sm:w-5 mr-1 inline-block seat-img"
                 data-hover="../src/images/ic_seat_dark.png"
               />
-              4 Seater
+              <span class="text-sm sm:text-base">4 Seater</span> 
             </div>
             <a href="./detail/s-presso.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
@@ -248,14 +250,14 @@
               <img
                 src="../src/images/ic_seat.png"
                 alt="Seater Icon"
-                class="h-6 w-5 mr-1 inline-block seat-img"
+                class="h-4 w-3 sm:h-6 sm:w-5 mr-1 inline-block seat-img"
                 data-hover="../src/images/ic_seat_dark.png"
               />
-              5 Seater
+              <span class="text-sm sm:text-base">5 Seater</span> 
               <img
                 src="../src/images/ic_hybrid.png"
                 alt="Seater Icon"
-                class="h-6 w-15 ml-3 inline-block"
+                class="h-4 w-14 sm:h-6 sm:w-15 ml-3 inline-block"
               />
             </div>
             <a href="./detail/grand-vitara.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
@@ -297,10 +299,10 @@
               <img
                 src="../src/images/ic_seat.png"
                 alt="Seater Icon"
-                class="h-6 w-5 mr-1 inline-block seat-img"
+                class="h-4 w-3 sm:h-6 sm:w-5 mr-1 inline-block seat-img"
                 data-hover="../src/images/ic_seat_dark.png"
               />
-              5 Seater
+              <span class="text-sm sm:text-base">5 Seater</span>
             </div>
             <a href="./detail/baleno.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
@@ -341,14 +343,14 @@
               <img
                 src="../src/images/ic_seat.png"
                 alt="Seater Icon"
-                class="h-6 w-5 mr-1 inline-block seat-img"
+                class="h-4 w-3 sm:h-6 sm:w-5 mr-1 inline-block seat-img"
                 data-hover="../src/images/ic_seat_dark.png"
               />
-              7 Seater
+              <span class="text-sm sm:text-base">7 Seater</span> 
               <img
                 src="../src/images/ic_hybrid.png"
                 alt="Seater Icon"
-                class="h-6 w-15 ml-3 inline-block"
+                class="h-4 w-14 sm:h-6 sm:w-15 ml-3 inline-block"
               />
             </div>
             <a href="./detail/xl7-hybrid.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
@@ -390,10 +392,10 @@
               <img
                 src="../src/images/ic_seat.png"
                 alt="Seater Icon"
-                class="h-6 w-5 mr-1 inline-block seat-img"
+                class="h-4 w-3 sm:h-6 sm:w-5 mr-1 inline-block seat-img"
                 data-hover="../src/images/ic_seat_dark.png"
               />
-              7 Seater
+              <span class="text-sm sm:text-base">7 Seater</span>
             </div>
             <a href="./detail/xl7-zeta.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
@@ -434,10 +436,10 @@
               <img
                 src="../src/images/ic_seat.png"
                 alt="Seater Icon"
-                class="h-6 w-5 mr-1 inline-block seat-img"
+                class="h-4 w-3 sm:h-6 sm:w-5 mr-1 inline-block seat-img"
                 data-hover="../src/images/ic_seat_dark.png"
               />
-              4 Seater
+              <span class="text-sm sm:text-base">4 Seater</span>
             </div>
             <a href="./detail/jimny-3-doors.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
@@ -478,10 +480,10 @@
               <img
                 src="../src/images/ic_seat.png"
                 alt="Seater Icon"
-                class="h-6 w-5 mr-1 inline-block seat-img"
+                class="h-4 w-3 sm:h-6 sm:w-5 mr-1 inline-block seat-img"
                 data-hover="../src/images/ic_seat_dark.png"
               />
-              4 Seater
+              <span class="text-sm sm:text-base">4 Seater</span> 
             </div>
             <a href="./detail/jimny-5-doors.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
@@ -522,14 +524,14 @@
               <img
                 src="../src/images/ic_seat.png"
                 alt="Seater Icon"
-                class="h-6 w-5 mr-1 inline-block seat-img"
+                class="h-4 w-3 sm:h-6 sm:w-5 mr-1 inline-block seat-img"
                 data-hover="../src/images/ic_seat_dark.png"
               />
-              7 Seater
+              <span class="text-sm sm:text-base">7 Seater</span> 
               <img
                 src="../src/images/ic_hybrid.png"
                 alt="Seater Icon"
-                class="h-6 w-15 ml-3 inline-block"
+                class="h-4 w-14 sm:h-6 sm:w-15 ml-3 inline-block"
               />
             </div>
             <a href="./detail/ertiga-hybrid.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
@@ -571,10 +573,10 @@
               <img
                 src="../src/images/ic_seat.png"
                 alt="Seater Icon"
-                class="h-6 w-5 mr-1 inline-block seat-img"
+                class="h-4 w-3 sm:h-6 sm:w-5 mr-1 inline-block seat-img"
                 data-hover="../src/images/ic_seat_dark.png"
               />
-              7 Seater
+              <span class="text-sm sm:text-base">7 Seater</span>
             </div>
             <a href="./detail/ertiga.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
@@ -615,10 +617,10 @@
               <img
                 src="../src/images/ic_seat.png"
                 alt="Seater Icon"
-                class="h-6 w-5 mr-1 inline-block seat-img"
+                class="h-4 w-3 sm:h-6 sm:w-5 mr-1 inline-block seat-img"
                 data-hover="../src/images/ic_seat_dark.png"
               />
-              3 Seater
+              <span class="text-sm sm:text-base">3 Seater</span>
             </div>
             <a href="./detail/carry.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
@@ -659,10 +661,10 @@
               <img
                 src="../src/images/ic_seat.png"
                 alt="Seater Icon"
-                class="h-6 w-5 mr-1 inline-block seat-img"
+                class="h-4 w-3 sm:h-6 sm:w-5 mr-1 inline-block seat-img"
                 data-hover="../src/images/ic_seat_dark.png"
               />
-              8 Seater
+              <span class="text-sm sm:text-base">8 Seater</span>
             </div>
             <a href="./detail/apv.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
@@ -703,14 +705,14 @@
               <img
                 src="../src/images/ic_seat.png"
                 alt="Seater Icon"
-                class="h-6 w-5 mr-1 inline-block seat-img"
+                class="h-4 w-3 sm:h-6 sm:w-5 mr-1 inline-block seat-img"
                 data-hover="../src/images/ic_seat_dark.png"
               />
-              5 Seater
+              <span class="text-sm sm:text-base">5 Seater</span> 
               <img
                 src="../src/images/ic_hybrid.png"
                 alt="Seater Icon"
-                class="h-6 w-15 ml-3 inline-block"
+                class="h-4 w-14 sm:h-6 sm:w-15 ml-3 inline-block"
               />
             </div>
             <a href="./detail/fronx-hybrid.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
@@ -752,10 +754,10 @@
               <img
                 src="../src/images/ic_seat.png"
                 alt="Seater Icon"
-                class="h-6 w-5 mr-1 inline-block seat-img"
+                class="h-4 w-3 sm:h-6 sm:w-5 mr-1 inline-block seat-img"
                 data-hover="../src/images/ic_seat_dark.png"
               />
-              5 Seater
+              <span class="text-sm sm:text-base">5 Seater</span>
             </div>
             <a href="./detail/fronx.html" class="bg-[#003399] rounded-full w-16 h-8 flex items-center justify-center text-white shadow-md hover:bg-[#a9c4fa] transition duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"
@@ -768,7 +770,7 @@
       </div>
     </div>
     <div class="flex flex-col items-center pb-8 mt-10 z-10 md:mt-0 md:absolute md:left-0 md:right-0 md:bottom-0">
-      <span class="text-xl md:text-2xl font-bold text-gray-800 mb-4">Hubungi Sales Kami</span>
+      <span class="text-xl md:text-2xl font-bold text-gray-800 mb-4 z-50">Hubungi Sales Kami</span>
       <a href="#" class="kontak-modal group z-50 inline-flex items-center gap-2 bg-[#003399] text-white px-8 py-2 rounded-full font-semibold shadow hover:bg-[#002266] transition-all duration-300">
           Whatsapp
           <span class="flex items-center transition-all duration-300 opacity-0 translate-x-2 w-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:w-5">

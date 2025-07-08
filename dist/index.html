@@ -52,6 +52,27 @@
   .scroll-snap-align-start {
     scroll-snap-align: start;
   }
+
+  #info-modal-overlay {
+    transition: opacity 0.2s;
+  }
+  #info-modal-overlay.visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto;
+  }
+  #info-modal-overlay.invisible {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none;
+  }
+  #info-modal-content {
+    animation: modalPop .25s cubic-bezier(.4,2,.6,1) both;
+  }
+  @keyframes modalPop {
+    0% { transform: scale(.9) translateY(30px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+  }
   </style>
 </head>
 <body class="bg-white min-h-screen font-[Poppins]">
@@ -220,6 +241,8 @@
 
   <!-- Horizontal Scroll Start -->
   <div id="mobil-slider" class="slider-scroll overflow-x-auto hide-scrollbar flex gap-8 py-4 h-[400px] scrollbar-hide select-none items-center" style="scroll-snap-type: x mandatory;">
+    <div class="pointer-events-none absolute right-0 top-0 h-full w-16 md:w-40 z-20"
+     style="background: linear-gradient(to left, rgba(204,221,255,1) 0%, rgba(255,255,255,0) 80%);"></div>
     <!-- Card 1 -->
     <div class="group card-gradient-border bg-white rounded-[30px] drop-shadow-lg shadow-2xl relative overflow-visible transition-all duration-300 hover:scale-105 origin-top-left
                 min-w-[285px] max-w-[333px] h-[260px] flex-shrink-0 scroll-snap-align-start">
@@ -230,15 +253,12 @@
         <!-- Gambar mobil lampu (muncul saat hover) -->
         <img src="../src/images/s-presso-lamp.png" alt="S-Presso Lamp" draggable="false"
           class="select-none absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div class="flex items-center justify-between mt-28">
+        <div class="flex items-center justify-between mt-24">
           <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
             S-Presso
           </span>
-          <button class="text-gray-400 hover:text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-            </svg>
+          <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition">
+            <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
           </button>
         </div>
         <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
@@ -268,15 +288,12 @@
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
         <img src="../src/images/grand_vitara_lamp.png" alt="Grand Vitara Lamp"
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div class="flex items-center justify-between mt-28">
+        <div class="flex items-center justify-between mt-24">
           <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
             Grand Vitara
           </span>
-          <button class="text-gray-400 hover:text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-            </svg>
+          <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition">
+            <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
           </button>
         </div>
         <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
@@ -308,15 +325,12 @@
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
         <img src="../src/images/new_baleno_lamp.png" alt="New Baleno Lamp"
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div class="flex items-center justify-between mt-28">
+        <div class="flex items-center justify-between mt-24">
           <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
             New Baleno
           </span>
-          <button class="text-gray-400 hover:text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-            </svg>
+          <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition">
+            <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
           </button>
         </div>
         <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
@@ -346,15 +360,12 @@
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
         <img src="../src/images/xl7_hybrid_lamp.png" alt="XL 7 Hybrid Lamp"
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div class="flex items-center justify-between mt-28">
+        <div class="flex items-center justify-between mt-24">
           <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
             XL 7 Hybrid
           </span>
-          <button class="text-gray-400 hover:text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-            </svg>
+          <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition">
+            <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
           </button>
         </div>
         <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
@@ -387,11 +398,11 @@
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
         <img src="../src/images/xl7_zeta_lamp.png" alt="XL 7 Zeta Lamp"
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div class="flex items-center justify-between mt-28">
+        <div class="flex items-center justify-between mt-24">
           <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
             XL 7 Zeta
           </span>
-          <button class="text-gray-400 hover:text-gray-600">
+          <button class="text-gray-400 hover:text-gray-600 info-modal-btn">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
               <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
@@ -426,15 +437,12 @@
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
         <img src="../src/images/jimny_3_doors_lamp.png" alt="Jimmy 3 Doors Lamp"
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div class="flex items-center justify-between mt-28">
+        <div class="flex items-center justify-between mt-24">
           <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
             Jimny 3 Doors
           </span>
-          <button class="text-gray-400 hover:text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-            </svg>
+          <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition">
+            <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
           </button>
         </div>
         <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
@@ -464,15 +472,12 @@
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
         <img src="../src/images/jimny_5_doors_lamp.png" alt="Jimmy 5 Doors Lamp"
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div class="flex items-center justify-between mt-28">
+        <div class="flex items-center justify-between mt-24">
           <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
             Jimny 5 Doors
           </span>
-          <button class="text-gray-400 hover:text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-            </svg>
+          <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition">
+            <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
           </button>
         </div>
         <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
@@ -503,15 +508,12 @@
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
         <img src="../src/images/all_new_ertiga_hybrid_lamp.png" alt="ALl New Ertiga Hybrid Lamp"
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div class="flex items-center justify-between mt-28">
+        <div class="flex items-center justify-between mt-24">
           <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
             All New Ertiga Hybrid
           </span>
-          <button class="text-gray-400 hover:text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-            </svg>
+          <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition">
+            <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
           </button>
         </div>
         <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
@@ -544,15 +546,12 @@
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
         <img src="../src/images/all_new_ertiga_gl_lamp.png" alt="All New Ertiga GL Lamp"
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div class="flex items-center justify-between mt-28">
+        <div class="flex items-center justify-between mt-24">
           <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
             All New Ertiga GL
           </span>
-          <button class="text-gray-400 hover:text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-            </svg>
+          <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition">
+            <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
           </button>
         </div>
         <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
@@ -583,15 +582,12 @@
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
         <img src="../src/images/new_carry_pick_up_lamp.png" alt="New Carry Pick Up Lamp"
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div class="flex items-center justify-between mt-28">
+        <div class="flex items-center justify-between mt-24">
           <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
             New Carry Pick Up
           </span>
-          <button class="text-gray-400 hover:text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-            </svg>
+          <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition">
+            <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
           </button>
         </div>
         <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
@@ -622,15 +618,12 @@
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
         <img src="../src/images/apv_lamp.png" alt="APV Lamp"
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div class="flex items-center justify-between mt-28">
+        <div class="flex items-center justify-between mt-24">
           <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
             APV
           </span>
-          <button class="text-gray-400 hover:text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-            </svg>
+          <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition">
+            <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
           </button>
         </div>
         <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
@@ -661,15 +654,12 @@
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
         <img src="../src/images/fronx_hybrid_lamp.png" alt="Fronx Hybrid Lamp"
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div class="flex items-center justify-between mt-28">
+        <div class="flex items-center justify-between mt-24">
           <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
             Fronx Hybrid
           </span>
-          <button class="text-gray-400 hover:text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-            </svg>
+          <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition">
+            <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
           </button>
         </div>
         <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
@@ -702,15 +692,12 @@
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg transition-opacity duration-300 group-hover:opacity-0">
         <img src="../src/images/fronx_gl_lamp.png" alt="Fronx GL Lamp"
           class="absolute left-1/2 -translate-x-1/2 -top-20 w-[120%] h-auto object-contain drop-shadow-lg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        <div class="flex items-center justify-between mt-28">
+        <div class="flex items-center justify-between mt-24">
           <span class="text-xl font-semibold text-[#003399] w-full text-center block transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
             Fronx GL
           </span>
-          <button class="text-gray-400 hover:text-gray-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-              <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-            </svg>
+          <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 transition">
+            <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
           </button>
         </div>
         <div class="text-[22px] font-bold text-center text-[#003399] mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:translate-x-1 group-hover:translate-y-1">
@@ -1142,6 +1129,24 @@
 
 
 
+  
+
+
+
+
+
+<div id="info-modal-overlay" class="fixed inset-0 bg-black/50 z-[9999] flex items-center justify-center transition-all duration-200 invisible opacity-0">
+  <div id="info-modal-content" class="bg-[#808285] rounded-[20px] shadow-2xl px-2 py-5 max-w-3xl w-[95vw] text-white text-center relative flex flex-col items-center">
+    <button id="info-modal-close" class="absolute hidden top-3 right-4 text-white text-2xl font-bold hover:text-gray-300 focus:outline-none" aria-label="Tutup">&times;</button>
+    <div class="font-medium text-lg md:text-xl mb-2">
+      Harga yang tertera merupakan <span class="font-bold">On The Road (OTR) Kota Depok.</span>
+    </div>
+    <div class="text-base md:text-lg font-medium">
+      Harga tidak mengikat dan dapat berubah sewaktu-waktu.
+    </div>
+  </div>
+</div>
+
 
   <!-- Drag scroll logic -->
 <script>
@@ -1211,6 +1216,32 @@ document.querySelectorAll('.slider-scroll').forEach(slider => {
     slider.scrollLeft = scrollLeft - walk;
   });
 });
+</script>
+
+<script>
+// Modal logic untuk info button (hanya buka modal saat DIKLIK)
+document.querySelectorAll('.info-modal-btn').forEach(btn => {
+  btn.addEventListener('click', showInfoModal);
+});
+
+function showInfoModal(e) {
+  const overlay = document.getElementById('info-modal-overlay');
+  overlay.classList.remove('invisible');
+  overlay.classList.add('visible');
+}
+
+function hideInfoModal() {
+  const overlay = document.getElementById('info-modal-overlay');
+  overlay.classList.remove('visible');
+  overlay.classList.add('invisible');
+}
+
+document.getElementById('info-modal-close').onclick = hideInfoModal;
+document.getElementById('info-modal-overlay').onclick = function(e) {
+  if (e.target === this) hideInfoModal();
+};
+
+// Tidak perlu lagi timeout hover/mouseleave
 </script>
 
   <script src="../src/js/hover-icon-seat.js"></script>
