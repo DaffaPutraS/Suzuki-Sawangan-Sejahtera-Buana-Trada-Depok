@@ -42,6 +42,39 @@
 .card-gradient-border:focus-visible::before {
   opacity: 1;
 }
+
+.mobil-card {
+  transition: opacity 0.4s;
+}
+.mobil-card.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+.mobil-card.fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#info-modal-overlay {
+    transition: opacity 0.2s;
+  }
+  #info-modal-overlay.visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto;
+  }
+  #info-modal-overlay.invisible {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none;
+  }
+  #info-modal-content {
+    animation: modalPop .25s cubic-bezier(.4,2,.6,1) both;
+  }
+  @keyframes modalPop {
+    0% { transform: scale(.9) translateY(30px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+  }
   </style>
 </head>
 <body class="bg-white min-h-screen font-[Poppins]">
@@ -191,11 +224,8 @@
             <span class="text-xl font-semibold text-[#003399] w-full text-center block">
               S-Presso
             </span>
-            <button class="text-gray-400 hover:text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-              </svg>
+            <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full">
+              <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
             </button>
           </div>
           <div class="text-[22px] font-bold text-center text-[#003399] mb-3">
@@ -235,11 +265,8 @@
             <span class="text-xl font-semibold text-[#003399] w-full text-center block">
               Grand Vitara
             </span>
-            <button class="text-gray-400 hover:text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-              </svg>
+            <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full">
+              <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
             </button>
           </div>
           <div class="text-[22px] font-bold text-center text-[#003399] mb-3">
@@ -284,11 +311,8 @@
             <span class="text-xl font-semibold text-[#003399] w-full text-center block">
               New Baleno
             </span>
-            <button class="text-gray-400 hover:text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-              </svg>
+            <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full">
+              <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
             </button>
           </div>
           <div class="text-[22px] font-bold text-center text-[#003399] mb-3">
@@ -328,11 +352,8 @@
             <span class="text-xl font-semibold text-[#003399] w-full text-center block">
               XL7 Hybrid
             </span>
-            <button class="text-gray-400 hover:text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-              </svg>
+            <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full">
+              <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
             </button>
           </div>
           <div class="text-[22px] font-bold text-center text-[#003399] mb-3">
@@ -377,11 +398,8 @@
             <span class="text-xl font-semibold text-[#003399] w-full text-center block">
               XL7 Zeta
             </span>
-            <button class="text-gray-400 hover:text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-              </svg>
+            <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full">
+              <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
             </button>
           </div>
           <div class="text-[22px] font-bold text-center text-[#003399] mb-3">
@@ -421,11 +439,8 @@
             <span class="text-xl font-semibold text-[#003399] w-full text-center block">
               Jimmy 3 Doors
             </span>
-            <button class="text-gray-400 hover:text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-              </svg>
+            <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full">
+              <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
             </button>
           </div>
           <div class="text-[22px] font-bold text-center text-[#003399] mb-3">
@@ -465,11 +480,8 @@
             <span class="text-xl font-semibold text-[#003399] w-full text-center block">
               Jimmy 5 Doors
             </span>
-            <button class="text-gray-400 hover:text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-              </svg>
+            <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full">
+              <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
             </button>
           </div>
           <div class="text-[22px] font-bold text-center text-[#003399] mb-3">
@@ -509,11 +521,8 @@
             <span class="text-xl font-semibold text-[#003399] w-full text-center block">
               All New Ertiga Hybrid
             </span>
-            <button class="text-gray-400 hover:text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-              </svg>
+            <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full">
+              <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
             </button>
           </div>
           <div class="text-[22px] font-bold text-center text-[#003399] mb-3">
@@ -558,11 +567,8 @@
             <span class="text-xl font-semibold text-[#003399] w-full text-center block">
               All New Ertiga GL
             </span>
-            <button class="text-gray-400 hover:text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-              </svg>
+            <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full">
+              <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
             </button>
           </div>
           <div class="text-[22px] font-bold text-center text-[#003399] mb-3">
@@ -602,11 +608,8 @@
             <span class="text-xl font-semibold text-[#003399] w-full text-center block">
               New Carry Pick Up
             </span>
-            <button class="text-gray-400 hover:text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-              </svg>
+            <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full">
+              <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
             </button>
           </div>
           <div class="text-[22px] font-bold text-center text-[#003399] mb-3">
@@ -646,11 +649,8 @@
             <span class="text-xl font-semibold text-[#003399] w-full text-center block">
               APV
             </span>
-            <button class="text-gray-400 hover:text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-              </svg>
+            <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full">
+              <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
             </button>
           </div>
           <div class="text-[22px] font-bold text-center text-[#003399] mb-3">
@@ -690,11 +690,8 @@
             <span class="text-xl font-semibold text-[#003399] w-full text-center block">
               Fronx Hybrid
             </span>
-            <button class="text-gray-400 hover:text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-              </svg>
+            <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full">
+              <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
             </button>
           </div>
           <div class="text-[22px] font-bold text-center text-[#003399] mb-3">
@@ -739,11 +736,8 @@
             <span class="text-xl font-semibold text-[#003399] w-full text-center block">
               Fronx GL
             </span>
-            <button class="text-gray-400 hover:text-gray-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                <text x="12" y="16" text-anchor="middle" font-size="12" fill="currentColor">i</text>
-              </svg>
+            <button class="info-modal-btn flex items-center justify-center w-10 h-10 rounded-full">
+              <img src="/dist/src/images/ic_info.png" alt="Info" class="w-5 h-5 pointer-events-none select-none" draggable="false" />
             </button>
           </div>
           <div class="text-[22px] font-bold text-center text-[#003399] mb-3">
@@ -782,6 +776,23 @@
 
 
 
+
+
+
+
+
+
+  <div id="info-modal-overlay" class="fixed inset-0 bg-black/50 z-[9999] flex items-center justify-center transition-all duration-200 invisible opacity-0">
+  <div id="info-modal-content" class="bg-[#808285] rounded-[20px] shadow-2xl px-2 py-5 max-w-3xl w-[95vw] text-white text-center relative flex flex-col items-center">
+    <button id="info-modal-close" class="absolute hidden top-3 right-4 text-white text-2xl font-bold hover:text-gray-300 focus:outline-none" aria-label="Tutup">&times;</button>
+    <div class="font-medium text-lg md:text-xl mb-2">
+      Harga yang tertera merupakan <span class="font-bold">On The Road (OTR) Kota Depok.</span>
+    </div>
+    <div class="text-base md:text-lg font-medium">
+      Harga tidak mengikat dan dapat berubah sewaktu-waktu.
+    </div>
+  </div>
+</div>
 
   <!-- Footer -->
   <footer class="bg-[#003399] text-white pt-10 pb-6 px-4 rounded-t-3xl">
@@ -1040,6 +1051,32 @@
       </div>
     </div>
   </footer>
+
+  <script>
+// Modal logic untuk info button (hanya buka modal saat DIKLIK)
+document.querySelectorAll('.info-modal-btn').forEach(btn => {
+  btn.addEventListener('click', showInfoModal);
+});
+
+function showInfoModal(e) {
+  const overlay = document.getElementById('info-modal-overlay');
+  overlay.classList.remove('invisible');
+  overlay.classList.add('visible');
+}
+
+function hideInfoModal() {
+  const overlay = document.getElementById('info-modal-overlay');
+  overlay.classList.remove('visible');
+  overlay.classList.add('invisible');
+}
+
+document.getElementById('info-modal-close').onclick = hideInfoModal;
+document.getElementById('info-modal-overlay').onclick = function(e) {
+  if (e.target === this) hideInfoModal();
+};
+
+// Tidak perlu lagi timeout hover/mouseleave
+</script>
 
 <script src="../src/js/kategori-filter-mobil.js"></script>
 <script src="../src/js/navbar.js"></script>

@@ -12,6 +12,19 @@
   <style>
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.tab-fade {
+  transition: opacity 0.4s;
+  opacity: 1;
+}
+.tab-fade.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+.tab-fade.fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
 </style>
 </head>
 <body class="bg-white min-h-screen font-[Poppins]">
@@ -115,10 +128,14 @@
 
 
   <!-- Section Banner Gambar (Paling Atas) -->
-  <section class="w-full h-screen bg-[#f4f8ff] flex items-center justify-center overflow-hidden p-0 m-0">
-    <img src="../../src/images/bg_grand-vitara_page.png" alt="S-Presso Banner"
-        class="w-full h-full object-cover object-center" />
-  </section>
+  <section class="w-full min-h-[220px] sm:min-h-[350px] md:min-h-[500px] lg:min-h-[650px] xl:min-h-[800px] bg-[#f4f8ff] flex items-center justify-center overflow-hidden -mt-1 p-0 m-0">
+  <img 
+    src="../../src/images/bg_grand-vitara_page.png" 
+    alt="S-Presso Banner"
+    class="w-full h-full object-cover object-center max-h-[80vh] sm:max-h-[90vh] md:max-h-full"
+    style="min-width:0; min-height:0;"
+  />
+</section>
   
 
   <section  class="w-full py-12 bg-white relative overflow-hidden"
@@ -129,12 +146,12 @@
     <button id="tab-interior" class="tab-btn px-4 pb-2 text-gray-500 hover:text-[#003399] font-semibold border-b-2 border-transparent focus:outline-none" data-tab="interior">Interior</button>
   </div>
   <!-- Gambar utama (baris 1) -->
-  <div id="exterior-main" class="flex flex-col md:flex-row items-center justify-center gap-8 mb-3 mt-6">
+  <div id="exterior-main" class="tab-fade flex flex-col md:flex-row items-center justify-center gap-8 mb-3 mt-6">
     <div class="flex flex-col items-center">
       <img src="../../src/images/grand-vitara/Tampak Depan.png" alt="Tampak Depan" class="w-full h-full object-contain mb-2">
       <span class="font-semibold text-lg text-gray-800">Tampak Depan</span>
     </div>
-    <div class="flex flex-col items-center pt-11">
+    <div class="flex flex-col items-center">
       <img src="../../src/images/grand-vitara/Tampak Belakang.png" alt="Tampak Samping" class="w-full h-full object-contain mb-2">
       <span class="font-semibold text-lg text-gray-800">Tampak Samping</span>
     </div>
@@ -143,7 +160,7 @@
       <span class="font-semibold text-lg text-gray-800 ">Tampak Belakang</span>
     </div>
   </div>
-  <div id="interior-main" class="hidden flex flex-col md:flex-row items-center justify-center gap-4 mb-8 mt-16">
+  <div id="interior-main" class="tab-fade hidden flex flex-col md:flex-row items-center justify-center gap-4 mb-8 mt-16">
     <div class="flex flex-col items-center">
       <img src="../../src/images/grand-vitara/Panoramic Sunroof.png" alt="Dashboard" class="w-full h-full object-contain mb-2">
       <span class="font-semibold text-lg text-gray-800">Panoramic Sunroof</span>
@@ -158,7 +175,7 @@
     </div>
   </div>
   <!-- Carousel/slider horizontal (baris 2) -->
-  <div id="exterior-slider" class="slider-scroll overflow-x-auto hide-scrollbar flex gap-3 py-4 sm:pl-20 scrollbar-hide select-none" style="scroll-snap-type: x mandatory;">
+  <div id="exterior-slider" class="tab-fade slider-scroll overflow-x-auto hide-scrollbar flex gap-3 py-4 sm:pl-20 scrollbar-hide select-none" style="scroll-snap-type: x mandatory;">
     <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
       <img src="../../src/images/grand-vitara/Guide Me Light (To Car & To Home).png" alt="Kisi-kisi Depan Krom" class="w-full h-full object-contain mb-2">
       <span class="text-sm text-gray-700 text-center">Guide Me Light (To Car & To Home)</span>
@@ -169,15 +186,15 @@
     </div>
     <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
       <img src="../../src/images/grand-vitara/Lampu Depan Proyektor LED + Lampu Guide Me.png" alt="Lampu Dengan Lampu Sein" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Lampu Depan Proyektor LED + Lampu Guide Me</span>
+      <span class="text-sm text-gray-700 text-center">Lampu Depan Proyektor LED...</span>
     </div>
     <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
       <img src="../../src/images/grand-vitara/Velg paduan potong presisi dua nada (GX).png" alt="Pelat Pelindung Depan" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Velg paduan potong presisi dua nada (GX)</span>
+      <span class="text-sm text-gray-700 text-center">Velg paduan potong presisi...</span>
     </div>
     <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
       <img src="../../src/images/grand-vitara/Spoiler Atas Belakang dengan Lampu Stop LED Dudukan Tinggi.png" alt="Pelapis Samping & Lengkungan Roda" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Spoiler Atas Belakang dengan Lampu Stop LED Dudukan Tinggi</span>
+      <span class="text-sm text-gray-700 text-center">Spoiler Atas Belakang dengan Lamp...</span>
     </div>
     <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
       <img src="../../src/images/grand-vitara/Antena Sirip Hiu.png" alt="Velg Padua 2 Warna" class="w-full h-full object-contain mb-2">
@@ -185,7 +202,7 @@
     </div>
     <!-- Tambahkan gambar detail lain jika perlu -->
   </div>
-  <div id="interior-slider" class="slider-scroll hidden overflow-x-auto hide-scrollbar flex gap-3 py-4 sm:pl-20 scrollbar-hide select-none" style="scroll-snap-type: x mandatory;">
+  <div id="interior-slider" class="tab-fade slider-scroll hidden overflow-x-auto hide-scrollbar flex gap-3 py-4 sm:pl-20 scrollbar-hide select-none" style="scroll-snap-type: x mandatory;">
     <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
       <img src="../../src/images/grand-vitara/MID Dengan Speedometer.png" alt="Kisi-kisi Depan Krom" class="w-full h-full object-contain mb-2">
       <span class="text-sm text-gray-700 text-center">MID Dengan Speedometer</span>
@@ -204,7 +221,7 @@
     </div>
     <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
       <img src="../../src/images/grand-vitara/Roda Kemudi dengan Penutup Kulit, Pengontrol Audio & Tombol Sakelar Bluetooth.png" alt="Pelapis Samping & Lengkungan Roda" class="w-full h-full object-contain mb-2">
-      <span class="text-sm text-gray-700 text-center">Roda Kemudi dengan penutup kulit, pengontrol audio & tombol sakelar bluetooth</span>
+      <span class="text-sm text-gray-700 text-center">Roda Kemudi dengan penutup kulit, pe...</span>
     </div>
     <div class="flex flex-col items-center min-w-[290px] max-w-[215px] flex-shrink-0 scroll-snap-align-start">
       <img src="../../src/images/grand-vitara/Head Unit Display 9 Inci.png" alt="Velg Padua 2 Warna" class="w-full h-full object-contain mb-2">
@@ -265,7 +282,7 @@
     <!-- Pilihan Warna -->
     <div class="flex flex-col items-center gap-2">
       <span class="text-lg font-semibold text-gray-700 mb-2">Warna</span>
-      <div class="flex items-center gap-2 mb-2 drop-shadow-xl">
+      <div class="flex items-center gap-2 mb-2 drop-shadow-xl flex-wrap justify-center">
         <!-- Dot: White + Black -->
         <button type="button" data-warna="white"
           class="warna-dot group flex items-center transition-all duration-200"
@@ -296,7 +313,7 @@
         </button>
       </div>
       <!-- Nama Warna -->
-      <span id="nama-warna" class="text-lg font-semibold text-gray-800 tracking-widest"></span>
+      <span id="nama-warna" class="text-lg font-semibold text-gray-800 tracking-widest text-center"></span>
     </div>
 
     
@@ -310,15 +327,15 @@
   <img 
     src="../../src/images/bg_circle.png" 
     alt="" 
-    class="absolute top-0 right-0 w-72 md:w-[400px] opacity-100 pointer-events-none select-none z-0"
-    style="transform: translate(25%,-25%);" 
+    class="absolute top-0 right-0 w-72 md:w-[700px] opacity-100 pointer-events-none select-none z-0"
+    style="transform: translate(50%,-50%);" 
   />
   <!-- Accent circle bottom left -->
   <img 
     src="../../src/images/bg_circle.png" 
     alt="" 
-    class="absolute bottom-0 left-0 w-80 md:w-[500px] opacity-100 pointer-events-none select-none z-0"
-    style="transform: translate(-30%, 30%);" 
+    class="absolute bottom-0 left-0 w-80 md:w-[700px] opacity-100 pointer-events-none select-none z-0"
+    style="transform: translate(-50%, 50%);" 
   />
   <div class="w-full mx-auto p-6 md:p-8 relative z-10" style="max-width: 1400px;">
     <!-- Judul -->
@@ -343,8 +360,8 @@
         <div class="border-2 border-[#003399] rounded-xl text-[#003399] font-semibold py-2 text-center text-lg bg-white">GX AT</div>
         <div class="border-2 border-[#003399] rounded-xl text-[#003399] font-semibold py-2 text-center text-lg bg-white">Rp. 399,350,000</div>
         <!-- AGS -->
-        <div class="border-2 border-[#003399] rounded-xl text-[#003399] font-semibold py-2 text-center text-lg bg-[#E6F0FF]">GX AT (2 TONE)</div>
-        <div class="border-2 border-[#003399] rounded-xl text-[#003399] font-semibold py-2 text-center text-lg bg-[#E6F0FF]">Rp. 402,350,000</div>
+        <div class="border-2 border-[#003399] rounded-xl text-[#003399] font-semibold py-2 text-center text-lg bg-white">GX AT (2 TONE)</div>
+        <div class="border-2 border-[#003399] rounded-xl text-[#003399] font-semibold py-2 text-center text-lg bg-white">Rp. 402,350,000</div>
       </div>
     </div>
     <!-- Garis -->
@@ -357,7 +374,7 @@
         <thead>
           <tr>
             <th class="px-2 py-2"></th>
-            <th class="py-2 xl:pr-56">
+            <th class="py-2 xl:pr-[700px]">
               <span class="inline-block border-2 border-[#003399] text-[#003399] w-full rounded-lg px-6 py-1 font-semibold">GX AT (1 & 2 TONE)</span>
             </th>
           </tr>
@@ -681,6 +698,7 @@
 
 <script>
 // Tab switch logic
+// Tab switch logic dengan fade
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', function() {
     document.querySelectorAll('.tab-btn').forEach(b => {
@@ -689,24 +707,67 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     });
     btn.classList.add('text-[#003399]', 'border-[#003399]');
     btn.classList.remove('text-gray-500', 'border-transparent');
-    // Show/hide main image row
-    document.getElementById('exterior-main').classList.toggle('hidden', btn.dataset.tab !== 'exterior');
-    document.getElementById('interior-main').classList.toggle('hidden', btn.dataset.tab !== 'interior');
-    // Show/hide slider row
-    document.getElementById('exterior-slider').classList.toggle('hidden', btn.dataset.tab !== 'exterior');
-    document.getElementById('interior-slider').classList.toggle('hidden', btn.dataset.tab !== 'interior');
+
+    // Elemen yang akan di-fade
+    const exMain = document.getElementById('exterior-main');
+    const inMain = document.getElementById('interior-main');
+    const exSlider = document.getElementById('exterior-slider');
+    const inSlider = document.getElementById('interior-slider');
+
+    // Tentukan tab aktif
+    const isExterior = btn.dataset.tab === 'exterior';
+
+    // Fade out semua
+    [exMain, inMain, exSlider, inSlider].forEach(el => {
+      el.classList.remove('fade-in');
+      el.classList.add('fade-out');
+    });
+
+    setTimeout(() => {
+      // Sembunyikan yang tidak aktif, tampilkan yang aktif
+      exMain.classList.toggle('hidden', !isExterior);
+      exSlider.classList.toggle('hidden', !isExterior);
+      inMain.classList.toggle('hidden', isExterior);
+      inSlider.classList.toggle('hidden', isExterior);
+
+      // Fade in yang aktif
+      if (isExterior) {
+        exMain.classList.remove('fade-out');
+        exSlider.classList.remove('fade-out');
+        exMain.classList.add('fade-in');
+        exSlider.classList.add('fade-in');
+      } else {
+        inMain.classList.remove('fade-out');
+        inSlider.classList.remove('fade-out');
+        inMain.classList.add('fade-in');
+        inSlider.classList.add('fade-in');
+      }
+    }, 100); // waktu sama dengan CSS transition
   });
 });
+
+// Inisialisasi: tambahkan fade-in pada yang aktif
+document.getElementById('exterior-main').classList.add('fade-in');
+document.getElementById('exterior-slider').classList.add('fade-in');
 </script>
 
 <script>
-// Drag scroll logic untuk semua slider
 document.querySelectorAll('.slider-scroll').forEach(slider => {
   let isDown = false;
-  let startX;
-  let scrollLeft;
+  let startX = 0;
+  let scrollLeft = 0;
 
+  // Prevent image drag
+  slider.querySelectorAll("img").forEach(img => {
+    img.setAttribute("draggable", "false");
+    img.classList.add("select-none");
+  });
+
+  // Mouse events
   slider.addEventListener("mousedown", (e) => {
+    // Only left button
+    if(e.button !== 0) return;
+    // Hilangkan pengecekan IMG/button supaya bisa drag di mana saja
     isDown = true;
     slider.classList.add("active");
     startX = e.pageX - slider.offsetLeft;
@@ -727,7 +788,32 @@ document.querySelectorAll('.slider-scroll').forEach(slider => {
     if (!isDown) return;
     e.preventDefault();
     const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 1.5;
+    const walk = (x - startX) * 1.2;
+    slider.scrollLeft = scrollLeft - walk;
+  });
+
+  // Touch events
+  slider.addEventListener("touchstart", (e) => {
+    // Only single touch
+    if(e.touches.length > 1) return;
+    // Hilangkan pengecekan IMG/button supaya bisa drag di mana saja
+    isDown = true;
+    startX = e.touches[0].pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+
+  slider.addEventListener("touchend", () => {
+    isDown = false;
+  });
+
+  slider.addEventListener("touchcancel", () => {
+    isDown = false;
+  });
+
+  slider.addEventListener("touchmove", (e) => {
+    if (!isDown) return;
+    const x = e.touches[0].pageX - slider.offsetLeft;
+    const walk = (x - startX) * 1.2;
     slider.scrollLeft = scrollLeft - walk;
   });
 });
